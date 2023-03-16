@@ -1,0 +1,194 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+
+.manga-site-hover {
+    display: block
+}
+
+.manga-site-hover:hover {
+    text-decoration: none
+}
+
+.manga-list_listItemInner__0FuDM {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: .5rem 0 0 .5rem;
+    border-top: .125rem solid var(--blue-normal);
+    background-color: var(--bg-container);
+    font-size: var(--font-size-small);
+    color: var(--font-page);
+    transition: background-color .25s ease-in-out, border-color .25s ease-in-out
+   
+}
+
+.manga-site-hover:hover .manga-list_listItemInner__0FuDM {
+    background-color: var(--bg-page);
+    border-top-color: transparent
+}
+
+.manga-list_listItemWrapper__yGfsU {
+
+    display: block;
+    overflow: hidden;
+    margin-bottom: .4rem
+}
+
+.manga-list_listItemWrapper__yGfsU .manga-list_imageContainer__2sxd2 {
+    margin: 0 .75rem .5rem 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 4.625rem;
+    min-width: 0;
+    max-width: 18.75rem;
+    width: 100%
+}
+
+.manga-list_listItemWrapper__yGfsU .manga_li-info {
+    flex-grow: 20;
+    min-width: 0;
+    margin: 0 .75rem .5rem 0
+}
+
+.manga-list_listItemWrapper__yGfsU .manga_li-title {
+    padding: 0;
+    overflow: hidden;
+    font-size: var(--font-size-large);
+    line-height: 1.25;
+    min-width: 0;
+    margin-bottom: .375rem
+}
+
+.manga-list_listItemWrapper__yGfsU .manga_info-seperator {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr));
+    grid-column-gap: .625rem;
+    grid-row-gap: .5rem;
+    margin: .25rem -.125rem 0
+}
+
+.manga-list_listItemWrapper__yGfsU .manga-list_field__Z1cFz {
+    min-width: 0
+}
+
+
+
+
+.manga-list_listItemWrapper__yGfsU .manga_li-header {
+    font-size: var(--font-size-small);
+    line-height: 1.4;
+    padding: 0 .125rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: var(--font-dark);
+    border-bottom: .0625rem solid var(--bg-page);
+    margin-bottom: .1875rem
+}
+
+
+.manga-list_listItemWrapper__yGfsU .manga-content {
+    font-size: var(--font-size-small);
+    font-weight: 300;
+    line-height: 1.4;
+    padding: 0 .125rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: var(--font-container)
+}
+
+
+
+.manga-list_listItemWrapper__yGfsU  {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+
+
+
+
+:root {
+    --blue-normal: #274272;
+    --blue-dark: #172032;
+    --bg-page: #212122;
+    --bg-container: #161516;
+    --font-page: #f8f8f8;
+    --font-container: #cacaca;
+    --font-dark: #828282;
+    --font-light: #f8f8f8;
+    --font-link: whitesmoke;
+    --font-danger: #d06020;
+    --font-size-xxx-large: 1.375rem;
+    --font-size-xx-large: 1.25rem;
+    --font-size-x-large: 1.125rem;
+    --font-size-large: 1rem;
+    --font-size-normal: 0.875rem;
+    --font-size-small: 0.8125rem;
+    --font-size-tiny: 0.75rem;
+    --font-size-x-tiny: 0.6875rem;
+    --font-size-xx-tiny: 0.625rem;
+    --letter-spacing: 0
+}
+
+@media screen and (min-width:48em) {
+    :root {
+        --letter-spacing: 0.0125em
+    }
+}
+
+
+
+
+:focus {
+    outline: none !important
+}
+
+
+
+body {
+ 
+    color: var(--font-container);
+    font-size: var(--font-size-normal);
+    letter-spacing: 0;
+    line-height: 1.5;
+    font-weight: 300;
+    font-family: noto-sans, Noto Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji
+}
+
+
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer
+}
+
+a,
+a:hover {
+    color: var(--font-link)
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+
+
+.heading {
+    font-family: 'Bilbo Swash Caps', cursive; 
+    color: whitesmoke;
+    font-size: 250%;
+    text-align: center;
+    margin-top: 53.4px;
+    margin-bottom: 53.4px;
+  }
