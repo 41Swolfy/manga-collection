@@ -21,8 +21,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="all">
-    <meta property="og:type" content="website">
-    <link rel="preload" href="./Covers/" as="fetch">
+    <meta property="og:type" content="object">
+    <link rel="style" href="./Covers/" as="stylesheet ">
     <link rel="stylesheet" href="/styles/Mangasite.css">
     <link rel="stylesheet" href="">
 
@@ -100,7 +100,7 @@
 
             const img = document.createElement('img');
             img.setAttribute('alt', '');
-            img.setAttribute('src', './Covers/komi0.jpg');
+            img.setAttribute('src', './Covers/tbt0.jpg');
             img.setAttribute('decoding', 'async');
             img.setAttribute('data-nimg', 'responsive');
             img.setAttribute('class', 'img_img__fx8wR');
@@ -421,7 +421,7 @@
         async function getTitles() {
 
 
-            const response = await fetch("https://api.manga-passion.de/editions/2");
+            const response = await fetch("https://api.manga-passion.de/editions/1576");
             const data = await response.json();
             let height = data.height;
             height = (height / 10).toFixed(1);
@@ -592,7 +592,7 @@
         }
 
         async function apiCall(index) {
-            return await fetch(`https://api.manga-passion.de/editions/2/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc&exclude[type]=3`, { method: "GET" }).then(async (response) => {
+            return await fetch(`https://api.manga-passion.de/editions/1576/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc&exclude[type]=3`, { method: "GET" }).then(async (response) => {
                 return response.json();
             })
         }
@@ -637,7 +637,7 @@
                 const imageInner = document.createElement("span");
                 imageInner.style.cssText = "box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 142% 0px 0px;";
                 const imageElement = document.createElement("img");
-                imageElement.src =  "./Covers/komi"+ [i] + ".jpg";
+                imageElement.src =  "./Covers/tbt"+ [i] + ".jpg";
                 imageElement.decoding = "async";
                 imageElement.dataset.nimg = "responsive";
                 imageElement.className = "img_img__fx8wR";
