@@ -100,7 +100,7 @@
 
             const img = document.createElement('img');
             img.setAttribute('alt', '');
-            img.setAttribute('src', './Covers/dns.jpg');
+            img.setAttribute('src', './Covers/dns0.jpg');
             img.setAttribute('decoding', 'async');
             img.setAttribute('data-nimg', 'responsive');
             img.setAttribute('class', 'img_img__fx8wR');
@@ -663,8 +663,13 @@
                 const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
                 mangaVolumesDiv.appendChild(mangaVolumeDiv);
 
+                if(Band== undefined){
+                    Bandtext="";
+                }
+            
+                console.log(priceInEuro);
 
-                document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`;
+                document.getElementById("pricemanga" + [k]).textContent = `Band ${Bandtext} · ${priceInEuro}  €`;
 
 
                 if (statustext == 2) {
@@ -672,7 +677,7 @@
                 } else
                     document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
 
-
+            
             }
 
 
