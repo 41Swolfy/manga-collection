@@ -43,7 +43,7 @@
     const mangaTitleLowDiv = document.createElement('div');
   mangaTitleLowDiv.id = 'manga_title_low'; */
 
-/*
+
  function buildbody(){
   const body = document.getElementsByTagName('body')[0];
 
@@ -124,9 +124,7 @@ mangaLeftSidebar.appendChild(copyright);
 
 const mangaContainer = document.createElement('div');
 mangaContainer.setAttribute('class', 'manga_container__whdYf');
-mangaWrap.appendChild(mangaContainer);
-
-
+body.appendChild(mangaContainer);
 
 const mangaInfos = document.createElement('div');
 mangaInfos.setAttribute('class', 'manga_mangaInfos__t8BCd');
@@ -161,14 +159,50 @@ statusDeValue.setAttribute('id', 'status_de');
 statusDeValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
 statusDe.appendChild(statusDeValue);
 
-const format = document.createElement('div');
+const deformat = document.createElement('div');
 format.setAttribute('class', 'manga_mangaInfoItem__meO0a');
-sidebarInfoBlockDe.appendChild(format);
+sidebarInfoBlockDe.appendChild(deformat);
+
+const deFormatLabel= document.createElement('span');
+deFormatLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+deFormatLabel.innerText = 'Format';
+deFormat.appendChild(deFormatLabel);
+
+const deFormatValue = document.createElement('span');
+deFormatValue.setAttribute('id', 'format');
+deFormatValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+deFormat.appendChild(deFormatValue);
+
+const deSize = document.createElement('div');
+deSize.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+sidebarInfoBlockDe.appendChild(deSize);
+
+
+const deSizeLabel = document.createElement('span');
+deSizeLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+deSizeLabel.innerText = 'Maße';
+deSize.appendChild(deSizeLabel);
+
+
+const deSizeValue = document.createElement('span');
+deSizeValue.setAttribute('id', 'size');
+deSizeValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+deSize.appendChild(deSizeValue);
+
+const deVolumes = document.createElement('div');
+deVolumes.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+sidebarInfoBlockDe.appendChild(deVolumes);
+
+const deVolumesLabel = document.createElement('span');
+deVolumesLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+deVolumesLabel.innerText = 'Bände';
+deVolumes.appendChild(deVolumesLabel);
 
 
 
 }
-*/
+
+buildody();
 
 </script>
 
