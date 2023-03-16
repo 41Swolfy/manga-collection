@@ -592,7 +592,7 @@
         }
 
         async function apiCall(index) {
-            return await fetch(`https://api.manga-passion.de/editions/1476/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc&exclude[type]=3`, { method: "GET" }).then(async (response) => {
+            return await fetch(`https://api.manga-passion.de/editions/1476/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc`, { method: "GET" }).then(async (response) => {
                 return response.json();
             })
         }
