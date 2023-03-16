@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="eng-EN">
+<!--/editions sind Inhalt data zu finden bei  Network zb bei 1059 -->
+<!--Origin =1 korean|| origin = 0 Japan json-->
+<!--Status 0 = Announced||Status 1 = Ongoing ||Status 2 = Completed-->
+<!--Format0=Sofcover ||Format 1 = Hardcover||Format 5 = Digital -->
+
+
+<head>
+
+    <script>
+        async function getTitles() {
+
+
+            const response = await fetch("https://api.manga-passion.de/editions/1189");
+            const data = await response.json();
+            let height = data.height;
+            height = (height / 10).toFixed(1);
+            let width = data.width;
+            width = (width / 10).toFixed(1);
+            const numVolumes_de = data.numVolumes;
+            const title = data.title;
+            const status_jp = data.sources[0].status;
+            const origin = data.sources[0].origin;
+            const status_de = data.status;
+            const magazin = data.sources[0].magazines[0].name;
+            const jp_Verlag = data.sources[0].publishers[0].name;
+            const start_year = data.sources[0].year;
+            const jp_volumes = data.sources[0].volumes;
+            const author = data.sources[0].contributors[0].contributor.name;
+            const mangaka = data.sources[0].contributors[1].contributor.name;
+            const de_verlag = data.publishers[0].name;
+            const description = data.description;
+            const demo = data.sources[0].tags.map(tag => tag.name);
+            const remainingGenres = demo.slice(1);
+            const romaji = data.sources[0].romaji;
+            const lower_title = data.sources[0].title;
+
+            if (origin === 0) {
+                origintext = "Japan";
+            }else if (origin === "") {
+                origintext = "Alle";
+            } else if (origin === 1) {
+                origintext = "SüdKorea";
+            } else if (origin === 2) {
+                origintext = "Chinan";
+            } else if (origin === 3) {
+                origintext = "Taiwan";
+            }else if (origin === 4) {
+                origintext = "Deutschland";
+            }else if (origin === 5) {
+                origintext = "Frankreich";
+            }else if (origin === 6) {
+                origintext = "USA";
+            }else if (origin === 7) {
+                origintext = "UK";
+            }else if (origin === 8) {
+                origintext = "Spanien";
+            }
+            else {
+                origintext = "Unbekannter Status";
+            }
+
+
+            if (status_jp === 0) {
+                statustext_jp = "Announced";
+            } else if (status_jp === 1) {
+                statustext_jp = "Laufend";
+            } else if (status_jp === 2) {
+                statustext_jp = "Beendet";
+            } else {
+                statustext_jp = "Unbekannter Status";
+            }
+
+            if (status_de === 0) {
+                statustext_de = "Announced";
+            } else if (status_de === 1) {
+                statustext_de = "Laufend";
+            } else if (status_de === 2) {
+                statustext_de = "Beendet";
+            } else {
+                statustext_de = "Unbekannter Status";
+            }
+
+            if (status_de === 0) {
+                Voltext_de = "+";
+            } else if (status_de === 1) {
+                Voltext_de = "+";
+            } else if (status_de === 2) {
+                Voltext_de = " ";
+            } else {
+                Voltext_de = " ";
+            }
+
+            if (status_jp === 0) {
+                Voltext_jp = "+";
+            } else if (status_jp === 1) {
+                Voltext_jp = "+";
+            } else if (status_jp === 2) {
+                Voltext_jp = " ";
+            } else {
+                Voltext_jp = " ";
+            }
+            const format = data.format;
+
+            if (format === 0) {
+                formattext = "Softcover";
+            } else if (format === 1) {
+                formattext = "Hardcover";
+            } else if (format === 2) {
+                formattext = "Unknown";
+            } else if (format === 3) {
+                formattext = "Unknown";
+            } else if (format === 4) {
+                formattext = "Unknown";
+            } else if (format === 5) {
+                formattext = "Digital";
+            } else {
+                formattext = "Unbekannter Status";
+            }
+
+
+
+            document.title = `Tsubasa List - ${title}`;
+              document.getElementById("Copyright").textContent=` ©${start_year} by ${author},${mangaka}/${jp_Verlag}`;
+            document.getElementById("volumes_de").textContent = `${numVolumes_de}${Voltext_de}`;
+            document.getElementById("size").textContent = `${width} x ${height} cm`;
+            document.getElementById("start_year").textContent = `${start_year}`;
+            document.getElementById("jp_volumes").textContent = `${jp_volumes}${Voltext_jp}`;
+            document.getElementById("format").textContent = `${formattext}`;
+            document.getElementById("status_de").textContent = `${statustext_de}`; document.getElementById("status_jp").textContent = `${statustext_jp}`;
+            document.getElementById("Synopsis").textContent = `${description}`;
+            document.getElementById("de_Verlag").innerHTML = `<li>${de_verlag}</li>`;
+            document.getElementById("manga_title").innerHTML = `<h1>${title}</h1>`;
+            document.getElementById("manga_title_low").innerHTML = `<span>${romaji}|<span lang="ja">${lower_title}</span></span>  `;
+            document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
+            document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
+            document.getElementById("Demografie").innerHTML = `Demografie <li>${demo[0]}</li>`;
+            document.getElementById("Genres").innerHTML = `Genres ${remainingGenres.join("</li><li>")}`;
+            document.getElementById("origin").innerHTML = `<li>${origintext}</li>`;
+            document.getElementById("magazin").innerHTML = `<li>${magazin}</li>`;
+            document.getElementById("jp_Verlag").innerHTML = `<li>${jp_Verlag}</li>`;
+
+
+
+
+            console.log(status);
+            console.log(author);
+            console.log(mangaka);
+            console.log(demo);
+            console.log(description);
+        }
+        getTitles();
+    </script>
+
+
+
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="all">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/styles/Mangasite.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap" rel="stylesheet">
+
+    <script>
+
+
+        async function fetchData() {
+            var finished = false;
+            var page = 1;
+            var data = [];
+            while (!finished) {
+                const response = await apiCall(page);
+                if (response.length == 0) {
+                    finished = true;
+                } else {
+                    data.push.apply(data, response);
+                    page++;
+                }
+            }
+            return data;
+        }
+
+        async function apiCall(index) {
+            return await fetch(`https://api.manga-passion.de/editions/1189/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc&exclude[type]=3`, { method: "GET" }).then(async (response) => {
+                return response.json();
+            })
+        }
+
+
+        async function getdata() {
+            const data = await fetchData();
+
+
+
+            for (i = 0; i < data.length; i++) {
+
+                k = i;
+
+
+                const Band = data[i].numberDisplay;
+                const Mangadate = new Date(data[i].date);
+                const priceInCent = data[i].price;
+                const priceInEuro = (priceInCent / 100).toFixed(2);
+                const options = { day: 'numeric', month: 'long', year: 'numeric' };
+                const formattedDate = Mangadate.toLocaleDateString('de-DE', options);
+                const mangaVolumeDiv = document.createElement("div");
+                mangaVolumeDiv.className = "manga_volume";
+
+                const anchor = document.createElement("a");
+                anchor.className = "manga_display_size";
+
+                const content = document.createElement("div");
+                content.className = "manga_content";
+
+                const top = document.createElement("div");
+                top.className = "manga_top";
+                const priceText = document.createElement("span");
+                priceText.className = "manga_textborder";
+                priceText.id = "pricemanga" + [k];
+                top.appendChild(priceText);
+
+                const image = document.createElement("div");
+                image.className = "manga_img";
+                const imageWrapper = document.createElement("span");
+                imageWrapper.style.cssText = "box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;";
+                const imageInner = document.createElement("span");
+                imageInner.style.cssText = "box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 142% 0px 0px;";
+                const imageElement = document.createElement("img");
+                imageElement.src = "/test.png";
+                imageElement.decoding = "async";
+                imageElement.dataset.nimg = "responsive";
+                imageElement.className = "img_img__fx8wR";
+                imageElement.style.cssText = "position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;";
+                imageInner.appendChild(imageElement);
+                imageWrapper.appendChild(imageInner);
+                image.appendChild(imageWrapper);
+                const statustext = data[i].status;
+                const date = document.createElement("div");
+                date.className = "manga_date";
+                const dateText = document.createElement("span");
+                dateText.className = "manga_textborder";
+                dateText.id = "datemanga" + [k];
+                date.appendChild(dateText);
+
+                content.appendChild(top);
+                content.appendChild(image);
+                content.appendChild(date);
+                anchor.appendChild(content);
+                mangaVolumeDiv.appendChild(anchor);
+
+
+
+                const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
+                mangaVolumesDiv.appendChild(mangaVolumeDiv);
+
+
+                document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`;
+
+
+                if (statustext == 2) {
+                    document.getElementById("datemanga" + [k]).textContent = `TBA`;
+                } else
+                    document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
+
+
+            }
+
+
+        }
+        getdata();
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div id="manga-passion-main">
+        <div class="layout_wide__hth1c">
+            <div class="manga_wrap__e67En">
+                <div class="manga_top__u_AQK">
+                    <div class="heading_headingContainer__fBQPg">
+                        <div class="heading_mainHeading__t_Snx">
+                            <div id="manga_title">
+                            </div>
+                        </div>
+                        <div class="heading_subHeading__pBNZJ">
+                            <hr>
+                            <div id="manga_title_low"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="manga_leftSidebar__RHamD">
+                    <div class="manga_mangaCover__RSWVt"><span class="lightbox_lightbox__8mcKQ"><span
+                                style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative"><span
+                                    style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;padding-top:142%"></span><img
+                                    alt="" src="" decoding="async" data-nimg="responsive" class="img_img__fx8wR"
+                                    style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:contain" /></noscript></span></span>
+                        <slot class="fade_fade__tyn_4"></slot><span id="Copyright"></span>
+                    </div>
+                    <div class="manga_container__whdYf">
+                        <div class="manga_mangaInfos__t8BCd">
+                            <div class="manga_sidebarInfoBlock__MPHQ4">
+                                <h2 class="manga_mangaInfosTitle__VzOX6">Deutsche Ausgabe</h2>
+                                <div class="manga_mangaInfoItem__meO0a"><span
+                                        class="manga_mangaInfoLabel__O1bfg">Verlag</span><span id="de_Verlag"
+                                        class="manga_mangaInfoValue__sPOMH">
+                                    </span></div>
+                                <div class="manga_mangaInfoItem__meO0a"><span
+                                        class="manga_mangaInfoLabel__O1bfg">Status</span><span id="status_de"
+                                        class="manga_mangaInfoValue__sPOMH"></span></div>
+                                <div class="manga_mangaInfoItem__meO0a"><span
+                                        class="manga_mangaInfoLabel__O1bfg">Format</span><span id="format"
+                                        class="manga_mangaInfoValue__sPOMH"></span></div>
+                                <div class="manga_mangaInfoItem__meO0a"><span
+                                        class="manga_mangaInfoLabel__O1bfg">Maße</span><span id="size"
+                                        class="manga_mangaInfoValue__sPOMH"></span></div>
+                                <div class="manga_mangaInfoItem__meO0a"><span
+                                        class="manga_mangaInfoLabel__O1bfg">Bände</span><span id="volumes_de"
+                                        class="manga_mangaInfoValue__sPOMH"></span></div>
+                            </div>
+                            <div class="manga_sidebarInfoBlock__MPHQ4">
+                                <h2 class="manga_mangaInfosTitle__VzOX6">Erstveröffentlichung</h2>
+                                <div class="manga_mangaInfoItem__meO0a"><span
+                                        class="manga_mangaInfoLabel__O1bfg">Status</span><span id="status_jp"
+                                        class="manga_mangaInfoValue__sPOMH"></span></div>
+                                <div class="manga_mangaInfoItem__meO0a"><span
+                                        class="manga_mangaInfoLabel__O1bfg">Herkunft</span><span id="origin"
+                                        class="manga_mangaInfoValue__sPOMH">
+
+                                    </span></div>
+                                <div class="manga_mangaInfoItem__meO0a"><span
+                                        class="manga_mangaInfoLabel__O1bfg">Typ</span><span
+                                        class="manga_mangaInfoValue__sPOMH">
+                                        <li>Manga</li>
+                                    </span></div>
+                                <div class="manga_mangaInfoItem__meO0a"><span
+                                        class="manga_mangaInfoLabel__O1bfg">Verlag</span><span id="jp_Verlag"
+                                        class="manga_mangaInfoValue__sPOMH">
+
+                                    </span></div>
+                                <div class="manga_mangaInfoItem__meO0a"><span
+                                        class="manga_mangaInfoLabel__O1bfg">Magazin</span><span id="magazin"
+                                        class="manga_mangaInfoValue__sPOMH">
+
+                                    </span></div>
+                                <div class="manga_mangaInfoItem__meO0a"><span
+                                        class="manga_mangaInfoLabel__O1bfg">Startjahr</span><span id="start_year"
+                                        class="manga_mangaInfoValue__sPOMH"></span></div>
+                                <div class="manga_mangaInfoItem__meO0a"><span
+                                        class="manga_mangaInfoLabel__O1bfg">Bände</span><span id="jp_volumes"
+                                        class="manga_mangaInfoValue__sPOMH"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="manga_mainArea__oURPo">
+                    <div class="manga_container__whdYf">
+                        <div class="manga_heading__g0Cgj">
+                            <h6>Inhalt</h6>
+                        </div>
+                        <div class="manga_description__OkTnN">
+                            <ul id="Author" class="manga_details__decnm">
+                            </ul>
+                            <ul id="Mangaka" class="manga_details__decnm">
+                            </ul>
+                            <ul id="Demografie" class="manga_details__decnm">
+                            </ul>
+                            <ul id="Genres" class="manga_details__decnm">
+                            </ul>
+                        </div>
+                        <div id="Synopsis" class="manga_description__OkTnN">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="tab-container_head__kvdCC">
+                            <div class="horizontalScrollContainer_outer__nZZo_">
+                                <div class="tab-container_headInner__7ZHC8"><button type="button"
+                                        class="tab-container_button__o9nZD tab-container_active__aelUx button_input__3lBgD"><span
+                                            class="tab-container_label__xtsPM">Bände</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="manga_container">
+                            <div style="display:block">
+                                <div class="manga_volume_size manga_volumes">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
