@@ -663,8 +663,14 @@
                 const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
                 mangaVolumesDiv.appendChild(mangaVolumeDiv);
 
+                if(Band== undefined){
+                    Bandtext="";
+                }else{
+                    Bandtext=Band;
+                }
 
-                document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`;
+
+                document.getElementById("pricemanga" + [k]).textContent = `Band ${Bandtext} · ${priceInEuro}  €`;
 
 
                 if (statustext == 2) {
