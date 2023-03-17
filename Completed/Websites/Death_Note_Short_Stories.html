@@ -34,7 +34,6 @@
 </head>
 
 <body>
-    
     <script>
         async function buildbody() {
 
@@ -101,7 +100,7 @@
 
             const img = document.createElement('img');
             img.setAttribute('alt', '');
-            img.setAttribute('src', './Covers/dns0.jpg');
+            img.setAttribute('src', './Covers/dn0.jpg');
             img.setAttribute('decoding', 'async');
             img.setAttribute('data-nimg', 'responsive');
             img.setAttribute('class', 'img_img__fx8wR');
@@ -540,6 +539,7 @@
             }
 
 
+
             document.title = `Tsubasa List - ${title}`;
 
             document.getElementById("Copyright").textContent = ` ©${start_year} by ${author},${mangaka}/${jp_Verlag}`;
@@ -563,6 +563,15 @@
             document.getElementById("jp_Verlag").innerHTML = `<li>${jp_Verlag}</li>`;
             document.getElementById("jp_type").innerHTML = `<li>${typetext}</li>`;
 
+
+
+
+            console.log(status);
+            console.log(author);
+            console.log(mangaka);
+            console.log(demo);
+            console.log(description);
+        }
         getTitles();
 
 
@@ -583,7 +592,7 @@
         }
 
         async function apiCall(index) {
-            return await fetch(`https://api.manga-passion.de/editions/1476/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc`, { method: "GET" }).then(async (response) => {
+            return await fetch(`https://api.manga-passion.de/editions/1476/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc&exclude[type]=3`, { method: "GET" }).then(async (response) => {
                 return response.json();
             })
         }
@@ -628,7 +637,7 @@
                 const imageInner = document.createElement("span");
                 imageInner.style.cssText = "box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 142% 0px 0px;";
                 const imageElement = document.createElement("img");
-                imageElement.src =  "./Covers/dns"+ [i] + ".jpg";
+                imageElement.src =  "./Covers/dn"+ [i] + ".jpg";
                 imageElement.decoding = "async";
                 imageElement.dataset.nimg = "responsive";
                 imageElement.className = "img_img__fx8wR";
@@ -653,8 +662,6 @@
 
                 const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
                 mangaVolumesDiv.appendChild(mangaVolumeDiv);
-              
-
                 if (statustext == 2) {
                     document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} ·`;
                     document.getElementById("datemanga" + [k]).textContent = `TBA`;
@@ -666,14 +673,10 @@
                     document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
                 }
 
-
-
-            
             }
 
 
         }
-    }
         getdata();
 
 
