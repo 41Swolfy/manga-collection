@@ -587,36 +587,264 @@ async function getTitles() {
     } else {
         formattext = "Unbekannter Status";
     }
-    if (romaji===undefined){
-        romaji ="";
-    }
-    if (lower_title===undefined){
+   
+    if (romaji === undefined & lower_title === undefined) {
+        document.getElementById("manga_title_low").innerHTML = ` `;
+    } else if(romaji === undefined){
+        document.getElementById("manga_title_low").innerHTML = `<span><span lang="ja">${lower_title}</span></span>  `;
+    } else if(lower_title === undefined){
         document.getElementById("manga_title_low").innerHTML = `<span>${romaji}</span>  `;
+    }else{
+        document.getElementById("manga_title_low").innerHTML = `<span>${romaji}|<span lang="ja">${lower_title}</span></span>  `;
     }
 
-
-    document.title = `Tsubasa List - ${title}`;
-
-    document.getElementById("Copyright").textContent = ` ©${start_year} by ${author},${mangaka}/${jp_Verlag}`;
-    document.getElementById("volumes_de").textContent = `${numVolumes_de}${Voltext_de}`;
-    document.getElementById("size").textContent = `${width} x ${height} cm`;
-    document.getElementById("start_year").textContent = `${start_year}`;
-    document.getElementById("jp_volumes").textContent = `${jp_volumes}${Voltext_jp}`;
-    document.getElementById("format").textContent = `${formattext}`;
-    document.getElementById("status_de").textContent = `${statustext_de}`;
-    document.getElementById("status_jp").textContent = `${statustext_jp}`;
-    document.getElementById("Synopsis").textContent = `${description}`;
-    document.getElementById("de_Verlag").innerHTML = `<li>${de_verlag}</li>`;
-    document.getElementById("manga_title").innerHTML = `<h1>${title}</h1>`;
+   
     
-    document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
-    document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
+    if(start_year === undefined & author === undefined & mangaka === undefined & jp_Verlag === undefined ){
+        document.getElementById("Copyright").textContent = ` © by unbekannt`; 
+        document.getElementById("Author").innerHTML = ` Autor<li>unbekannt</li>`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>unbekannt</li>`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>unbekannt</li>`;
+        document.getElementById("start_year").textContent = `unbekannt`;
+    }else if(start_year === undefined & mangaka === undefined & jp_Verlag === undefined){
+        document.getElementById("Copyright").textContent = ` © by ${author}`;
+        document.getElementById("start_year").textContent = `unbekannt`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>unbekannt</li>`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>unbekannt</li>`;
+        document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
+    }
+    else if(start_year === undefined & mangaka === undefined & author === undefined  ){
+        document.getElementById("Copyright").textContent = ` © by ${jp_Verlag}`;
+        document.getElementById("start_year").textContent = `unbekannt`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>unbekannt</li>`;
+        document.getElementById("Author").innerHTML = ` Autor<li>unbekannt</li>`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>${jp_Verlag}</li>`;
+    }
+    else if (start_year === undefined & jp_Verlag === undefined & author=== undefined){
+        document.getElementById("Copyright").textContent = ` © by ${mangaka}`;
+        document.getElementById("start_year").textContent = `unbekannt`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>unbekannt</li>`;
+        document.getElementById("Author").innerHTML = ` Autor<li>unbekannt</li>`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
+
+    }
+    else if(mangaka === undefined & jp_Verlag === undefined & author=== undefined ){
+        document.getElementById("Copyright").textContent = ` ©${start_year} by unbekannt`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>unbekannt</li>`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>unbekannt</li>`;
+        document.getElementById("Author").innerHTML = ` Autor<li>unbekannt</li>`;
+        document.getElementById("start_year").textContent = `${start_year}`;
+    }else if(start_year === undefined & mangaka === undefined){
+        document.getElementById("Copyright").textContent = ` © by ${author}/${jp_Verlag}`;
+        document.getElementById("start_year").textContent = `unbekannt`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>unbekannt</li>`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>${jp_Verlag}</li>`;
+        document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
+    }else if (start_year === undefined & jp_Verlag === undefined ){
+        document.getElementById("Copyright").textContent = ` © by ${author},${mangaka}`;
+        document.getElementById("start_year").textContent = `unbekannt`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>unbekannt</li>`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
+        document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
+    }else if (start_year === undefined & author === undefined ){
+        document.getElementById("Copyright").textContent = ` © by ${mangaka}/${jp_Verlag}`;
+        document.getElementById("start_year").textContent = `unbekannt`;
+        document.getElementById("Author").innerHTML = ` Autor<li>unbekannt</li>`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>${jp_Verlag}</li>`;
+    }else if(jp_Verlag === undefined  & mangaka === undefined ){
+        document.getElementById("Copyright").textContent = ` ©${start_year} by ${author}`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>unbekannt</li>`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>unbekannt</li>`;
+        document.getElementById("start_year").textContent = `${start_year}`;
+        document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
+    }else if(author=== undefined & mangaka === undefined){
+        document.getElementById("Copyright").textContent = ` ©${start_year} by ${jp_Verlag}`;
+        document.getElementById("Author").innerHTML = ` Autor<li>unbekannt</li>`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>unbekannt</li>`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>${jp_Verlag}</li>`
+        document.getElementById("start_year").textContent = `${start_year}`;;
+    }else if(jp_Verlag === undefined & author=== undefined){
+        document.getElementById("Copyright").textContent = ` ©${start_year} by ${mangaka}`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>unbekannt</li>`;
+        document.getElementById("Author").innerHTML = ` Autor<li>unbekannt</li>`;
+        document.getElementById("start_year").textContent = `${start_year}`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
+
+    }
+    else if(author === undefined){
+        document.getElementById("Copyright").textContent = ` ©${start_year} by ${mangaka}/${jp_Verlag}`;
+        document.getElementById("Author").innerHTML = ` Autor<li>unbekannt</li>`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>${jp_Verlag}</li>`;
+        document.getElementById("start_year").textContent = `${start_year}`;
+    }else if (mangaka == undefined){
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>unbekannt</li>`;
+        document.getElementById("Copyright").textContent = ` ©${start_year} by ${author}/${jp_Verlag}`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>${jp_Verlag}</li>`;
+        document.getElementById("start_year").textContent = `${start_year}`;
+        document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
+    }else if (jp_Verlag === undefined){
+        document.getElementById("Copyright").textContent = ` ©${start_year} by ${author},${mangaka}`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>unbekannt</li>`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
+        document.getElementById("start_year").textContent = `${start_year}`
+        document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
+    }else if(start_year === undefined){
+        document.getElementById("Copyright").textContent = ` © by ${author},${mangaka}/${jp_Verlag}`;
+        document.getElementById("start_year").textContent = `unbekannt`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>${jp_Verlag}</li>`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
+        document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
+    }
+    else{
+        document.getElementById("Copyright").textContent = ` ©${start_year} by ${author},${mangaka}/${jp_Verlag}`;
+        document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
+        document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
+        document.getElementById("jp_Verlag").innerHTML = `<li>${jp_Verlag}</li>`;
+        document.getElementById("start_year").textContent = `${start_year}`;
+    }
+
+    
+if(title===undefined){
+    document.title = `Tsubasa List - unbekannt`; 
+    document.getElementById("manga_title").innerHTML = `<h1>unbekannt</h1>`;
+}else{
+    document.title = `Tsubasa List - ${title}`; 
+    document.getElementById("manga_title").innerHTML = `<h1>${title}</h1>`;
+}
+
+if(numVolumes_de===undefined & Voltext_de===undefined ){
+    document.getElementById("volumes_de").textContent = `?`;
+}else if (numVolumes_de===undefined){
+    document.getElementById("volumes_de").textContent = `?`;
+}else if(Voltext_de===undefined){
+    document.getElementById("volumes_de").textContent = `${numVolumes_de}`;
+}else{
+    document.getElementById("volumes_de").textContent = `${numVolumes_de}${Voltext_de}`;
+}
+
+
+if(width===undefined & height===undefined ){
+    document.getElementById("size").textContent = `? x $? cm`;
+}else if (width===undefined){
+    document.getElementById("size").textContent = `? x ${height} cm`;
+}else if(height===undefined){
+    document.getElementById("size").textContent = `${width} x ? cm`;
+}else{
+    document.getElementById("size").textContent = `${width} x ${height} cm`;
+}
+
+if(jp_volumes===undefined & Voltext_jp===undefined ){
+    document.getElementById("jp_volumes").textContent = `?`;
+}else if (jp_volumes===undefined){
+    document.getElementById("jp_volumes").textContent = `?`;
+}else if(Voltext_jp===undefined){
+    document.getElementById("jp_volumes").textContent = `${jp_volumes}`;
+}else{
+    document.getElementById("jp_volumes").textContent = `${jp_volumes}${Voltext_jp}`;
+}
+
+if(formattext == undefined){
+    document.getElementById("format").textContent = `unbekannt`;
+
+}else{
+    document.getElementById("format").textContent = `${formattext}`;
+}
+
+
+if(statustext_de == undefined){
+    document.getElementById("format").textContent = `unbekannt`;
+
+}else{
+    document.getElementById("status_de").textContent = `${statustext_de}`;
+}
+if(statustext_jp == undefined){
+    document.getElementById("format").textContent = `unbekannt`;
+
+}else{
+    document.getElementById("status_jp").textContent = `${statustext_jp}`;
+}
+if(description == undefined){
+    document.getElementById("format").textContent = `unbekannt`;
+
+}else{
+    document.getElementById("Synopsis").textContent = `${description}`;
+}
+
+if(de_verlag == undefined){
+    document.getElementById("format").textContent = `<li>unbekannt</li>`;
+
+}else{
+   
+    document.getElementById("de_Verlag").innerHTML = `<li>${de_verlag}</li>`;
+}
+XMLDocument
+if(demo == undefined){
+    document.getElementById("format").textContent = `<li>unbekannt</li>`;
+
+}else{
+   
     document.getElementById("Demografie").innerHTML = `Demografie <li>${demo[0]}</li>`;
+}
+if(remainingGenres == undefined){
+    document.getElementById("format").textContent = `<li>unbekannt</li>`;
+
+}else{
+   
     document.getElementById("Genres").innerHTML = `Genres ${remainingGenres.join("</li><li>")}`;
-    document.getElementById("origin").innerHTML = `<li>${origintext}</li>`;
+}
+if(magazin == undefined){
+    document.getElementById("magazin").innerHTML = `<li>unbekannt</li>`;
+
+}else{
+   
     document.getElementById("magazin").innerHTML = `<li>${magazin}</li>`;
-    document.getElementById("jp_Verlag").innerHTML = `<li>${jp_Verlag}</li>`;
+}
+if(origintext == undefined){
+    document.getElementById("format").textContent = `<li>unbekannt</li>`;
+
+}else{
+   
     document.getElementById("jp_type").innerHTML = `<li>${typetext}</li>`;
+}
+if(origintext == undefined){
+    document.getElementById("format").textContent = `<li>unbekannt</li>`;
+
+}else{
+   
+    document.getElementById("origin").innerHTML = `<li>${origintext}</li>`;
+}
+
+
+
+   
+   
+
+
+
+
+
+   
+    
+
+
+    
+   
+  
+    
+   
+   
+   
+    
+    
+
+    
+    
+    
+   
+   
+ 
 
 
 
