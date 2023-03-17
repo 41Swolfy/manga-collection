@@ -100,6 +100,9 @@
 
             const img = document.createElement('img');
             img.setAttribute('alt', '');
+            img.onerror = function () {
+                img.setAttribute('src','/styles/errorimg.jpg');
+            }
             img.setAttribute('src', './Covers/bungo0.jpg');
             img.setAttribute('decoding', 'async');
             img.setAttribute('data-nimg', 'responsive');
@@ -717,11 +720,10 @@
                 imageInner.style.cssText = "box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 142% 0px 0px;";
                 const imageElement = document.createElement("img");
 
-                try {
-                    imageElement.src =  "./Covers/bungo"+ [i] + ".jpg";
-                }catch(error){
-                    imageElement.src ="/styles/errorimg.jpg";
+                imageElement.onerror = function () {
+                    imageElement.src = '/styles/errorimg.jpg';
                 }
+                    imageElement.src =  "./Covers/bungo"+ [i] + ".jpg";
               
                 imageElement.decoding = "async";
                 imageElement.dataset.nimg = "responsive";
