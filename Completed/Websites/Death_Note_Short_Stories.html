@@ -662,20 +662,25 @@
 
                 const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
                 mangaVolumesDiv.appendChild(mangaVolumeDiv);
-
-                if(Band== undefined){
-                    Bandtext="";
-                }else{
-                    Bandtext=Band;
+                if (Band == undefined) {
+                    Bandtext = "";
+                } else {
+                    Bandtext = Band;
                 }
 
-                document.getElementById("pricemanga" + [k]).textContent = `Band ${Bandtext} · ${priceInEuro}  €`;
+                if (statustext == 2) {
+                    document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} ·`;
+                } else {
+                    document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`;
+                }
+
 
 
                 if (statustext == 2) {
                     document.getElementById("datemanga" + [k]).textContent = `TBA`;
-                } else
+                } else {
                     document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
+                }
 
             
             }

@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="all">
     <meta property="og:type" content="website">
-   
+
     <link rel="stylesheet" href="/styles/Mangasite.css">
     <link rel="stylesheet" href="">
     <link rel="icon" href="/styles/Icon.png">
@@ -323,7 +323,7 @@
             mangaMainContainer.setAttribute('class', 'manga_container__whdYf');
             mangaMainArea.appendChild(mangaMainContainer);
 
-            
+
             const mangaMainContainerheader = document.createElement('div');
             mangaMainContainerheader.setAttribute('class', 'manga_heading__g0Cgj');
             mangaMainContainer.appendChild(mangaMainContainerheader);
@@ -332,7 +332,7 @@
             mangaMainContainerheadercontent.innerText = 'Inhalt ';
             mangaMainContainerheader.appendChild(mangaMainContainerheadercontent);
 
-            
+
 
             const mangaMainDescription = document.createElement('div');
             mangaMainDescription.setAttribute('class', 'manga_description__OkTnN');
@@ -349,7 +349,7 @@
             mangaMainDescriptionMangaka.setAttribute('class', 'manga_details__decnm');
             mangaMainDescription.appendChild(mangaMainDescriptionMangaka);
 
-    
+
             const mangaMainDescriptionDemografie = document.createElement('ul');
             mangaMainDescriptionDemografie.setAttribute('id', 'Demografie');
             mangaMainDescriptionDemografie.setAttribute('class', 'manga_details__decnm');
@@ -449,7 +449,7 @@
             if (type === 0) {
                 typetext = "Manga"
             } else if (type === 1) {
-                typetext="Lightnovel"
+                typetext = "Lightnovel"
             }
             else if (type === 2) {
                 typtetext = "Artbook"
@@ -592,7 +592,7 @@
         }
 
         async function apiCall(index) {
-            return await fetch(`https://api.manga-passion.de/editions/2/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc`, { method: "GET" }).then(async (response) => {
+            return await fetch(` https://api.manga-passion.de/editions/2/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc&exclude[type]=3`, { method: "GET" }).then(async (response) => {
                 return response.json();
             })
         }
@@ -637,7 +637,7 @@
                 const imageInner = document.createElement("span");
                 imageInner.style.cssText = "box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 142% 0px 0px;";
                 const imageElement = document.createElement("img");
-                imageElement.src =  "./Covers/komi"+ [i] + ".jpg";
+                imageElement.src = "./Covers/komi" + [i] + ".jpg";
                 imageElement.decoding = "async";
                 imageElement.dataset.nimg = "responsive";
                 imageElement.className = "img_img__fx8wR";
@@ -662,20 +662,25 @@
 
                 const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
                 mangaVolumesDiv.appendChild(mangaVolumeDiv);
-                if(Band== undefined){
-                    Bandtext="";
-                }else{
-                    Bandtext=Band;
+                if (Band == undefined) {
+                    Bandtext = "";
+                } else {
+                    Bandtext = Band;
                 }
 
-                document.getElementById("pricemanga" + [k]).textContent = `Band ${Bandtext} · ${priceInEuro}  €`;
+                if (statustext == 2) {
+                    document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} ·`;
+                } else {
+                    document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`;
+                }
+
 
 
                 if (statustext == 2) {
                     document.getElementById("datemanga" + [k]).textContent = `TBA`;
-                } else
+                } else {
                     document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
-
+                }
 
             }
 
