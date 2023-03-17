@@ -503,6 +503,10 @@ async function getTitles() {
         typtetext = "Artbook"
     }
 
+    if (romaji===undefined){
+        romaji ="";
+    }
+
     if (origin === 0) {
         origintext = "Japan";
     } else if (origin === "") {
