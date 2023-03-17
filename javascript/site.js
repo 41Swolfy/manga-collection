@@ -503,12 +503,7 @@ async function getTitles() {
         typtetext = "Artbook"
     }
 
-    if (romaji===undefined){
-        romaji ="";
-    }
-    if (lower_title===undefined){
-        lower_title ="";
-    }
+    
 
     if (origin === 0) {
         origintext = "Japan";
@@ -592,7 +587,12 @@ async function getTitles() {
     } else {
         formattext = "Unbekannter Status";
     }
-
+    if (romaji===undefined){
+        romaji ="";
+    }
+    if (lower_title===undefined){
+        document.getElementById("manga_title_low").innerHTML = `<span>${romaji}</span>  `;
+    }
 
 
     document.title = `Tsubasa List - ${title}`;
@@ -608,7 +608,7 @@ async function getTitles() {
     document.getElementById("Synopsis").textContent = `${description}`;
     document.getElementById("de_Verlag").innerHTML = `<li>${de_verlag}</li>`;
     document.getElementById("manga_title").innerHTML = `<h1>${title}</h1>`;
-    document.getElementById("manga_title_low").innerHTML = `<span>${romaji}|<span lang="ja">${lower_title}</span></span>  `;
+    
     document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
     document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
     document.getElementById("Demografie").innerHTML = `Demografie <li>${demo[0]}</li>`;
