@@ -506,6 +506,9 @@ async function getTitles() {
     if (romaji===undefined){
         romaji ="";
     }
+    if (lower_title===undefined){
+        lower_title ="";
+    }
 
     if (origin === 0) {
         origintext = "Japan";
