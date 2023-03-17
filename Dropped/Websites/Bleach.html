@@ -421,7 +421,7 @@
         async function getTitles() {
 
 
-            const response = await fetch("https://api.manga-passion.de/editions/990");
+            const response = await fetch("https://api.manga-passion.de/editions/1229");
             const data = await response.json();
             let height = data.height;
             height = (height / 10).toFixed(1);
@@ -592,7 +592,7 @@
         }
 
         async function apiCall(index) {
-            return await fetch(`https://api.manga-passion.de/editions/990/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc&exclude[type]=3`, { method: "GET" }).then(async (response) => {
+            return await fetch(`https://api.manga-passion.de/editions/1229/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc&exclude[type]=3`, { method: "GET" }).then(async (response) => {
                 return response.json();
             })
         }
