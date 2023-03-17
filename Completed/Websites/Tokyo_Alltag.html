@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="all">
     <meta property="og:type" content="website">
-   
+
     <link rel="stylesheet" href="/styles/Mangasite.css">
     <link rel="stylesheet" href="">
     <link rel="icon" href="/styles/Icon.png">
@@ -323,7 +323,7 @@
             mangaMainContainer.setAttribute('class', 'manga_container__whdYf');
             mangaMainArea.appendChild(mangaMainContainer);
 
-            
+
             const mangaMainContainerheader = document.createElement('div');
             mangaMainContainerheader.setAttribute('class', 'manga_heading__g0Cgj');
             mangaMainContainer.appendChild(mangaMainContainerheader);
@@ -332,7 +332,7 @@
             mangaMainContainerheadercontent.innerText = 'Inhalt ';
             mangaMainContainerheader.appendChild(mangaMainContainerheadercontent);
 
-            
+
 
             const mangaMainDescription = document.createElement('div');
             mangaMainDescription.setAttribute('class', 'manga_description__OkTnN');
@@ -349,7 +349,7 @@
             mangaMainDescriptionMangaka.setAttribute('class', 'manga_details__decnm');
             mangaMainDescription.appendChild(mangaMainDescriptionMangaka);
 
-    
+
             const mangaMainDescriptionDemografie = document.createElement('ul');
             mangaMainDescriptionDemografie.setAttribute('id', 'Demografie');
             mangaMainDescriptionDemografie.setAttribute('class', 'manga_details__decnm');
@@ -423,33 +423,130 @@
 
             const response = await fetch("https://api.manga-passion.de/editions/955");
             const data = await response.json();
-            let height = data.height;
-            height = (height / 10).toFixed(1);
-            let width = data.width;
-            width = (width / 10).toFixed(1);
-            const numVolumes_de = data.numVolumes;
-            const title = data.title;
-            const status_jp = data.sources[0].status;
-            const origin = data.sources[0].origin;
-            const status_de = data.status;
-            const magazin = data.sources[0].magazines[0].name;
-            const jp_Verlag = data.sources[0].publishers[0].name;
-            const start_year = data.sources[0].year;
-            const jp_volumes = data.sources[0].volumes;
-            const author = data.sources[0].contributors[0].contributor.name;
-            const mangaka = data.sources[0].contributors[1].contributor.name;
-            const de_verlag = data.publishers[0].name;
-            const description = data.description;
-            const demo = data.sources[0].tags.map(tag => tag.name);
-            const remainingGenres = demo.slice(1);
-            const romaji = data.sources[0].romaji;
-            const lower_title = data.sources[0].title;
-            const type = data.sources[0].type;
+
+
+            try {
+                 width = data.width;
+                width = (width / 10).toFixed(1);
+            } catch (error) {
+                width = "";
+            }
+            try {
+                 height = data.height;
+                height = (height / 10).toFixed(1);
+            } catch (error) {
+                height = "";
+            } try {
+                 numVolumes_de = data.numVolumes;
+            } catch (error) {
+                numVolumes_de = "";
+            }
+            try {
+                 status_de = data.status;
+            } catch (error) {
+                status_de = "";
+            }
+            try {
+                 origin = data.sources[0].origin;
+            } catch (error) {
+                origin = "";
+            }
+            try {
+                 status_jp = data.sources[0].status;
+            } catch (error) {
+                status_jp = "";
+            }
+            try {
+                 title = data.title;
+            } catch (error) {
+                title = "";
+            }
+            try {
+                 magazin = data.sources[0].magazines[0].name;
+            } catch (error) {
+                magazin = "";
+            }
+            try {
+                 jp_Verlag = data.sources[0].publishers[0].name;
+            } catch (error) {
+                jp_Verlag = "";
+            }
+            try {
+                 start_year = data.sources[0].year;
+            } catch (error) {
+                start_year = "";
+            }
+            try {
+                 jp_volumes = data.sources[0].volumes;
+            } catch (error) {
+                jp_volumes = "";
+            }
+            try {
+                 author = data.sources[0].contributors[0].contributor.name;
+            } catch (error) {
+                author = "";
+            }
+            try {
+                 mangaka = data.sources[0].contributors[1].contributor.name;
+            } catch (error) {
+                mangaka = "";
+            }
+            try {
+                 de_verlag = data.publishers[0].name;
+            } catch (error) {
+                de_verlag = "";
+            }
+            try {
+                 description = data.description;
+            } catch (error) {
+                description = "";
+            }
+            try {
+                 demo = data.sources[0].tags.map(tag => tag.name);
+                 remainingGenres = demo.slice(1);
+            } catch (error) {
+                demo = "";
+                remainingGenres = "";
+            }
+            try {
+                 romaji = data.sources[0].romaji;
+            } catch (error) {
+                romaji = "";
+            }
+            try {
+                 lower_title = data.sources[0].title;
+            } catch (error) {
+                lower_title = "";
+            } try {
+                 type = data.sources[0].type;
+            } catch (error) {
+                type = "";
+            } try {
+                 format = data.format;
+            } catch (error) {
+                format = "";
+            }
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             if (type === 0) {
                 typetext = "Manga"
             } else if (type === 1) {
-                typetext="Lightnovel"
+                typetext = "Lightnovel"
             }
             else if (type === 2) {
                 typtetext = "Artbook"
@@ -520,7 +617,8 @@
             } else {
                 Voltext_jp = " ";
             }
-            const format = data.format;
+
+
 
             if (format === 0) {
                 formattext = "Softcover";
@@ -637,7 +735,7 @@
                 const imageInner = document.createElement("span");
                 imageInner.style.cssText = "box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 142% 0px 0px;";
                 const imageElement = document.createElement("img");
-                imageElement.src =  "./Covers/alltag"+ [i] + ".jpg";
+                imageElement.src = "./Covers/alltag" + [i] + ".jpg";
                 imageElement.decoding = "async";
                 imageElement.dataset.nimg = "responsive";
                 imageElement.className = "img_img__fx8wR";
@@ -665,7 +763,7 @@
                 if (statustext == 2) {
                     document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} ·`;
                     document.getElementById("datemanga" + [k]).textContent = `TBA`;
-                }else if(Band=== undefined){
+                } else if (Band === undefined) {
                     document.getElementById("pricemanga" + [k]).textContent = `Band ? · ${priceInEuro}  €`;
                     document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
                 } else {
