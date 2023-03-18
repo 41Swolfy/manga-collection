@@ -1,32 +1,114 @@
 var edition  ;
 var imgname;
 
+
+
+function createDropdownMenu() {
+    // create header element
+    const header = document.createElement("header");
+    header.classList.add("heading");
+  
+    // create link element
+    const link = document.createElement("a");
+    link.classList.add("head-link");
+    link.setAttribute("href", "/index.html");
+  
+    // create h1 element
+    const h1 = document.createElement("h1");
+    h1.textContent = "Tsubasa List";
+  
+    // append h1 to link and link to header
+    link.appendChild(h1);
+    header.appendChild(link);
+  
+    // append header to body
+    document.body.appendChild(header);
+  
+    // create dropdowns
+    for (let i = 1; i <= 3; i++) {
+      // create dropdown element
+      const dropdown = document.createElement("div");
+      dropdown.classList.add("dropdown");
+      dropdown.setAttribute("id", `dropdown-${i}`);
+  
+      // create button element
+      const button = document.createElement("button");
+      button.classList.add("drop-btn");
+      button.textContent = i === 1 ? "Ongoing ▼" : i === 2 ? "Completed ▼" : "Dropped ▼";
+  
+      // create dropdown content element
+      const dropdownContent = document.createElement("div");
+      dropdownContent.classList.add("dropdown-content");
+  
+      // create links for dropdown content
+      const links = [
+        { href: `/Ongoing/O_af.html`, text: "A-F" },
+        { href: `/Ongoing/O_gl.html`, text: "G-L" },
+        { href: `/Ongoing/O_mq.html`, text: "M-Q" },
+        { href: `/Ongoing/O_rs.html`, text: "R-S" },
+        { href: `/Ongoing/O_tz.html`, text: "T-Z" },
+      ];
+  
+      if (i === 2) {
+        links.forEach((link, index) => {
+          link.href = link.href.replace("Ongoing", "Completed");
+          if (index === 3) {
+            link.text = "R-T";
+          } else if (index === 4) {
+            link.text = "U-Z";
+          }
+        });
+      } else if (i === 3) {
+        links.forEach((link) => {
+          link.href = link.href.replace("Ongoing", "Dropped");
+        });
+      }
+  
+      // create links and append to dropdown content
+      links.forEach((link) => {
+        const a = document.createElement("a");
+        a.setAttribute("href", link.href);
+        a.textContent = link.text;
+        dropdownContent.appendChild(a);
+      });
+  
+      // append button and dropdown content to dropdown
+      dropdown.appendChild(button);
+      dropdown.appendChild(dropdownContent);
+  
+      // append dropdown to body
+      document.body.appendChild(dropdown);
+    }
+  }
+  
+  createDropdownMenu();
+
 async function buildbody() {
 
     const body = document.getElementsByTagName('body')[0];
 
     const mangaPassionMain = document.createElement('div');
-    mangaPassionMain.setAttribute('id', 'manga-passion-main');
+    mangaPassionMain.setAttribute('id', 'Tsubasa-list-main');
     body.appendChild(mangaPassionMain);
 
     const layoutWide = document.createElement('div');
-    layoutWide.setAttribute('class', 'layout_wide__hth1c');
+    layoutWide.setAttribute('class', 'manga_layout');
     mangaPassionMain.appendChild(layoutWide);
 
     const mangaWrap = document.createElement('div');
-    mangaWrap.setAttribute('class', 'manga_wrap__e67En');
+    mangaWrap.setAttribute('class', 'manga_site_wrap');
     layoutWide.appendChild(mangaWrap);
 
     const mangaTop = document.createElement('div');
-    mangaTop.setAttribute('class', 'manga_top__u_AQK');
+    mangaTop.setAttribute('class', 'manga_header');
     mangaWrap.appendChild(mangaTop);
 
     const headingContainer = document.createElement('div');
-    headingContainer.setAttribute('class', 'heading_headingContainer__fBQPg');
+    headingContainer.setAttribute('class', 'title_header');
     mangaTop.appendChild(headingContainer);
 
     const mainHeading = document.createElement('div');
-    mainHeading.setAttribute('class', 'heading_mainHeading__t_Snx');
+    mainHeading.setAttribute('class', 'top_title_header');
     headingContainer.appendChild(mainHeading);
 
     const mangaTitle = document.createElement('div');
@@ -34,7 +116,7 @@ async function buildbody() {
     mainHeading.appendChild(mangaTitle);
 
     const subHeading = document.createElement('div');
-    subHeading.setAttribute('class', 'heading_subHeading__pBNZJ');
+    subHeading.setAttribute('class', 'sub_title_header');
     headingContainer.appendChild(subHeading);
 
     const hr = document.createElement('hr');
@@ -45,15 +127,15 @@ async function buildbody() {
     subHeading.appendChild(mangaTitleLow);
 
     const mangaLeftSidebar = document.createElement('div');
-    mangaLeftSidebar.setAttribute('class', 'manga_leftSidebar__RHamD');
+    mangaLeftSidebar.setAttribute('class', 'manga_leftSidebar');
     mangaWrap.appendChild(mangaLeftSidebar);
 
     const mangaCover = document.createElement('div');
-    mangaCover.setAttribute('class', 'manga_mangaCover__RSWVt');
+    mangaCover.setAttribute('class', 'manga_cover');
     mangaLeftSidebar.appendChild(mangaCover);
 
     const lightbox = document.createElement('span');
-    lightbox.setAttribute('class', 'lightbox_lightbox__8mcKQ');
+    lightbox.setAttribute('class', 'lightbox');
     mangaCover.appendChild(lightbox);
 
     const lightboxInner = document.createElement('span');
@@ -77,224 +159,219 @@ async function buildbody() {
     lightboxInner.appendChild(img);
 
 
-
-    const slot = document.createElement('slot');
-    slot.setAttribute('class', 'fade_fade__tyn_4');
-    mangaCover.appendChild(slot);
-
     const copyright = document.createElement('span');
     copyright.setAttribute('id', 'Copyright');
     mangaCover.appendChild(copyright);
 
     const mangaContainer = document.createElement('div');
-    mangaContainer.setAttribute('class', 'manga_container__whdYf');
+    mangaContainer.setAttribute('class', 'manga_info_container');
     mangaLeftSidebar.appendChild(mangaContainer);
 
     const mangaInfos = document.createElement('div');
-    mangaInfos.setAttribute('class', 'manga_mangaInfos__t8BCd');
+    mangaInfos.setAttribute('class', 'manga_info');
     mangaContainer.appendChild(mangaInfos);
 
     const sidebarInfoBlockDe = document.createElement('div');
-    sidebarInfoBlockDe.setAttribute('class', 'manga_sidebarInfoBlock__MPHQ4');
+    sidebarInfoBlockDe.setAttribute('class', 'manga_info_section');
     mangaInfos.appendChild(sidebarInfoBlockDe);
 
     const titleDe = document.createElement('h2');
-    titleDe.setAttribute('class', 'manga_mangaInfosTitle__VzOX6');
+    titleDe.setAttribute('class', 'manga_section_title');
     titleDe.textContent = 'Deutsche Ausgabe';
     sidebarInfoBlockDe.appendChild(titleDe);
 
     const ContentDe = document.createElement('div');
-    ContentDe.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+    ContentDe.setAttribute('class', 'manga_info_title');
     sidebarInfoBlockDe.appendChild(ContentDe);
 
     const deVerlag = document.createElement('span');
-    deVerlag.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+    deVerlag.setAttribute('class', 'manga_info_label');
     deVerlag.textContent = 'Verlag';
     ContentDe.appendChild(deVerlag);
 
     const deVerlagValue = document.createElement('span')
     deVerlagValue.setAttribute('id', 'de_Verlag');
-    deVerlagValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+    deVerlagValue.setAttribute('class', 'manga_info_content');
     ContentDe.appendChild(deVerlagValue);
 
 
     const statusDe = document.createElement('div');
-    statusDe.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+    statusDe.setAttribute('class', 'manga_info_title');
     sidebarInfoBlockDe.appendChild(statusDe);
 
     const statusDeLabel = document.createElement('span');
-    statusDeLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+    statusDeLabel.setAttribute('class', 'manga_info_label');
     statusDeLabel.textContent = 'Status';
     statusDe.appendChild(statusDeLabel);
 
     const statusDeValue = document.createElement('span');
     statusDeValue.setAttribute('id', 'status_de');
-    statusDeValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+    statusDeValue.setAttribute('class', 'manga_info_content');
     statusDe.appendChild(statusDeValue);
 
     const deformat = document.createElement('div');
-    deformat.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+    deformat.setAttribute('class', 'manga_info_title');
     sidebarInfoBlockDe.appendChild(deformat);
 
     const deFormatLabel = document.createElement('span');
-    deFormatLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+    deFormatLabel.setAttribute('class', 'manga_info_label');
     deFormatLabel.innerText = 'Format';
     deformat.appendChild(deFormatLabel);
 
     const deFormatValue = document.createElement('span');
     deFormatValue.setAttribute('id', 'format');
-    deFormatValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+    deFormatValue.setAttribute('class', 'manga_info_content');
     deformat.appendChild(deFormatValue);
 
     const deSize = document.createElement('div');
-    deSize.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+    deSize.setAttribute('class', 'manga_info_title');
     sidebarInfoBlockDe.appendChild(deSize);
 
     const deSizeLabel = document.createElement('span');
-    deSizeLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+    deSizeLabel.setAttribute('class', 'manga_info_label');
     deSizeLabel.innerText = 'Maße';
     deSize.appendChild(deSizeLabel);
 
 
     const deSizeValue = document.createElement('span');
     deSizeValue.setAttribute('id', 'size');
-    deSizeValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+    deSizeValue.setAttribute('class', 'manga_info_content');
     deSize.appendChild(deSizeValue);
 
     const deVolumes = document.createElement('div');
-    deVolumes.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+    deVolumes.setAttribute('class', 'manga_info_title');
     sidebarInfoBlockDe.appendChild(deVolumes);
 
     const deVolumesLabel = document.createElement('span');
-    deVolumesLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+    deVolumesLabel.setAttribute('class', 'manga_info_label');
     deVolumesLabel.innerText = 'Bände';
     deVolumes.appendChild(deVolumesLabel);
 
     const deVolumesLabelValue = document.createElement('span');
     deVolumesLabelValue.setAttribute('id', 'volumes_de');
-    deVolumesLabelValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+    deVolumesLabelValue.setAttribute('class', 'manga_info_content');
 
     deVolumes.appendChild(deVolumesLabelValue);
 
     const sidebarInfoBlockJp = document.createElement('div');
-    sidebarInfoBlockJp.setAttribute('class', 'manga_sidebarInfoBlock__MPHQ4');
+    sidebarInfoBlockJp.setAttribute('class', 'manga_info_section');
     mangaInfos.appendChild(sidebarInfoBlockJp);
 
     const titleJp = document.createElement('h2');
-    titleJp.setAttribute('class', 'manga_mangaInfosTitle__VzOX6');
+    titleJp.setAttribute('class', 'manga_section_title');
     titleJp.textContent = 'Erstveröffentlichung';
     sidebarInfoBlockJp.appendChild(titleJp);
 
     const StatusJp = document.createElement('div');
-    StatusJp.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+    StatusJp.setAttribute('class', 'manga_info_title');
     sidebarInfoBlockJp.appendChild(StatusJp);
 
     const StatusjpLabel = document.createElement('span');
-    StatusjpLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+    StatusjpLabel.setAttribute('class', 'manga_info_label');
 
     StatusjpLabel.textContent = 'Status ';
     StatusJp.appendChild(StatusjpLabel);
 
     const StatusjpValue = document.createElement('span')
     StatusjpValue.setAttribute('id', 'status_jp');
-    StatusjpValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+    StatusjpValue.setAttribute('class', 'manga_info_content');
     StatusJp.appendChild(StatusjpValue);
 
     const originjp = document.createElement('div');
-    originjp.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+    originjp.setAttribute('class', 'manga_info_title');
     sidebarInfoBlockJp.appendChild(originjp);
 
     const originjpLabel = document.createElement('span');
-    originjpLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+    originjpLabel.setAttribute('class', 'manga_info_label');
     originjpLabel.textContent = 'Herkunft';
     originjp.appendChild(originjpLabel);
 
     const originjpValue = document.createElement('span')
     originjpValue.setAttribute('id', 'origin');
-    originjpValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+    originjpValue.setAttribute('class', 'manga_info_content');
     originjp.appendChild(originjpValue);
 
     const typejp = document.createElement('div');
-    typejp.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+    typejp.setAttribute('class', 'manga_info_title');
     sidebarInfoBlockJp.appendChild(typejp);
 
     const typejpLabel = document.createElement('span');
-    typejpLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+    typejpLabel.setAttribute('class', 'manga_info_label');
     typejpLabel.textContent = 'Typ';
     typejp.appendChild(typejpLabel);
 
     const typejpValue = document.createElement('span')
-    typejpValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+    typejpValue.setAttribute('class', 'manga_info_content');
     typejpValue.setAttribute('id', 'jp_type');
     typejp.appendChild(typejpValue);
 
     const Verlagjp = document.createElement('div');
-    Verlagjp.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+    Verlagjp.setAttribute('class', 'manga_info_title');
     sidebarInfoBlockJp.appendChild(Verlagjp);
 
     const VerlagjpLabel = document.createElement('span');
-    VerlagjpLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+    VerlagjpLabel.setAttribute('class', 'manga_info_label');
     VerlagjpLabel.textContent = 'Verlag';
     Verlagjp.appendChild(VerlagjpLabel);
 
     const VerlagjpValue = document.createElement('span')
     VerlagjpValue.setAttribute('id', 'jp_Verlag')
-    VerlagjpValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+    VerlagjpValue.setAttribute('class', 'manga_info_content');
     Verlagjp.appendChild(VerlagjpValue);
 
     const Magazinejp = document.createElement('div');
-    Magazinejp.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+    Magazinejp.setAttribute('class', 'manga_info_title');
     sidebarInfoBlockJp.appendChild(Magazinejp);
 
     const MagazinejpLabel = document.createElement('span');
-    MagazinejpLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+    MagazinejpLabel.setAttribute('class', 'manga_info_label');
     MagazinejpLabel.textContent = 'Magazin';
     Magazinejp.appendChild(MagazinejpLabel);
 
     const MagazinejpValue = document.createElement('span')
     MagazinejpValue.setAttribute('id', 'magazin')
-    MagazinejpValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+    MagazinejpValue.setAttribute('class', 'manga_info_content');
     Magazinejp.appendChild(MagazinejpValue);
 
     const yearjp = document.createElement('div');
-    yearjp.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+    yearjp.setAttribute('class', 'manga_info_title');
     sidebarInfoBlockJp.appendChild(yearjp);
 
     const yearjpLabel = document.createElement('span');
-    yearjpLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+    yearjpLabel.setAttribute('class', 'manga_info_label');
     yearjpLabel.textContent = 'Startjahr';
     yearjp.appendChild(yearjpLabel);
 
     const yearjpValue = document.createElement('span')
     yearjpValue.setAttribute('id', 'start_year')
-    yearjpValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+    yearjpValue.setAttribute('class', 'manga_info_content');
     yearjp.appendChild(yearjpValue);
 
     const Volumejp = document.createElement('div');
-    Volumejp.setAttribute('class', 'manga_mangaInfoItem__meO0a');
+    Volumejp.setAttribute('class', 'manga_info_title');
     sidebarInfoBlockJp.appendChild(Volumejp);
 
     const VolumejpLabel = document.createElement('span');
-    VolumejpLabel.setAttribute('class', 'manga_mangaInfoLabel__O1bfg');
+    VolumejpLabel.setAttribute('class', 'manga_info_label');
     VolumejpLabel.innerText = 'Bände ';
     Volumejp.appendChild(VolumejpLabel);
 
     const VolumejpValue = document.createElement('span')
     VolumejpValue.setAttribute('id', 'jp_volumes')
-    VolumejpValue.setAttribute('class', 'manga_mangaInfoValue__sPOMH');
+    VolumejpValue.setAttribute('class', 'manga_info_content');
     Volumejp.appendChild(VolumejpValue);
 
     const mangaMainArea = document.createElement('div');
-    mangaMainArea.setAttribute('class', 'manga_mainArea__oURPo');
+    mangaMainArea.setAttribute('class', 'manga_mainArea');
     mangaWrap.appendChild(mangaMainArea);
 
     const mangaMainContainer = document.createElement('div');
-    mangaMainContainer.setAttribute('class', 'manga_container__whdYf');
+    mangaMainContainer.setAttribute('class', 'manga_info_container');
     mangaMainArea.appendChild(mangaMainContainer);
 
 
     const mangaMainContainerheader = document.createElement('div');
-    mangaMainContainerheader.setAttribute('class', 'manga_heading__g0Cgj');
+    mangaMainContainerheader.setAttribute('class', 'manga_info_heading');
     mangaMainContainer.appendChild(mangaMainContainerheader);
 
     const mangaMainContainerheadercontent = document.createElement('h6');
@@ -304,29 +381,29 @@ async function buildbody() {
 
 
     const mangaMainDescription = document.createElement('div');
-    mangaMainDescription.setAttribute('class', 'manga_description__OkTnN');
+    mangaMainDescription.setAttribute('class', 'manga_description');
     mangaMainContainer.appendChild(mangaMainDescription);
 
 
     const mangaMainDescriptionAuthor = document.createElement('ul');
     mangaMainDescriptionAuthor.setAttribute('id', 'Author');
-    mangaMainDescriptionAuthor.setAttribute('class', 'manga_details__decnm');
+    mangaMainDescriptionAuthor.setAttribute('class', 'manga_details');
     mangaMainDescription.appendChild(mangaMainDescriptionAuthor);
 
     const mangaMainDescriptionMangaka = document.createElement('ul');
     mangaMainDescriptionMangaka.setAttribute('id', 'Mangaka');
-    mangaMainDescriptionMangaka.setAttribute('class', 'manga_details__decnm');
+    mangaMainDescriptionMangaka.setAttribute('class', 'manga_details');
     mangaMainDescription.appendChild(mangaMainDescriptionMangaka);
 
 
     const mangaMainDescriptionDemografie = document.createElement('ul');
     mangaMainDescriptionDemografie.setAttribute('id', 'Demografie');
-    mangaMainDescriptionDemografie.setAttribute('class', 'manga_details__decnm');
+    mangaMainDescriptionDemografie.setAttribute('class', 'manga_details');
     mangaMainDescription.appendChild(mangaMainDescriptionDemografie);
 
     const mangaMainDescriptionGenres = document.createElement('ul');
     mangaMainDescriptionGenres.setAttribute('id', 'Genres');
-    mangaMainDescriptionGenres.setAttribute('class', 'manga_details__decnm');
+    mangaMainDescriptionGenres.setAttribute('class', 'manga_details');
     mangaMainDescription.appendChild(mangaMainDescriptionGenres);
 
     const div = document.createElement('div');
@@ -335,31 +412,29 @@ async function buildbody() {
 
     const mangaMainDescriptionSynopsis = document.createElement('div');
     mangaMainDescriptionSynopsis.setAttribute('id', 'Synopsis');
-    mangaMainDescriptionSynopsis.setAttribute('class', 'manga_description__OkTnN');
+    mangaMainDescriptionSynopsis.setAttribute('class', 'manga_description');
     mangaMainDescription.appendChild(mangaMainDescriptionSynopsis);
 
     const MainAreadiv = document.createElement('div');
     mangaMainArea.appendChild(MainAreadiv);
 
     const MainAreadivcontainerhead = document.createElement('div');
-    MainAreadivcontainerhead.setAttribute('class', 'tab-container_head__kvdCCcc');
     MainAreadiv.appendChild(MainAreadivcontainerhead);
 
     const MainAreadivcontainerscroll = document.createElement('div');
-    MainAreadivcontainerscroll.setAttribute('class', 'tab-horizontalScrollContainer_outer__nZZo_');
     MainAreadivcontainerhead.appendChild(MainAreadivcontainerscroll);
 
     const MainAreadivcontainerinner = document.createElement('div');
-    MainAreadivcontainerinner.setAttribute('class', 'tab-container_headInner__7ZHC8');
+    MainAreadivcontainerinner.setAttribute('class', 'tab-button_container');
     MainAreadivcontainerscroll.appendChild(MainAreadivcontainerinner);
 
     const MainAreadivcontainerbutton = document.createElement('button');
     MainAreadivcontainerbutton.setAttribute('type', 'button');
-    MainAreadivcontainerbutton.setAttribute('class', 'tab-container_button__o9nZD tab-container_active__aelUx button_input__3lBgD');
+    MainAreadivcontainerbutton.setAttribute('class', ' button_input__3lBgD');
     MainAreadivcontainerinner.appendChild(MainAreadivcontainerbutton);
 
     const MainAreadivcontainerspan = document.createElement('span');
-    MainAreadivcontainerspan.setAttribute('class', 'tab-container_label__xtsPM');
+    MainAreadivcontainerspan.setAttribute('class', 'button_label');
     MainAreadivcontainerspan.textContent = 'Bände';
     MainAreadivcontainerbutton.appendChild(MainAreadivcontainerspan);
 
