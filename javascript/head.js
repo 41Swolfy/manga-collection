@@ -1,9 +1,9 @@
 function buildHead() {
   const head = document.querySelector('head');
 
-  // create meta tags
-  const metaCharset = document.createElement('meta');
-  metaCharset.setAttribute('charset', 'UTF-8');
+
+  const metaCharset = document.createElement('meta'); // create meta tags
+  metaCharset.setAttribute('charset', 'UTF-8'); // sets attributes
 
   const metaCompatible = document.createElement('meta');
   metaCompatible.setAttribute('http-equiv', 'X-UA-Compatible');

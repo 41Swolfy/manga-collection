@@ -1,75 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tsubasa List</title>
-  <link rel="stylesheet" href="/styles/List.css">
-  <link rel="stylesheet" href="/styles/Dropdown.css">
-  <link rel="icon" href="/styles/Icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap" rel="stylesheet">
-
-  <script>
-    const images = [];
-    const preloadImages = (path) => {
-        const dir = new Directory(path);
-        const files = dir.getFiles();
-        for (let i = 0; i < files.length; i++) {
-            const file = files[i];
-            if (file.isImage()) {
-                images.push(file);
-            }
-        }
-        for (let i = 0; i < images.length; i++) {
-            const image = images[i];
-            const img = new Image();
-            img.src = image.getPath();
-        }
-        preloadImages('./Covers/');
-    };
-  </script>
+    <script   src = "/javascript/head2.js"></script>
+<script   src = "/javascript/preload.js"></script>
 </head>
 <body>
-  <header class="heading">
-    <a class="head-link" href="/index.html">
-      <h1>Tsubasa List</h1>
-    </a>
-  </header>
-  <div class="dropdown" id="dropdown-1">
-    <button class="drop-btn">Ongoing ▼</button>
-    <div class="dropdown-content">
-      <a href="/Ongoing/O_af.html">A-F</a>
-      <a href="/Ongoing/O_gl.html">G-L</a>
-      <a href="/Ongoing/O_mq.html">M-Q</a>
-      <a href="/Ongoing/O_rs.html">R-S</a>
-      <a href="/Ongoing/O_tz.html">T-Z</a>
-    </div>
-  </div>
-  <div class="dropdown" id="dropdown-2">
-    <button class="drop-btn">Completed ▼</button>
-    <div class="dropdown-content">
-      <a href="../Completed/C_af.html">A-F</a>
-      <a href="../Completed/C_gl.html">G-L</a>
-      <a href="../Completed/C_mq.html">M-Q</a>
-      <a href="../Completed/C_rt.html">R-T</a>
-      <a href="../Completed/C_uz.html">U-Z</a>
-    </div>
-  </div>
-  <div class="dropdown" id="dropdown-3">
-    <button class="drop-btn">Dropped ▼</button>
-    <div class="dropdown-content">
-      <a href="../Dropped/D_af.html">A-F</a>
-      <a href="../Dropped/D_gl.html">G-L</a>
-      <a href="../Dropped/D_mq.html">M-Q</a>
-      <a href="../Dropped/D_rt.html">R-T</a>
-      <a href="../Dropped/D_uz.html">U-Z</a>
-    </div>
-  </div>
+  <script src = "/javascript/drop.js"> </script>
 
-  <div class="manga-list_listItemWrapper__yGfsU "><a class="manga-site-hover" href="./Webistes/Momo.html">
+  <div class="manga-list_listItemWrapper__yGfsU "><a class="manga-site-hover" href="./Websites/Momo.html">
     <div class="manga-list_listItemInner__0FuDM">
       <div class="manga-list_imageContainer__2sxd2"><span
           style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><span
@@ -118,7 +56,7 @@
     </div>
   </a></div>
 
-  <div class="manga-list_listItemWrapper__yGfsU "><a class="manga-site-hover" href="./Webistes/Mars_Red.html">
+  <div class="manga-list_listItemWrapper__yGfsU "><a class="manga-site-hover" href="./Websites/Mars_Red.html">
     <div class="manga-list_listItemInner__0FuDM">
       <div class="manga-list_imageContainer__2sxd2"><span
           style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><span
@@ -167,7 +105,7 @@
     </div>
   </a></div>
 
-  <div class="manga-list_listItemWrapper__yGfsU "><a class="manga-site-hover" href="./Webistes/Sono_Bisque_Doll_wa_koi_wo_suru.html">
+  <div class="manga-list_listItemWrapper__yGfsU "><a class="manga-site-hover" href="./Websites/Sono_Bisque_Doll_wa_koi_wo_suru.html">
     <div class="manga-list_listItemInner__0FuDM">
       <div class="manga-list_imageContainer__2sxd2"><span
           style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><span
@@ -215,7 +153,7 @@
     </div>
   </a></div>
 
-  <div class="manga-list_listItemWrapper__yGfsU "><a class="manga-site-hover" href="./Webistes/Evangelion.html">
+  <div class="manga-list_listItemWrapper__yGfsU "><a class="manga-site-hover" href="./Websites/Evangelion.html">
     <div class="manga-list_listItemInner__0FuDM">
       <div class="manga-list_imageContainer__2sxd2"><span
           style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><span
