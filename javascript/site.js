@@ -82,6 +82,15 @@ function createDropdownMenu() {
             a.textContent = link.text;
             dropdownContent.appendChild(a);
         });
+        if (i === 3) {
+            const invincibleLink = document.createElement("a");
+            invincibleLink.setAttribute("href", "/swolfy.html");
+   
+            dropdownContent.appendChild(invincibleLink);
+        }
+
+        
+        
 
         // append button and dropdown content to dropdown
         dropdown.appendChild(button);
