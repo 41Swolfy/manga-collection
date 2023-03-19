@@ -103,7 +103,7 @@ function createDropdownMenu() {
 
 createDropdownMenu();
 
-async function buildbody() {
+ function buildbody() {
 
     const body = document.getElementsByTagName('body')[0];
 

@@ -1,3 +1,5 @@
+
+function loadpictures(){
 const images = [];
 const preloadImages = (path) => {
     const dir = new Directory(path);
@@ -15,3 +17,6 @@ const preloadImages = (path) => {
     }
     preloadImages('./Covers/');
 };
+
+}
+loadpictures();
