@@ -15,11 +15,13 @@ a a.dropdown {
   background-color: transparent;
   text-decoration: none;
 }
+
 a {
   color: whitesmoke;
   background-color: transparent;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -27,7 +29,7 @@ a:hover {
 /* Header Styles */
 
 .heading {
-  font-family: 'Bilbo Swash Caps', cursive; 
+  font-family: 'Bilbo Swash Caps', cursive;
   color: whitesmoke;
   font-size: 250%;
   text-align: center;
@@ -44,8 +46,9 @@ header {
 .dropdown {
   position: relative;
   display: inline-block;
-  width: calc(33.33% - 6px); /* calculate the width based on the number of buttons and add some margin */
-  
+  width: calc(33.33% - 6px);
+  /* calculate the width based on the number of buttons and add some margin */
+
 }
 
 /* Add margin to the first and last dropdown */
@@ -75,9 +78,12 @@ header {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   width: 100%;
-  max-height: 0; /* set max-height to 0 to hide the content */
-  overflow: hidden; /* hide any overflowing content */
-  transition: max-height 0.4s ease-in; /* add a smooth animation effect */
+  max-height: 0;
+  /* set max-height to 0 to hide the content */
+  overflow: hidden;
+  /* hide any overflowing content */
+  transition: max-height 0.4s ease-in;
+  /* add a smooth animation effect */
 }
 
 .dropdown-content a {
@@ -87,16 +93,17 @@ header {
 }
 
 .dropdown:hover .dropdown-content {
-  max-height: 500px; /* set a maximum height to reveal the content */
+  max-height: 500px;
+  /* set a maximum height to reveal the content */
 }
 
 /* Slow down the animation on small screens */
 @media screen and (max-width: 768px) {
   .dropdown-content {
-    transition: max-height 1.35s ease; 
+    transition: max-height 1.35s ease;
   }
 }
+
 .dropdown {
   margin-bottom: 220px;
 }
-

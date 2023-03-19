@@ -6,34 +6,34 @@ async function buildbody() {
     Main.setAttribute('id', 'Tsubasa-list-main');// set the id attribute to Tsubasa-list-main
     body.appendChild(Main);// append Main to the body element of the document
 
-  
-
-
-
-    
 
 
 
 
 
-    
 
 
 
-    
 
-   
-    
+
+
+
+
+
+
+
+
+
 
 
     const mangaMainArea = document.createElement('div');
     mangaMainArea.setAttribute('class', 'manga_mainArea');
     Main.appendChild(mangaMainArea);// appends mangaMainArea as child to mangaWrap
 
-    
 
 
-    
+
+
 
     const MainAreadiv = document.createElement('div');
     mangaMainArea.appendChild(MainAreadiv);// appends MainAreadiv as child to mangaMainArea
@@ -50,7 +50,7 @@ async function buildbody() {
 
     const MainAreadivcontainerbutton = document.createElement('button');
     MainAreadivcontainerbutton.setAttribute('type', 'button');
-    MainAreadivcontainerbutton.setAttribute('class', ' button_input__3lBgD');
+    MainAreadivcontainerbutton.setAttribute('class', ' manga_button');
     MainAreadivcontainerinner.appendChild(MainAreadivcontainerbutton);// appends MainAreadivcontainerbutton as child to MainAreadivcontainerinner
 
     const MainAreadivcontainerspan = document.createElement('span');
@@ -167,7 +167,7 @@ async function getdata() {
             title.textContent = data[i].title;
             to.appendChild(title);
 
-            
+
             const priceText = document.createElement("span");
             priceText.className = "manga_textborder";
 

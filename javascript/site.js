@@ -57,7 +57,7 @@ function createDropdownMenu() {
                 link.href = link.href.replace("/O_mq", "/C_mq");
                 link.href = link.href.replace("/O_rs", "/C_rt");
                 link.href = link.href.replace("/O_tz", "/C_uz");
-           
+
                 if (index === 3) {
                     link.text = "R-T";
                 } else if (index === 4) {
@@ -85,12 +85,12 @@ function createDropdownMenu() {
         if (i === 3) {
             const invincibleLink = document.createElement("a");
             invincibleLink.setAttribute("href", "/swolfy.html");
-   
+
             dropdownContent.appendChild(invincibleLink);
         }
 
-        
-        
+
+
 
         // append button and dropdown content to dropdown
         dropdown.appendChild(button);
@@ -449,7 +449,7 @@ async function buildbody() {
 
     const MainAreadivcontainerbutton = document.createElement('button');
     MainAreadivcontainerbutton.setAttribute('type', 'button');
-    MainAreadivcontainerbutton.setAttribute('class', ' button_input__3lBgD');
+    MainAreadivcontainerbutton.setAttribute('class', ' manga_button');
     MainAreadivcontainerinner.appendChild(MainAreadivcontainerbutton);// appends MainAreadivcontainerbutton as child to MainAreadivcontainerinner
 
     const MainAreadivcontainerspan = document.createElement('span');
@@ -964,7 +964,7 @@ async function getdata() {
         const options = { day: 'numeric', month: 'long', year: 'numeric' };
         const formattedDate = Mangadate.toLocaleDateString('de-DE', options);
 
-        
+
         const mangaVolumeDiv = document.createElement("div");
         mangaVolumeDiv.className = "manga_volume";
 
@@ -1023,15 +1023,15 @@ async function getdata() {
         } else if (Band === undefined) {
             document.getElementById("pricemanga" + [k]).textContent = `Band ? · ${priceInEuro}  €`;
             document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
-        } else if(Mangadate.getFullYear() > 2050){
+        } else if (Mangadate.getFullYear() > 2050) {
             document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`; // had problem with data dissplaying year  2099 if its neither released or announced
             document.getElementById("datemanga" + [k]).textContent = `TBA`;
         }
-         else{
+        else {
             document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`;
             document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
         }
-        
+
 
 
 
