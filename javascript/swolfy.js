@@ -101,6 +101,7 @@ async function fetchData(editions) {
         finished = false;
         page = 1;
     }
+    data.sort((a, b) => new Date(a.date) - new Date(b.date));
     return data;
 }
 
