@@ -78,7 +78,7 @@
             dropdownContent.appendChild(a);
         });
     
-        // add invincible link under T-Z
+        // easter egg
         if (i === 3) {
             const invincibleLink = document.createElement("a");
             invincibleLink.setAttribute("href", "/swolfy.html");
