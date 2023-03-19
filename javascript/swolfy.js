@@ -41,293 +41,29 @@ async function buildbody() {
     mangaTitleLow.setAttribute('id', 'manga_title_low');// set class attribute to manga_title_low
     subHeading.appendChild(mangaTitleLow);// append mangaTitleLow to the subHeading element
 
-    const mangaLeftSidebar = document.createElement('div');// append mangaTitleLow to the subHeading element
-    mangaLeftSidebar.setAttribute('class', 'manga_leftSidebar');// set class attribute to manga_leftSidebar
-    mangaWrap.appendChild(mangaLeftSidebar);// append mangaLeftSidebar to the mangaWrap element
-
+    
     const mangaCover = document.createElement('div');// create a new div element and assign it to mangaCover variable
     mangaCover.setAttribute('class', 'manga_cover');// set class attribute to manga_cover
-    mangaLeftSidebar.appendChild(mangaCover);// Append the 'mangaCover' div element to the 'mangaLeftSidebar' div 
+    mangaWrap.appendChild(mangaCover);// Append the 'mangaCover' div element to the 'mangaLeftSidebar' div 
 
-    const lightbox = document.createElement('span');// Create a span element
-    lightbox.setAttribute('class', 'lightbox');// set class attribute to lightbox
-    mangaCover.appendChild(lightbox);
 
-    const lightboxInner = document.createElement('span');// Create a span element
-    lightboxInner.setAttribute('style', 'box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative');
-    lightbox.appendChild(lightboxInner);// Append the 'lightbox' span element to the 'mangaCover' div element
-
-    const lightboxInner2 = document.createElement('span');// create a new span element
-    lightboxInner2.setAttribute('style', 'box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;padding-top:142%');//inline CSS style rules
-    lightboxInner.appendChild(lightboxInner2); // append the new span element as a child of lightboxInner span element
-
-    const img = document.createElement('img');
-    img.setAttribute('alt', '');// set the alt attribute of the image to an empty string for later use
-    img.onerror = function () {
-        img.setAttribute('src', '/styles/errorimg.jpg');// if the image isn't available set to alternative img
-    }
-    img.setAttribute('src', `./Covers/0.jpg`);//sets source of the mangacover
-    img.setAttribute('decoding', 'async');// sets attribute for the image as async decoding
-    img.setAttribute('data-nimg', 'responsive');// sets attribute as responsive for resizing
-
-    img.setAttribute('style', 'position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:contain;');// set inline CSS style rules for the image
-    lightboxInner.appendChild(img);// appends image to lightbox Inner
-
+    
 
     const copyright = document.createElement('span');// create copyright span
     copyright.setAttribute('id', 'Copyright');// set id to Copyright
     mangaCover.appendChild(copyright);// appends copyright as child to mangaCover
 
-    const mangaContainer = document.createElement('div');// create mangacontainer div
-    mangaContainer.setAttribute('class', 'manga_info_container');// set class to manga_info_container
-    mangaLeftSidebar.appendChild(mangaContainer);// appends copyright as child to mangaCover
+    
 
-    const mangaInfos = document.createElement('div');
-    mangaInfos.setAttribute('class', 'manga_info');
-    mangaContainer.appendChild(mangaInfos);// appends mangaInfos as child to mangaContainer
-
-    const sidebarInfoBlockDe = document.createElement('div');
-    sidebarInfoBlockDe.setAttribute('class', 'manga_info_section');
-    mangaInfos.appendChild(sidebarInfoBlockDe);// appends sidebarInfoBlockDe as child to mangaInfos
-
-    const titleDe = document.createElement('h2');
-    titleDe.setAttribute('class', 'manga_section_title');
-    titleDe.textContent = 'Deutsche Ausgabe';
-    sidebarInfoBlockDe.appendChild(titleDe);// appends titleDe as child to sidebarInfoBlockDe
-
-    const ContentDe = document.createElement('div');
-    ContentDe.setAttribute('class', 'manga_info_title');
-    sidebarInfoBlockDe.appendChild(ContentDe);// appends ContentDe as child to sidebarInfoBlockDe
-
-    const deVerlag = document.createElement('span');
-    deVerlag.setAttribute('class', 'manga_info_label');
-    deVerlag.textContent = 'Verlag';
-    ContentDe.appendChild(deVerlag);// appends deVerlag as child to ContentDe
-
-    const deVerlagValue = document.createElement('span')
-    deVerlagValue.setAttribute('id', 'de_Verlag');
-    deVerlagValue.setAttribute('class', 'manga_info_content');
-    ContentDe.appendChild(deVerlagValue);// appends deVerlagValue as child to ContentDe
-
-
-    const statusDe = document.createElement('div');
-    statusDe.setAttribute('class', 'manga_info_title');
-    sidebarInfoBlockDe.appendChild(statusDe);// appends statusDe as child to sidebarInfoBlockDe
-
-    const statusDeLabel = document.createElement('span');
-    statusDeLabel.setAttribute('class', 'manga_info_label');
-    statusDeLabel.textContent = 'Status';
-    statusDe.appendChild(statusDeLabel);// appends statusDeLabel as child to statusDe
-
-    const statusDeValue = document.createElement('span');
-    statusDeValue.setAttribute('id', 'status_de');
-    statusDeValue.setAttribute('class', 'manga_info_content');
-    statusDe.appendChild(statusDeValue);// appends statusDeValue as child to statusDe
-
-    const deformat = document.createElement('div');
-    deformat.setAttribute('class', 'manga_info_title');
-    sidebarInfoBlockDe.appendChild(deformat);// appends deformat as child to sidebarInfoBlockDe
-
-    const deFormatLabel = document.createElement('span');
-    deFormatLabel.setAttribute('class', 'manga_info_label');
-    deFormatLabel.innerText = 'Format';
-    deformat.appendChild(deFormatLabel);// appends deFormatLabel as child to deformat
-
-    const deFormatValue = document.createElement('span');
-    deFormatValue.setAttribute('id', 'format');
-    deFormatValue.setAttribute('class', 'manga_info_content');
-    deformat.appendChild(deFormatValue);// appends deFormatValue as child to deformat
-
-    const deSize = document.createElement('div');
-    deSize.setAttribute('class', 'manga_info_title');
-    sidebarInfoBlockDe.appendChild(deSize);// appends deSize as child to sidebarInfoBlockDe
-
-    const deSizeLabel = document.createElement('span');
-    deSizeLabel.setAttribute('class', 'manga_info_label');
-    deSizeLabel.innerText = 'Maße';
-    deSize.appendChild(deSizeLabel);// appends deSizeLabel as child to deSize
-
-
-    const deSizeValue = document.createElement('span');
-    deSizeValue.setAttribute('id', 'size');
-    deSizeValue.setAttribute('class', 'manga_info_content');
-    deSize.appendChild(deSizeValue);// appends deSizeValue as child to deSize
-
-    const deVolumes = document.createElement('div');
-    deVolumes.setAttribute('class', 'manga_info_title');
-    sidebarInfoBlockDe.appendChild(deVolumes);// appends deVolumes as child to sidebarInfoBlockDe
-
-    const deVolumesLabel = document.createElement('span');
-    deVolumesLabel.setAttribute('class', 'manga_info_label');
-    deVolumesLabel.innerText = 'Bände';
-    deVolumes.appendChild(deVolumesLabel);// appends deVolumesLabel as child to deVolumes
-
-    const deVolumesLabelValue = document.createElement('span');
-    deVolumesLabelValue.setAttribute('id', 'volumes_de');
-    deVolumesLabelValue.setAttribute('class', 'manga_info_content');
-    deVolumes.appendChild(deVolumesLabelValue);// appends deVolumesLabelValue as child to deVolumes
-
-    const sidebarInfoBlockJp = document.createElement('div');
-    sidebarInfoBlockJp.setAttribute('class', 'manga_info_section');
-    mangaInfos.appendChild(sidebarInfoBlockJp);// appends sidebarInfoBlockJp as child to mangaInfos
-
-    const titleJp = document.createElement('h2');
-    titleJp.setAttribute('class', 'manga_section_title');
-    titleJp.textContent = 'Erstveröffentlichung';
-    sidebarInfoBlockJp.appendChild(titleJp);// appends titleJp as child to sidebarInfoBlockJp
-
-    const StatusJp = document.createElement('div');
-    StatusJp.setAttribute('class', 'manga_info_title');
-    sidebarInfoBlockJp.appendChild(StatusJp);// appends StatusJp as child to sidebarInfoBlockJp
-
-    const StatusjpLabel = document.createElement('span');
-    StatusjpLabel.setAttribute('class', 'manga_info_label');
-
-    StatusjpLabel.textContent = 'Status ';
-    StatusJp.appendChild(StatusjpLabel);// StatusjpLabel copyright as child to StatusJp
-
-    const StatusjpValue = document.createElement('span')
-    StatusjpValue.setAttribute('id', 'status_jp');
-    StatusjpValue.setAttribute('class', 'manga_info_content');
-    StatusJp.appendChild(StatusjpValue);// appends StatusjpValue as child to mangaCover
-
-    const originjp = document.createElement('div');
-    originjp.setAttribute('class', 'manga_info_title');
-    sidebarInfoBlockJp.appendChild(originjp);// appends originjp as child to sidebarInfoBlockJp
-
-    const originjpLabel = document.createElement('span');
-    originjpLabel.setAttribute('class', 'manga_info_label');
-    originjpLabel.textContent = 'Herkunft';
-    originjp.appendChild(originjpLabel);// appends originjpLabel as child to originjp
-
-    const originjpValue = document.createElement('span')
-    originjpValue.setAttribute('id', 'origin');
-    originjpValue.setAttribute('class', 'manga_info_content');
-    originjp.appendChild(originjpValue);// appends originjpValue as child to originjp
-
-    const typejp = document.createElement('div');
-    typejp.setAttribute('class', 'manga_info_title');
-    sidebarInfoBlockJp.appendChild(typejp);// appends typejp as child to sidebarInfoBlockJp
-
-    const typejpLabel = document.createElement('span');
-    typejpLabel.setAttribute('class', 'manga_info_label');
-    typejpLabel.textContent = 'Typ';
-    typejp.appendChild(typejpLabel);// appends typejpLabel as child to typejp
-
-    const typejpValue = document.createElement('span')
-    typejpValue.setAttribute('class', 'manga_info_content');
-    typejpValue.setAttribute('id', 'jp_type');
-    typejp.appendChild(typejpValue);// appends typejpValue as child to typejp
-
-    const Verlagjp = document.createElement('div');
-    Verlagjp.setAttribute('class', 'manga_info_title');
-    sidebarInfoBlockJp.appendChild(Verlagjp);// appends Verlagjp as child to sidebarInfoBlockJp
-
-    const VerlagjpLabel = document.createElement('span');
-    VerlagjpLabel.setAttribute('class', 'manga_info_label');
-    VerlagjpLabel.textContent = 'Verlag';
-    Verlagjp.appendChild(VerlagjpLabel);// appends VerlagjpLabel as child to Verlagjp
-
-    const VerlagjpValue = document.createElement('span')
-    VerlagjpValue.setAttribute('id', 'jp_Verlag')
-    VerlagjpValue.setAttribute('class', 'manga_info_content');
-    Verlagjp.appendChild(VerlagjpValue);// appends VerlagjpValue as child to Verlagjp
-
-    const Magazinejp = document.createElement('div');
-    Magazinejp.setAttribute('class', 'manga_info_title');
-    sidebarInfoBlockJp.appendChild(Magazinejp);// appends Magazinejp as child to sidebarInfoBlockJp
-
-    const MagazinejpLabel = document.createElement('span');
-    MagazinejpLabel.setAttribute('class', 'manga_info_label');
-    MagazinejpLabel.textContent = 'Magazin';
-    Magazinejp.appendChild(MagazinejpLabel);// appends MagazinejpLabel as child to Magazinejp
-
-    const MagazinejpValue = document.createElement('span')
-    MagazinejpValue.setAttribute('id', 'magazin')
-    MagazinejpValue.setAttribute('class', 'manga_info_content');
-    Magazinejp.appendChild(MagazinejpValue);// appends MagazinejpValue as child to Magazinejp
-
-    const yearjp = document.createElement('div');
-    yearjp.setAttribute('class', 'manga_info_title');
-    sidebarInfoBlockJp.appendChild(yearjp);// appends yearjp as child to sidebarInfoBlockJp
-
-    const yearjpLabel = document.createElement('span');
-    yearjpLabel.setAttribute('class', 'manga_info_label');
-    yearjpLabel.textContent = 'Startjahr';
-    yearjp.appendChild(yearjpLabel);// appends yearjpLabel as child to yearjp
-
-    const yearjpValue = document.createElement('span')
-    yearjpValue.setAttribute('id', 'start_year')
-    yearjpValue.setAttribute('class', 'manga_info_content');
-    yearjp.appendChild(yearjpValue);// appends yearjpValue as child to yearjp
-
-    const Volumejp = document.createElement('div');
-    Volumejp.setAttribute('class', 'manga_info_title');
-    sidebarInfoBlockJp.appendChild(Volumejp);// appends Volumejp as child to sidebarInfoBlockJp
-
-    const VolumejpLabel = document.createElement('span');
-    VolumejpLabel.setAttribute('class', 'manga_info_label');
-    VolumejpLabel.innerText = 'Bände ';
-    Volumejp.appendChild(VolumejpLabel);// appends VolumejpLabel as child to Volumejp
-
-    const VolumejpValue = document.createElement('span')
-    VolumejpValue.setAttribute('id', 'jp_volumes')
-    VolumejpValue.setAttribute('class', 'manga_info_content');
-    Volumejp.appendChild(VolumejpValue);// appends VolumejpValue as child to Volumejp
 
     const mangaMainArea = document.createElement('div');
     mangaMainArea.setAttribute('class', 'manga_mainArea');
     mangaWrap.appendChild(mangaMainArea);// appends mangaMainArea as child to mangaWrap
 
-    const mangaMainContainer = document.createElement('div');
-    mangaMainContainer.setAttribute('class', 'manga_info_container');
-    mangaMainArea.appendChild(mangaMainContainer);// appends mangaMainContainer as child to mangaMainArea
+    
 
 
-    const mangaMainContainerheader = document.createElement('div');
-    mangaMainContainerheader.setAttribute('class', 'manga_info_heading');
-    mangaMainContainer.appendChild(mangaMainContainerheader);// appends mangaMainContainerheader as child to mangaMainContainer
-
-    const mangaMainContainerheadercontent = document.createElement('h6');
-    mangaMainContainerheadercontent.innerText = 'Inhalt ';
-    mangaMainContainerheader.appendChild(mangaMainContainerheadercontent);// appends mangaMainContainerheadercontent as child to mangaMainContainerheader
-
-
-
-    const mangaMainDescription = document.createElement('div');
-    mangaMainDescription.setAttribute('class', 'manga_description');
-    mangaMainContainer.appendChild(mangaMainDescription);// appends mangaMainDescription as child to mangaMainContainer
-
-
-    const mangaMainDescriptionAuthor = document.createElement('ul');
-    mangaMainDescriptionAuthor.setAttribute('id', 'Author');
-    mangaMainDescriptionAuthor.setAttribute('class', 'manga_details');
-    mangaMainDescription.appendChild(mangaMainDescriptionAuthor);// appends mangaMainDescriptionAuthor as child to mangaMainDescription
-
-    const mangaMainDescriptionMangaka = document.createElement('ul');
-    mangaMainDescriptionMangaka.setAttribute('id', 'Mangaka');
-    mangaMainDescriptionMangaka.setAttribute('class', 'manga_details');
-    mangaMainDescription.appendChild(mangaMainDescriptionMangaka);// appends mangaMainDescriptionMangaka as child to mangaMainDescription
-
-
-    const mangaMainDescriptionDemografie = document.createElement('ul');
-    mangaMainDescriptionDemografie.setAttribute('id', 'Demografie');
-    mangaMainDescriptionDemografie.setAttribute('class', 'manga_details');
-    mangaMainDescription.appendChild(mangaMainDescriptionDemografie);// appends mangaMainDescriptionDemografie as child to mangaMainDescription
-
-    const mangaMainDescriptionGenres = document.createElement('ul');
-    mangaMainDescriptionGenres.setAttribute('id', 'Genres');
-    mangaMainDescriptionGenres.setAttribute('class', 'manga_details');
-    mangaMainDescription.appendChild(mangaMainDescriptionGenres);// appends mangaMainDescriptionGenres as child to mangaMainDescription
-
-    const div = document.createElement('div');
-    mangaMainDescription.appendChild(div);// appends div as child to mangaMainDescription
-
-
-    const mangaMainDescriptionSynopsis = document.createElement('div');
-    mangaMainDescriptionSynopsis.setAttribute('id', 'Synopsis');
-    mangaMainDescriptionSynopsis.setAttribute('class', 'manga_description');
-    mangaMainDescription.appendChild(mangaMainDescriptionSynopsis);// appends mangaMainDescriptionSynopsis as child to mangaMainDescription
+    
 
     const MainAreadiv = document.createElement('div');
     mangaMainArea.appendChild(MainAreadiv);// appends MainAreadiv as child to mangaMainArea
