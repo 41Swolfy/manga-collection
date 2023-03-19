@@ -25,16 +25,16 @@
         const dropdown = document.createElement("div");
         dropdown.classList.add("dropdown");
         dropdown.setAttribute("id", `dropdown-${i}`);
-
+    
         // create button element
         const button = document.createElement("button");
         button.classList.add("drop-btn");
         button.textContent = i === 1 ? "Ongoing ▼" : i === 2 ? "Completed ▼" : "Dropped ▼";
-
+    
         // create dropdown content element
         const dropdownContent = document.createElement("div");
         dropdownContent.classList.add("dropdown-content");
-
+    
         // create links for dropdown content
         const links = [
             { href: `/Ongoing/O_af.html`, text: "A-F" },
@@ -42,9 +42,8 @@
             { href: `/Ongoing/O_mq.html`, text: "M-Q" },
             { href: `/Ongoing/O_rs.html`, text: "R-S" },
             { href: `/Ongoing/O_tz.html`, text: "T-Z" },
-            { href: `/swolfy.html`, text: "" }
         ];
-
+    
         if (i === 2) {
             links.forEach((link, index) => {
                 link.href = link.href.replace("Ongoing", "Completed");
@@ -53,7 +52,7 @@
                 link.href = link.href.replace("/O_mq", "/C_mq");
                 link.href = link.href.replace("/O_rs", "/C_rt");
                 link.href = link.href.replace("/O_tz", "/C_uz");
-           
+    
                 if (index === 3) {
                     link.text = "R-T";
                 } else if (index === 4) {
@@ -70,7 +69,7 @@
                 link.href = link.href.replace("/O_tz", "/D_uz");
             });
         }
-
+    
         // create links and append to dropdown content
         links.forEach((link) => {
             const a = document.createElement("a");
@@ -78,14 +77,23 @@
             a.textContent = link.text;
             dropdownContent.appendChild(a);
         });
-
+    
+        // add invincible link under T-Z
+        if (i === 3) {
+            const invincibleLink = document.createElement("a");
+            invincibleLink.setAttribute("href", "/swolfy.html");
+         
+            dropdownContent.appendChild(invincibleLink);
+        }
+    
         // append button and dropdown content to dropdown
         dropdown.appendChild(button);
         dropdown.appendChild(dropdownContent);
-
+    
         // append dropdown to body
         document.body.appendChild(dropdown);
     }
+    
 }
 
 createDropdownMenu();
