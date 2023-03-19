@@ -6,59 +6,29 @@ async function buildbody() {
     Main.setAttribute('id', 'Tsubasa-list-main');// set the id attribute to Tsubasa-list-main
     body.appendChild(Main);// append Main to the body element of the document
 
-    const layoutWide = document.createElement('div');// append Main to the body element of the document
-    layoutWide.setAttribute('class', 'manga_layout');// set class attribute to manga_layout
-    Main.appendChild(layoutWide);// append layoutWide to the Main element
+  
 
-    const mangaWrap = document.createElement('div');// create a div element assign it to mangaWrap variable
-    mangaWrap.setAttribute('class', 'manga_site_wrap');//  set class attribute to manga_site_wrap
-    layoutWide.appendChild(mangaWrap);//append  mangaWrap to the layoutWide element
-
-    const mangaTop = document.createElement('div');// create a new div element and assign it to mangaTop variable
-    mangaTop.setAttribute('class', 'manga_header');// set class attribute to manga_header
-    mangaWrap.appendChild(mangaTop);// append mangaTop to the mangaWrap element
-
-    const headingContainer = document.createElement('div');// create a new div element and assign it to headingContainer variable
-    headingContainer.setAttribute('class', 'title_header');// set class attribute to title_header
-    mangaTop.appendChild(headingContainer);// append headingContainer to the mangaTop element
-
-    const mainHeading = document.createElement('div');// create a new div element and assign it to mainHeading variable
-    mainHeading.setAttribute('class', 'top_title_header');// set class attribute to top_title_header
-    headingContainer.appendChild(mainHeading);// append mainHeading to the headingContainer element
-
-    const mangaTitle = document.createElement('div');// append mainHeading to the headingContainer element
-    mangaTitle.setAttribute('id', 'manga_title');// // set id attribute to manga_title
-    mainHeading.appendChild(mangaTitle);
-
-    const subHeading = document.createElement('div');// create a new div element and assign it to subHeading variable
-    subHeading.setAttribute('class', 'sub_title_header');// set class attribute to sub_title_header
-    headingContainer.appendChild(subHeading);// append subHeading to the headingContainer element
-
-    const hr = document.createElement('hr');// create a new hr element
-    subHeading.appendChild(hr);// append hr to the subHeading element
-
-    const mangaTitleLow = document.createElement('div');// create a new div element and assign it to mangaTitleLow variable
-    mangaTitleLow.setAttribute('id', 'manga_title_low');// set class attribute to manga_title_low
-    subHeading.appendChild(mangaTitleLow);// append mangaTitleLow to the subHeading element
-
-    
-    const mangaCover = document.createElement('div');// create a new div element and assign it to mangaCover variable
-    mangaCover.setAttribute('class', 'manga_cover');// set class attribute to manga_cover
-    mangaWrap.appendChild(mangaCover);// Append the 'mangaCover' div element to the 'mangaLeftSidebar' div 
 
 
     
 
-    const copyright = document.createElement('span');// create copyright span
-    copyright.setAttribute('id', 'Copyright');// set id to Copyright
-    mangaCover.appendChild(copyright);// appends copyright as child to mangaCover
 
+
+
+
+    
+
+
+
+    
+
+   
     
 
 
     const mangaMainArea = document.createElement('div');
     mangaMainArea.setAttribute('class', 'manga_mainArea');
-    mangaWrap.appendChild(mangaMainArea);// appends mangaMainArea as child to mangaWrap
+    Main.appendChild(mangaMainArea);// appends mangaMainArea as child to mangaWrap
 
     
 
