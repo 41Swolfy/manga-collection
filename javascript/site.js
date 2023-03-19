@@ -2,7 +2,7 @@ var edition;
 var imgname;
 
 
-//missing manga kill la kill; Rosario Vampire,Chainsawman Buddy stories; Artbooks ; Eva, Black Butler;One Piece Z,Naruto Massive,
+//missing manga ; Rosario Vampire,Chainsawman Buddy stories; Artbooks ; Eva, Black Butler;One Piece Z,Naruto Massive,
 function createDropdownMenu() {
     // create header element
     const header = document.createElement("header");
@@ -480,7 +480,10 @@ createDropdownMenu();
 
 (async () => {
     await getdata();
-})();
+  })();
+  
+
+  
 
 buildbody();
 
@@ -897,7 +900,7 @@ async function getTitles() {
 
     switch (statustext_de) {
         case undefined:
-            document.getElementById("format").textContent = `unbekannt`;
+            document.getElementById("status_de").textContent = `unbekannt`;
             break;
         default:
             document.getElementById("status_de").textContent = `${statustext_de}`;
@@ -906,7 +909,7 @@ async function getTitles() {
 
     switch (statustext_jp) {
         case undefined:
-            document.getElementById("format").textContent = `unbekannt`;
+            document.getElementById("status_jp").textContent = `unbekannt`;
             break;
         default:
             document.getElementById("status_jp").textContent = `${statustext_jp}`;
@@ -915,7 +918,7 @@ async function getTitles() {
 
     switch (description) {
         case undefined:
-            document.getElementById("format").textContent = `unbekannt`;
+            document.getElementById("Synopsis").textContent = `unbekannt`;
             break;
         default:
             document.getElementById("Synopsis").textContent = `${description}`;
@@ -927,46 +930,34 @@ async function getTitles() {
     // instead sets text to"undefined" if its undefined it sets it to another text
 
 
-    switch (dasdasdasd) {
-        case undefined:
 
+
+    switch (de_verlag) {
+        case undefined:
+            document.getElementById("de_Verlag").textContent = `<li>unbekannt</li>`;
             break;
         default:
-
+            document.getElementById("de_Verlag").innerHTML = `<li>${de_verlag}</li>`;
             break;
 
     }
 
-    if (de_verlag == undefined) {
-        document.getElementById("format").textContent = `<li>unbekannt</li>`;
-
-    } else {
-
-        document.getElementById("de_Verlag").innerHTML = `<li>${de_verlag}</li>`;
-    }
-
-    switch (dasdasdasd) {
+    
+    switch (demo) {
         case undefined:
-
+            document.getElementById("Demografie").textContent = `<li>unbekannt</li>`;
             break;
         default:
-
+            document.getElementById("Demografie").innerHTML = `Demografie <li>${demo[0]}</li>`;
             break;
 
     }
 
-
-    if (demo == undefined) {
-        document.getElementById("format").textContent = `<li>unbekannt</li>`;
-
-    } else {
-
-        document.getElementById("Demografie").innerHTML = `Demografie <li>${demo[0]}</li>`;
-    }
+  
 
     switch (remainingGenres) {
         case undefined:
-            document.getElementById("format").textContent = `<li>unbekannt</li>`;
+            document.getElementById("Genres").textContent = `<li>unbekannt</li>`;
             break;
         default:
             document.getElementById("Genres").innerHTML = `Genres<li> ${remainingGenres.join("</li><li>")}`;
@@ -988,9 +979,9 @@ async function getTitles() {
 
   
 
-    switch (origintext) {
+    switch (typetext) {
         case undefined:
-            document.getElementById("format").textContent = `<li>unbekannt</li>`;
+            document.getElementById("jp_type").textContent = `<li>unbekannt</li>`;
             break;
         default:
             document.getElementById("jp_type").innerHTML = `<li>${typetext}</li>`;
@@ -1002,7 +993,7 @@ async function getTitles() {
 
     switch (origintext) {
         case undefined:
-            document.getElementById("format").textContent = `<li>unbekannt</li>`;
+            document.getElementById("origin").textContent = `<li>unbekannt</li>`;
             break;
         default:
             document.getElementById("origin").innerHTML = `<li>${origintext}</li>`;
