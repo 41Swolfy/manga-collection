@@ -478,6 +478,10 @@ createDropdownMenu();
 
 }
 
+(async () => {
+    await getdata();
+})();
+
 buildbody();
 
 async function getTitles() {
@@ -591,99 +595,132 @@ async function getTitles() {
     }
 
     // checking for type value to assign the correct type
-    if (type === 0) {
-        typetext = "Manga"
-    } else if (type === 1) {
-        typetext = "Lightnovel"
-    }
-    else if (type === 2) {
-        typtetext = "Artbook"
+    switch (type) {
+        case 0:
+            typetext = "Manga"
+            break;
+        case 1:
+            typetext = "Lightnovel"
+            break;
+        case 2:
+            typtetext = "Artbook"
+            break;
+        default:
+            typtetext = "unkown"
+
     }
 
     // checking for origin value to assign the correct origin
 
-    if (origin === 0) {
-        origintext = "Japan";
-    } else if (origin === "") {
-        origintext = "Alle";
-    } else if (origin === 1) {
-        origintext = "SüdKorea";
-    } else if (origin === 2) {
-        origintext = "China";
-    } else if (origin === 3) {
-        origintext = "Taiwan";
-    } else if (origin === 4) {
-        origintext = "Deutschland";
-    } else if (origin === 5) {
-        origintext = "Frankreich";
-    } else if (origin === 6) {
-        origintext = "USA";
-    } else if (origin === 7) {
-        origintext = "UK";
-    } else if (origin === 8) {
-        origintext = "Spanien";
+
+    switch (origin) {
+        case 0:
+            origintext = "Japan";
+            break;
+        case 1:
+            origintext = "SüdKorea";
+            break;
+        case 2:
+            origintext = "China";
+            break;
+        case 3:
+            origintext = "Taiwan";
+            break;
+        case 4:
+            origintext = "Deutschland";
+            break;
+        case 5:
+            origintext = "Frankreich";
+            break;
+        case 6:
+            origintext = "USA";
+            break;
+        case 7:
+            origintext = "UK";
+            break;
+        case 8:
+            origintext = "Spanien";
+            break;
+        default:
+            origintext = "Unbekannter Status";
+            break;
+
     }
-    else {
-        origintext = "Unbekannter Status";
-    }
+
     // checking for status_jp value to assign the correct status
-
-    if (status_jp === 0) {
-        statustext_jp = "Announced";
-    } else if (status_jp === 1) {
-        statustext_jp = "Laufend";
-    } else if (status_jp === 2) {
-        statustext_jp = "Beendet";
-    } else {
-        statustext_jp = "Unbekannter Status";
+    switch (status_jp) {
+        case 0:
+            statustext_jp = "Announced";
+            break;
+        case 1:
+            statustext_jp = "Laufend";
+            break;
+        case 2:
+            statustext_jp = "Beendet";
+            break;
+        default:
+            statustext_jp = "Unbekannter Status";
+            break;
     }
 
-    if (status_de === 0) {
-        statustext_de = "Announced";
-    } else if (status_de === 1) {
-        statustext_de = "Laufend";
-    } else if (status_de === 2) {
-        statustext_de = "Beendet";
-    } else {
-        statustext_de = "Unbekannter Status";
+    switch (status_de) {
+        case 0:
+            statustext_de = "Announced";
+            break;
+        case 1:
+            statustext_de = "Laufend";
+            break;
+        case 2:
+            statustext_de = "Beendet";
+            break;
+        default:
+            statustext_de = "Unbekannter Status";
+            break;
     }
 
-    if (status_de === 0) {
-        Voltext_de = "+";
-    } else if (status_de === 1) {
-        Voltext_de = "+";
-    } else if (status_de === 2) {
-        Voltext_de = " ";
-    } else {
-        Voltext_de = " ";
-    }
-
-    if (status_jp === 0) {
-        Voltext_jp = "+";
-    } else if (status_jp === 1) {
-        Voltext_jp = "+";
-    } else if (status_jp === 2) {
-        Voltext_jp = " ";
-    } else {
-        Voltext_jp = " ";
+    switch (status_de) {
+        case 0:
+            Voltext_de = "+";
+            break;
+        case 1:
+            Voltext_de = "+";
+            break;
+        default:
+            Voltext_de = " ";
+            break;
     }
 
 
-    if (format === 0) {
-        formattext = "Softcover";
-    } else if (format === 1) {
-        formattext = "Hardcover";
-    } else if (format === 2) {
-        formattext = "Unknown";
-    } else if (format === 3) {
-        formattext = "Unknown";
-    } else if (format === 4) {
-        formattext = "Unknown";
-    } else if (format === 5) {
-        formattext = "Digital";
-    } else {
-        formattext = "Unbekannter Status";
+
+    switch (status_de) {
+        case 0:
+            Voltext_jp = "+";
+            break;
+        case 1:
+            Voltext_jp = "+";
+            break;
+        default:
+            Voltext_jp = " ";
+            break;
     }
+
+
+    switch (format) {
+        case 0:
+            formattext = "Softcover";
+            break;
+        case 1:
+            formattext = "Hardcover";
+            break;
+        case 5:
+            formattext = "Digital";
+            break;
+        default:
+            formattext = "Unknown";
+            break;
+    }
+
+
 
     // instead sets text to"undefined" if its undefined it sets it to another text
 
@@ -769,9 +806,7 @@ async function getTitles() {
         document.getElementById("Author").innerHTML = ` Autor<li>unbekannt</li>`;
         document.getElementById("start_year").textContent = `${start_year}`;
         document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
-
-    }
-    else if (author === undefined) {
+    } else if (author === undefined) {
         document.getElementById("Copyright").textContent = ` ©${start_year} by ${mangaka}/${jp_Verlag}`;
         document.getElementById("Author").innerHTML = ` Autor<li>unbekannt</li>`;
         document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
@@ -795,8 +830,7 @@ async function getTitles() {
         document.getElementById("jp_Verlag").innerHTML = `<li>${jp_Verlag}</li>`;
         document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
         document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
-    }
-    else {
+    } else {
         document.getElementById("Copyright").textContent = ` ©${start_year} by ${author},${mangaka}/${jp_Verlag}`;
         document.getElementById("Author").innerHTML = ` Autor<li>${author}</li>`;
         document.getElementById("Mangaka").innerHTML = ` Zeichner<li>${mangaka}</li>`;
@@ -805,13 +839,19 @@ async function getTitles() {
     }
 
     // instead sets text to"undefined" if its undefined it sets it to another text
-    if (title === undefined) {
-        document.title = `Tsubasa List - unbekannt`;
-        document.getElementById("manga_title").innerHTML = `<h1>unbekannt</h1>`;
-    } else {
-        document.title = `Tsubasa List - ${title}`;
-        document.getElementById("manga_title").innerHTML = `<h1>${title}</h1>`;
+
+    switch (title) {
+        case undefined:
+            document.title = `Tsubasa List - unbekannt`;
+            document.getElementById("manga_title").innerHTML = `<h1>unbekannt</h1>`;
+            break;
+        default:
+            document.title = `Tsubasa List - ${title}`;
+            document.getElementById("manga_title").innerHTML = `<h1>${title}</h1>`;
+            break
+
     }
+
     // instead sets text to"undefined" if its undefined it sets it to another text
     if (numVolumes_de === undefined & Voltext_de === undefined) {
         document.getElementById("volumes_de").textContent = `?`;
@@ -845,31 +885,56 @@ async function getTitles() {
     }
 
     // instead sets text to"undefined" if its undefined it sets it to another text
-    if (formattext == undefined) {
-        document.getElementById("format").textContent = `unbekannt`;
 
-    } else {
-        document.getElementById("format").textContent = `${formattext}`;
+    switch (formattext) {
+        case undefined:
+            document.getElementById("format").textContent = `unbekannt`;
+            break;
+        default:
+            document.getElementById("format").textContent = `${formattext}`;
+            break;
     }
+
+    switch (statustext_de) {
+        case undefined:
+            document.getElementById("format").textContent = `unbekannt`;
+            break;
+        default:
+            document.getElementById("status_de").textContent = `${statustext_de}`;
+            break;
+    }
+
+    switch (statustext_jp) {
+        case undefined:
+            document.getElementById("format").textContent = `unbekannt`;
+            break;
+        default:
+            document.getElementById("status_jp").textContent = `${statustext_jp}`;
+            break;
+    }
+
+    switch (description) {
+        case undefined:
+            document.getElementById("format").textContent = `unbekannt`;
+            break;
+        default:
+            document.getElementById("Synopsis").textContent = `${description}`;
+            break;
+    }
+
+
 
     // instead sets text to"undefined" if its undefined it sets it to another text
-    if (statustext_de == undefined) {
-        document.getElementById("format").textContent = `unbekannt`;
 
-    } else {
-        document.getElementById("status_de").textContent = `${statustext_de}`;
-    }
-    if (statustext_jp == undefined) {
-        document.getElementById("format").textContent = `unbekannt`;
 
-    } else {
-        document.getElementById("status_jp").textContent = `${statustext_jp}`;
-    }
-    if (description == undefined) {
-        document.getElementById("format").textContent = `unbekannt`;
+    switch (dasdasdasd) {
+        case undefined:
 
-    } else {
-        document.getElementById("Synopsis").textContent = `${description}`;
+            break;
+        default:
+
+            break;
+
     }
 
     if (de_verlag == undefined) {
@@ -880,6 +945,17 @@ async function getTitles() {
         document.getElementById("de_Verlag").innerHTML = `<li>${de_verlag}</li>`;
     }
 
+    switch (dasdasdasd) {
+        case undefined:
+
+            break;
+        default:
+
+            break;
+
+    }
+
+
     if (demo == undefined) {
         document.getElementById("format").textContent = `<li>unbekannt</li>`;
 
@@ -887,35 +963,58 @@ async function getTitles() {
 
         document.getElementById("Demografie").innerHTML = `Demografie <li>${demo[0]}</li>`;
     }
-    if (remainingGenres == undefined) {
-        document.getElementById("format").textContent = `<li>unbekannt</li>`;
 
-    } else {
+    switch (remainingGenres) {
+        case undefined:
+            document.getElementById("format").textContent = `<li>unbekannt</li>`;
+            break;
+        default:
+            document.getElementById("Genres").innerHTML = `Genres<li> ${remainingGenres.join("</li><li>")}`;
+            break;
 
-        document.getElementById("Genres").innerHTML = `Genres<li> ${remainingGenres.join("</li><li>")}`;
-    }
-    if (magazin == undefined) {
-        document.getElementById("magazin").innerHTML = `<li>unbekannt</li>`;
-
-    } else {
-
-        document.getElementById("magazin").innerHTML = `<li>${magazin}</li>`;
-    }
-    if (origintext == undefined) {
-        document.getElementById("format").textContent = `<li>unbekannt</li>`;
-
-    } else {
-
-        document.getElementById("jp_type").innerHTML = `<li>${typetext}</li>`;
-    }
-    if (origintext == undefined) {
-        document.getElementById("format").textContent = `<li>unbekannt</li>`;
-
-    } else {
-
-        document.getElementById("origin").innerHTML = `<li>${origintext}</li>`;
     }
 
+ 
+
+    switch (magazin) {
+        case undefined:
+            document.getElementById("magazin").innerHTML = `<li>unbekannt</li>`;
+            break;
+        default:
+            document.getElementById("magazin").innerHTML = `<li>${magazin}</li>`;
+            break;
+
+    }
+
+  
+
+    switch (origintext) {
+        case undefined:
+            document.getElementById("format").textContent = `<li>unbekannt</li>`;
+            break;
+        default:
+            document.getElementById("jp_type").innerHTML = `<li>${typetext}</li>`;
+            break;
+
+    }
+
+  
+
+    switch (origintext) {
+        case undefined:
+            document.getElementById("format").textContent = `<li>unbekannt</li>`;
+            break;
+        default:
+            document.getElementById("origin").innerHTML = `<li>${origintext}</li>`;
+        
+    
+            break;
+
+    }
+
+ 
+
+      
 
 }
 
@@ -1040,4 +1139,3 @@ async function getdata() {
 
 
 }
-getdata();

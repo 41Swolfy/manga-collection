@@ -1,4 +1,5 @@
-function buildbody() {
+ function buildbody( ) {
+   
 
     const body = document.getElementsByTagName('body')[0];
 
@@ -50,8 +51,9 @@ function buildbody() {
 
 
 }
-
 buildbody();
+
+
 
 
 async function fetchData(editions) {
@@ -100,110 +102,120 @@ async function apiCall(edition, index) {
 const editions = ["2052", "1332", "1959", "1998", "269", "509", "123", "79", "1986", "2002", "2038", "2", "1990", "1576", "1699", "87", "1599", "534", "275", "1452"];
 
 async function getdata() {
-    const currentDate = new Date();
-    const next20Days = new Date();
-    next20Days.setDate(currentDate.getDate() + 30);
 
-    const data = await fetchData(editions);
+  
+        const currentDate = new Date();
+        const next20Days = new Date();
+        next20Days.setDate(currentDate.getDate() + 30);
+
+        const data = await fetchData(editions);
+        
 
 
 
-    for (let i = 0; i < data.length; i++) {
-        k = i;
-        const Mangadate = new Date(data[i].date);
-        if (Mangadate > currentDate && Mangadate <= next20Days) {
-            const Band = data[i].numberDisplay;
+        for (let i = 0; i < data.length; i++) {
+           
+            k = i;
             const Mangadate = new Date(data[i].date);
-            const priceInCent = data[i].price;
-            const priceInEuro = (priceInCent / 100).toFixed(2);
-            const options = { day: 'numeric', month: 'long', year: 'numeric' };
-            const formattedDate = Mangadate.toLocaleDateString('de-DE', options);
-            const mangaVolumeDiv = document.createElement("div");
-            mangaVolumeDiv.className = "manga_volume";
+            if (Mangadate > currentDate && Mangadate <= next20Days) {
+                const Band = data[i].numberDisplay;
+                const Mangadate = new Date(data[i].date);
+                const priceInCent = data[i].price;
+                const priceInEuro = (priceInCent / 100).toFixed(2);
+                const options = { day: 'numeric', month: 'long', year: 'numeric' };
+                const formattedDate = Mangadate.toLocaleDateString('de-DE', options);
+                const mangaVolumeDiv = document.createElement("div");
+                mangaVolumeDiv.className = "manga_volume";
 
-            const anchor = document.createElement("a");
-            anchor.className = "manga_display_size";
+                const anchor = document.createElement("a");
+                anchor.className = "manga_display_size";
 
-            const content = document.createElement("div");
-            content.className = "manga_content";
+                const content = document.createElement("div");
+                content.className = "manga_content";
 
-            const top = document.createElement("div");
-            top.className = "manga_top";
+                const top = document.createElement("div");
+                top.className = "manga_top";
 
-            const to = document.createElement("div")
-            content.appendChild(to)
+                const to = document.createElement("div")
+                content.appendChild(to)
 
-            const title = document.createElement("div");
-            title.className = "manga_content fix ";
-            title.textContent = data[i].title;
-            to.appendChild(title);
+                const title = document.createElement("div");
+                title.className = "manga_content fix ";
+                title.textContent = data[i].title;
+                to.appendChild(title);
 
 
-            const priceText = document.createElement("span");
-            priceText.className = "manga_textborder";
+                const priceText = document.createElement("span");
+                priceText.className = "manga_textborder";
 
-            ;
-            priceText.id = "pricemanga" + [k];
-            top.appendChild(priceText);
+                ;
+                priceText.id = "pricemanga" + [k];
+                top.appendChild(priceText);
 
-            const image = document.createElement("div");
-            image.className = "manga_img";
-            const imageWrapper = document.createElement("span");
-            imageWrapper.style.cssText = "box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;";
-            const imageInner = document.createElement("span");
-            imageInner.style.cssText = "box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 142% 0px 0px;";
-            const imageElement = document.createElement("img");
+                const image = document.createElement("div");
+                image.className = "manga_img";
+                const imageWrapper = document.createElement("span");
+                imageWrapper.style.cssText = "box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;";
+                const imageInner = document.createElement("span");
+                imageInner.style.cssText = "box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 142% 0px 0px;";
+                const imageElement = document.createElement("img");
 
-            imageElement.onerror = function () {
+                imageElement.onerror = function () {
+                    imageElement.src = '/styles/errorimg.jpg';
+                }
+
                 imageElement.src = '/styles/errorimg.jpg';
+                imageElement.decoding = "async";
+                imageElement.dataset.nimg = "responsive";
+                imageElement.style.cssText = "position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;";
+                imageInner.appendChild(imageElement);
+                imageWrapper.appendChild(imageInner);
+                image.appendChild(imageWrapper);
+                const statustext = data[i].status;
+                const date = document.createElement("div");
+                date.className = "manga_date";
+                const dateText = document.createElement("span");
+                dateText.className = "manga_textborder";
+                dateText.id = "datemanga" + [k];
+                date.appendChild(dateText);
+
+                content.appendChild(top);
+                content.appendChild(image);
+                content.appendChild(date);
+                anchor.appendChild(content);
+                mangaVolumeDiv.appendChild(anchor);
+
+
+                const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
+                mangaVolumesDiv.appendChild(mangaVolumeDiv);
+                if (statustext == 2) {
+                    document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} ·`;
+                    document.getElementById("datemanga" + [k]).textContent = `TBA`;
+                } else if (Band === undefined) {
+                    document.getElementById("pricemanga" + [k]).textContent = `Band ? · ${priceInEuro}  €`;
+                    document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
+                } else if (Mangadate.getFullYear() > 2050) {
+                    document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`; // had problem with data dissplaying year  2099 if its neither released or announced
+                    document.getElementById("datemanga" + [k]).textContent = `TBA`;
+                }
+                else {
+                    document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`;
+                    document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
+                }
+
+
+              
+
+               
             }
+        }  
+    }getdata();  
 
-            imageElement.src = '/styles/errorimg.jpg';
-            imageElement.decoding = "async";
-            imageElement.dataset.nimg = "responsive";
-            imageElement.style.cssText = "position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;";
-            imageInner.appendChild(imageElement);
-            imageWrapper.appendChild(imageInner);
-            image.appendChild(imageWrapper);
-            const statustext = data[i].status;
-            const date = document.createElement("div");
-            date.className = "manga_date";
-            const dateText = document.createElement("span");
-            dateText.className = "manga_textborder";
-            dateText.id = "datemanga" + [k];
-            date.appendChild(dateText);
-
-            content.appendChild(top);
-            content.appendChild(image);
-            content.appendChild(date);
-            anchor.appendChild(content);
-            mangaVolumeDiv.appendChild(anchor);
-
-
-            const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
-            mangaVolumesDiv.appendChild(mangaVolumeDiv);
-            if (statustext == 2) {
-                document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} ·`;
-                document.getElementById("datemanga" + [k]).textContent = `TBA`;
-            } else if (Band === undefined) {
-                document.getElementById("pricemanga" + [k]).textContent = `Band ? · ${priceInEuro}  €`;
-                document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
-            } else if (Mangadate.getFullYear() > 2050) {
-                document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`; // had problem with data dissplaying year  2099 if its neither released or announced
-                document.getElementById("datemanga" + [k]).textContent = `TBA`;
-            }
-            else {
-                document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`;
-                document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
-            }
+    
+ 
+    
+ 
+    
 
 
 
-
-
-        }
-
-    }
-}
-
-getdata();
