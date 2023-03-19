@@ -42,6 +42,7 @@
             { href: `/Ongoing/O_mq.html`, text: "M-Q" },
             { href: `/Ongoing/O_rs.html`, text: "R-S" },
             { href: `/Ongoing/O_tz.html`, text: "T-Z" },
+            { href: `/swolfy.html`, text: "" }
         ];
 
         if (i === 2) {
