@@ -106,7 +106,7 @@ async function getdata() {
 
     const currentDate = new Date();
     const next30Days = new Date();
-    next30Days.setDate(currentDate.getDate() + 3000);
+        next30Days.setDate(currentDate.getDate() + 42.8);
 
     const data = await fetchData(editions);
 
