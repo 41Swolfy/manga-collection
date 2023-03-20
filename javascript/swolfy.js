@@ -106,7 +106,7 @@ async function getdata() {
 
     const currentDate = new Date();
     const next30Days = new Date();
-    next30Days.setDate(currentDate.getDate() + 30);
+    next30Days.setDate(currentDate.getDate() + 100);
 
     const data = await fetchData(editions);
 
@@ -224,6 +224,14 @@ async function getdata() {
                             break;
                         case "Bungo Stray Dogs: BEAST":
                             imageElement.src = `/Ongoing/Websites/Covers/bsd${Band - 1}.jpg`;
+                            switch (Band) {
+                                case 2:
+                                    Band = "3 & 4";
+                                    break;
+                                case 3:
+                                    Band = "5 & 6"
+                                    break;
+                            }
                             break;
                         case "Chainsaw Man":
                             imageElement.src = `/Ongoing/Websites/Covers/csm${Band - 1}.jpg`;
@@ -259,6 +267,7 @@ async function getdata() {
                     }
 
             }
+
 
 
 
