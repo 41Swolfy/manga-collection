@@ -103,7 +103,7 @@ function createDropdownMenu() {
 
 createDropdownMenu();
 
- function buildbody() {
+function buildbody() {
 
     const body = document.getElementsByTagName('body')[0];
 
@@ -480,10 +480,10 @@ createDropdownMenu();
 
 (async () => {
     await getdata();
-  })();
-  
+})();
 
-  
+
+
 
 buildbody();
 
@@ -942,7 +942,7 @@ async function getTitles() {
 
     }
 
-    
+
     switch (demo) {
         case undefined:
             document.getElementById("Demografie").textContent = `<li>unbekannt</li>`;
@@ -953,7 +953,7 @@ async function getTitles() {
 
     }
 
-  
+
 
     switch (remainingGenres) {
         case undefined:
@@ -965,7 +965,7 @@ async function getTitles() {
 
     }
 
- 
+
 
     switch (magazin) {
         case undefined:
@@ -977,7 +977,7 @@ async function getTitles() {
 
     }
 
-  
+
 
     switch (typetext) {
         case undefined:
@@ -989,7 +989,7 @@ async function getTitles() {
 
     }
 
-  
+
 
     switch (origintext) {
         case undefined:
@@ -997,15 +997,15 @@ async function getTitles() {
             break;
         default:
             document.getElementById("origin").innerHTML = `<li>${origintext}</li>`;
-        
-    
+
+
             break;
 
     }
 
- 
 
-      
+
+
 
 }
 
@@ -1018,11 +1018,14 @@ async function fetchData() {
     var data = [];
     while (!finished) { // Iterate till no data is returend
         const response = await apiCall(page);
-        if (response.length == 0) { // If no data is returned set finished to boolean true
-            finished = true;
-        } else {// otherwise push returned data to the array and increment page for next data
-            data.push.apply(data, response);
-            page++;
+        switch (response.length) {
+            case 0:
+                finished = true;
+                break;
+            default:
+                data.push.apply(data, response);
+                page++;
+                break;
         }
     }
     return data; //returned all fetched data

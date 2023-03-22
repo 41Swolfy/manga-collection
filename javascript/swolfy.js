@@ -53,7 +53,6 @@ function buildbody() {
 }
 buildbody();
 
-const idk = document.createElement("img");
 
 
 async function fetchData(editions) {
@@ -64,11 +63,16 @@ async function fetchData(editions) {
     for (const edition of editions) {
         while (!finished) {
             const response = await apiCall(edition, page);
-            if (response.length == 0) {
-                finished = true;
-            } else {
-                data.push.apply(data, response);
-                page++;
+        
+                switch (response.length) {
+                    case 0:
+                        finished = true;
+                        break;
+                    default:
+                        data.push.apply(data, response);
+                        page++;
+                        break;
+              
             }
         }
         finished = false;
@@ -103,10 +107,9 @@ const editions = ["2052", "1332", "1959", "1998", "269", "509", "123", "79", "19
 
 async function getdata() {
 
-
     const currentDate = new Date();
     const next30Days = new Date();
-        next30Days.setDate(currentDate.getDate() + 42.8);
+        next30Days.setDate(currentDate.getDate() + 35);
 
     const data = await fetchData(editions);
 
@@ -330,7 +333,7 @@ async function getdata() {
                 document.getElementById("pricemanga" + [k]).textContent = `Band ? · ${priceInEuro}  €`;
                 document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
             } else if (Mangadate.getFullYear() > 2050) {
-                document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`; // had problem with data dissplaying year  2099 if its neither released or announced
+                document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`; // had problem with data displaying year  2099 if its neither released or announced
                 document.getElementById("datemanga" + [k]).textContent = `TBA`;
             }
             else {
