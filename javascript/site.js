@@ -2,7 +2,7 @@ var edition;
 var imgname;
 
 
-//missing manga ; Rosario Vampire,Chainsawman Buddy stories; Artbooks ; Eva, Black Butler;One Piece Z,Naruto Massive,
+//missing manga  Artbooks : Eva, Black Butler;
 function createDropdownMenu() {
     // create header element
     const header = document.createElement("header");
