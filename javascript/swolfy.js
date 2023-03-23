@@ -63,16 +63,25 @@ async function fetchData(editions) {
     for (const edition of editions) {
         while (!finished) {
             const response = await apiCall(edition, page);
-        
-                switch (response.length) {
-                    case 0:
+
+            switch (response.length) {
+                case 0:
+                    finished = true;
+                    break;
+                default:
+                    data.push.apply(data, response);
+                   switch (edition) {
+                        case 87:
+                        if (page < 2) {
+                            page++;
+                        } else {
+                            finished = true;
+                        }
+                        default: 
                         finished = true;
                         break;
-                    default:
-                        data.push.apply(data, response);
-                        page++;
-                        break;
-              
+                    } break;
+
             }
         }
         finished = false;
@@ -109,11 +118,9 @@ async function getdata() {
 
     const currentDate = new Date();
     const next30Days = new Date();
-        next30Days.setDate(currentDate.getDate() + 35);
+    next30Days.setDate(currentDate.getDate() + 35);
 
     const data = await fetchData(editions);
-
-
 
 
     for (let i = 0; i < data.length; i++) {
@@ -122,11 +129,11 @@ async function getdata() {
         const Mangadate = new Date(data[i].date);
         if (Mangadate > currentDate && Mangadate <= next30Days) {
             let Band = data[i].numberDisplay;
-            const Mangadate = new Date(data[i].date);
+            const Mangadates = new Date(data[i].date);
             const priceInCent = data[i].price;
             const priceInEuro = (priceInCent / 100).toFixed(2);
             const options = { day: 'numeric', month: 'long', year: 'numeric' };
-            const formattedDate = Mangadate.toLocaleDateString('de-DE', options);
+            const formattedDate = Mangadates.toLocaleDateString('de-DE', options);
             const mangaVolumeDiv = document.createElement("div");
             mangaVolumeDiv.className = "manga_volume";
 
@@ -163,14 +170,14 @@ async function getdata() {
             const imageInner = document.createElement("span");
             imageInner.style.cssText = "box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 142% 0px 0px;";
             const imageElement = document.createElement("img");
-           
 
-         
+
+
 
 
             // append h1 to link and link to header
- 
-      
+
+
 
             switch (Band) {
                 case "5 & 6":
@@ -181,20 +188,8 @@ async function getdata() {
                     Band = 2;
                     break;
             }
-
             switch (Band) {
-
-
-
                 case Band:
-
-
-
-
-
-
-
-
                     switch (data[i].title) {
                         case "Neon Genesis Evangelion - Perfect Edition":
                             imageElement.src = `/Ongoing/Websites/Covers/eva${Band - 1}.jpg`;
@@ -302,7 +297,6 @@ async function getdata() {
 
 
 
-
             imageElement.decoding = "async";
             imageElement.dataset.nimg = "responsive";
             imageElement.style.cssText = "position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;";
@@ -332,7 +326,7 @@ async function getdata() {
             } else if (Band === undefined) {
                 document.getElementById("pricemanga" + [k]).textContent = `Band ? · ${priceInEuro}  €`;
                 document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
-            } else if (Mangadate.getFullYear() > 2050) {
+            } else if (Mangadates.getFullYear() > 2050) {
                 document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`; // had problem with data displaying year  2099 if its neither released or announced
                 document.getElementById("datemanga" + [k]).textContent = `TBA`;
             }

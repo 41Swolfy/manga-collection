@@ -80,10 +80,10 @@ function createDropdownMenu() {
 
         // easter egg
         if (i === 3) {
-            const invincibleLink = document.createElement("a");
-            invincibleLink.setAttribute("href", "/swolfy.html");
+            const easterEgg = document.createElement("a");
+            easterEgg.setAttribute("href", "/swolfy.html");
 
-            dropdownContent.appendChild(invincibleLink);
+            dropdownContent.appendChild(easterEgg);
         }
 
         // append button and dropdown content to dropdown

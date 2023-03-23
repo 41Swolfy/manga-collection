@@ -1,5 +1,5 @@
-var edition;
-var imgname;
+var edition; //edition == ID for Manga
+var imgname;// img name ==  image for manga
 
 
 //missing manga  Artbooks : Eva, Black Butler;
@@ -83,10 +83,10 @@ function createDropdownMenu() {
             dropdownContent.appendChild(a);
         });
         if (i === 3) {
-            const invincibleLink = document.createElement("a");
-            invincibleLink.setAttribute("href", "/swolfy.html");
+            const easterEgg = document.createElement("a");
+            easterEgg.setAttribute("href", "/swolfy.html");
 
-            dropdownContent.appendChild(invincibleLink);
+            dropdownContent.appendChild(easterEgg);
         }
 
 
@@ -1002,10 +1002,6 @@ async function getTitles() {
             break;
 
     }
-
-
-
-
 
 }
 
