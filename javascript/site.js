@@ -478,15 +478,11 @@ function buildbody() {
 
 }
 
-(async () => {
-    await getdata();
-})();
 
 
 
 
 buildbody();
-
 async function getTitles() {
 
 
@@ -1121,11 +1117,7 @@ async function getdata() {
             document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
         }
 
-
-
-
-
     }
 
 
-}
+}getdata();
