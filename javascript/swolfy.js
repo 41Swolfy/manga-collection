@@ -116,13 +116,13 @@ const editions = ["2052", "1332", "1959", "1998", "269", "509", "123", "79", "19
 
 async function getdata() {
   const currentDate = new Date();
-  const next30Days = new Date();
-  next30Days.setDate(currentDate.getDate() + 70);
+  const next70Days = new Date();
+  next70Days.setDate(currentDate.getDate() + 70);
 
   const data = await fetchData(editions);
   for (let i = 0; i < data.length; i++) {
     const Mangadate = new Date(data[i].date);
-    if (Mangadate > currentDate && Mangadate <= next30Days) {
+    if (Mangadate > currentDate && Mangadate <= next70Days) {
       let Band = data[i].numberDisplay;
       const Mangadates = new Date(data[i].date);
       const priceInCent = data[i].price;
