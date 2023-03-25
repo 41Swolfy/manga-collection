@@ -123,7 +123,7 @@ async function getdata() {
   for (let i = 0; i < data.length; i++) {
     const Mangadate = new Date(data[i].date);
     if (Mangadate > currentDate && Mangadate <= next30Days) {
-      const Band = data[i].numberDisplay;
+      let Band = data[i].numberDisplay;
       const Mangadates = new Date(data[i].date);
       const priceInCent = data[i].price;
       const priceInEuro = (priceInCent / 100).toFixed(2);
