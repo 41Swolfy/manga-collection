@@ -120,9 +120,7 @@ async function getdata() {
   next30Days.setDate(currentDate.getDate() + 70);
 
   const data = await fetchData(editions);
-
   for (let i = 0; i < data.length; i++) {
-    k=i;
     const Mangadate = new Date(data[i].date);
     if (Mangadate > currentDate && Mangadate <= next30Days) {
       const Band = data[i].numberDisplay;
@@ -158,7 +156,7 @@ async function getdata() {
             priceText.className = "manga_textborder";
 
             ;
-            priceText.id = "pricemanga" + [k];
+            priceText.id = "pricemanga" + [i];
             top.appendChild(priceText);
 
             const image = document.createElement("div");
@@ -306,7 +304,7 @@ async function getdata() {
             date.className = "manga_date";
             const dateText = document.createElement("span");
             dateText.className = "manga_textborder";
-            dateText.id = "datemanga" + [k];
+            dateText.id = "datemanga" + [i];
             date.appendChild(dateText);
 
             content.appendChild(top);
@@ -319,18 +317,18 @@ async function getdata() {
             const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
             mangaVolumesDiv.appendChild(mangaVolumeDiv);
             if (statustext == 2) {
-                document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} ·`;
-                document.getElementById("datemanga" + [k]).textContent = `TBA`;
+                document.getElementById("pricemanga" + [i]).textContent = `Band ${Band} ·`;
+                document.getElementById("datemanga" + [i]).textContent = `TBA`;
             } else if (Band === undefined) {
-                document.getElementById("pricemanga" + [k]).textContent = `Band ? · ${priceInEuro}  €`;
-                document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
+                document.getElementById("pricemanga" + [i]).textContent = `Band ? · ${priceInEuro}  €`;
+                document.getElementById("datemanga" + [i]).textContent = `${formattedDate}`;
             } else if (Mangadates.getFullYear() > 2050) {
-                document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`; // had problem with data displaying year  2099 if its neither released or announced
-                document.getElementById("datemanga" + [k]).textContent = `TBA`;
+                document.getElementById("pricemanga" + [i]).textContent = `Band ${Band} · ${priceInEuro}  €`; // had problem with data displaying year  2099 if its neither released or announced
+                document.getElementById("datemanga" + [i]).textContent = `TBA`;
             }
             else {
-                document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`;
-                document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
+                document.getElementById("pricemanga" + [i]).textContent = `Band ${Band} · ${priceInEuro}  €`;
+                document.getElementById("datemanga" + [i]).textContent = `${formattedDate}`;
             }
 
 
