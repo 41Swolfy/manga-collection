@@ -55,87 +55,85 @@ buildbody();
 
 
 
+// Caching object
+const cache = {};
+
 async function fetchData(editions) {
-    var finished = false;
-    var page = 1;
-    var data = [];
+  const data = [];
 
-    for (const edition of editions) {
-        while (!finished) {
-            const response = await apiCall(edition, page);
-
-            switch (response.length) {
-                case 0:
-                    finished = true;
-                    break;
-                default:
-                    data.push.apply(data, response);
-                   switch (edition) {
-                        case 87:
-                        if (page < 2) {
-                            page++;
-                        } else {
-                            finished = true;
-                        }
-                        default: 
-                        finished = true;
-                        break;
-                    } break;
-
-            }
-        }
-        finished = false;
-        page = 1;
+  // Make all API calls in parallel
+  const responses = await Promise.all(editions.map(edition => {
+    // Check if data exists in cache
+    if (cache[edition]) {
+      return Promise.resolve(cache[edition]);
+    } else {
+      return apiCall(edition);
     }
-    data.sort((a, b) => new Date(a.date) - new Date(b.date));
-    return data;
+  }));
+
+  // Concatenate the response data
+  responses.forEach(response => {
+    data.push(...response);
+  });
+
+  data.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  // Store data in cache
+  editions.forEach((edition, index) => {
+ cache[edition] = responses[index];
+  });
+
+  return data;
 }
 
-async function apiCall(edition, index) {
-    const response = await fetch(
-        `https://api.manga-passion.de/editions/${edition}/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc&exclude[type]=3`,
-        { method: "GET" }
-    );
-    const data = await response.json();
+async function apiCall(edition, index = 1) {
+  const response = await fetch(
+    `https://api.manga-passion.de/editions/${edition}/volumes?itemsPerPage=100&page=${index}&order[arrangement]=asc&exclude[type]=3`,
+    { method: "GET" }
+  );
+  const data = await response.json();
 
-    // Fetch manga information
-    const mangaResponse = await fetch(`https://api.manga-passion.de/editions/${edition}`, { method: "GET" });
-    const mangaData = await mangaResponse.json();
-    const mangaTitle = mangaData.title;
+  // Fetch manga information
+  const mangaResponse = await fetch(`https://api.manga-passion.de/editions/${edition}`, { method: "GET" });
+  const mangaData = await mangaResponse.json();
+  const mangaTitle = mangaData.title;
 
-    // Add manga title to each volume
-    for (const volume of data) {
-        volume.title = mangaTitle;
-    }
+  // Add manga title to each volume
+  data.forEach(volume => {
+    volume.title = mangaTitle;
+  });
 
-    return data;
+  if (data.length === 100) {
+    // Make another API call for the next page
+    const nextPage = await apiCall(edition, index + 1);
+    data.push(...nextPage);
+  }
+
+  return data;
 }
-
 
 const editions = ["2052", "1332", "1959", "1998", "269", "509", "123", "79", "1986", "2002", "2038", "2", "1990", "1576", "1699", "87", "1599", "534", "275", "1452", "1156", "1189"];
 
 async function getdata() {
+  const currentDate = new Date();
+  const next30Days = new Date();
+  next30Days.setDate(currentDate.getDate() + 70);
 
-    const currentDate = new Date();
-    const next30Days = new Date();
-    next30Days.setDate(currentDate.getDate() + 70);
+  const data = await fetchData(editions);
 
-    const data = await fetchData(editions);
+  for (let i = 0; i < data.length; i++) {
+    k=i;
+    const Mangadate = new Date(data[i].date);
+    if (Mangadate > currentDate && Mangadate <= next30Days) {
+      const Band = data[i].numberDisplay;
+      const Mangadates = new Date(data[i].date);
+      const priceInCent = data[i].price;
+      const priceInEuro = (priceInCent / 100).toFixed(2);
+      const options = { day: 'numeric', month: 'long', year: 'numeric' };
+      const formattedDate = Mangadates.toLocaleDateString('de-DE', options);
 
-
-    for (let i = 0; i < data.length; i++) {
-
-        k = i;
-        const Mangadate = new Date(data[i].date);
-        if (Mangadate > currentDate && Mangadate <= next30Days) {
-            let Band = data[i].numberDisplay;
-            const Mangadates = new Date(data[i].date);
-            const priceInCent = data[i].price;
-            const priceInEuro = (priceInCent / 100).toFixed(2);
-            const options = { day: 'numeric', month: 'long', year: 'numeric' };
-            const formattedDate = Mangadates.toLocaleDateString('de-DE', options);
-            const mangaVolumeDiv = document.createElement("div");
-            mangaVolumeDiv.className = "manga_volume";
+      const mangaVolumeDiv = document.createElement("div");
+      mangaVolumeDiv.className = "manga_volume";
 
             const anchor = document.createElement("a");
             anchor.className = "manga_display_size";
