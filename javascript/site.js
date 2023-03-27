@@ -89,9 +89,6 @@ function createDropdownMenu() {
             dropdownContent.appendChild(easterEgg);
         }
 
-
-
-
         // append button and dropdown content to dropdown
         dropdown.appendChild(button);
         dropdown.appendChild(dropdownContent);
