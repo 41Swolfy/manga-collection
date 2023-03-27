@@ -46,7 +46,7 @@ function buildHead() {
 
   const linkIcon = document.createElement('link');
   linkIcon.setAttribute('rel', 'icon');
-  linkIcon.setAttribute('href', '/styles/Icon.png');
+  linkIcon.setAttribute('href', '/styles/test.png');
 
   const linkFont1 = document.createElement('link');
   linkFont1.setAttribute('rel', 'preconnect');
