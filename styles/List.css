@@ -19,7 +19,7 @@
     flex-direction: row;
     align-items: flex-start;
     padding: .5rem 0 0 .5rem;
-    border-top: .125rem solid var(--blue-normal);
+    border-top: .125rem solid var(--evangelion);
     background-color: var(--bg-container);
     font-size: var(--font-size-small);
     color: var(--font-page);
@@ -115,6 +115,7 @@
 
 
 :root {
+    --evangelion : #8bd450;
     --blue-normal: #274272;
     --blue-dark: #172032;
     --bg-page: #212122;

@@ -2,7 +2,7 @@ var edition; //edition == ID for Manga
 var imgname;// img name ==  image for manga
 
 
-//missing manga  Artbooks : Eva, Black Butler;
+//missing manga  Artbooks :Black Butler;
 function createDropdownMenu() {
     // create header element
     const header = document.createElement("header");
@@ -614,7 +614,7 @@ async function getTitles() {
             origintext = "Japan";
             break;
         case 1:
-            origintext = "SüdKorea";
+            origintext = "Süd-Korea";
             break;
         case 2:
             origintext = "China";
@@ -861,7 +861,7 @@ async function getTitles() {
 
     // instead sets text to"undefined" if its undefined it sets it to another text
     if (width === undefined & height === undefined) {
-        document.getElementById("size").textContent = `? x $? cm`;
+        document.getElementById("size").textContent = `? x ? cm`;
     } else if (width === undefined) {
         document.getElementById("size").textContent = `? x ${height} cm`;
     } else if (height === undefined) {
@@ -1036,7 +1036,7 @@ async function getdata() {
     // iterate each item in data array
     for (i = 0; i < data.length; i++) {
 
-        k = i;
+
 
 
         const Band = data[i].numberDisplay;
@@ -1060,7 +1060,7 @@ async function getdata() {
         top.className = "manga_top";
         const priceText = document.createElement("span");
         priceText.className = "manga_textborder";
-        priceText.id = "pricemanga" + [k];
+        priceText.id = "pricemanga" + [i];
         top.appendChild(priceText);
 
         const image = document.createElement("div");
@@ -1087,7 +1087,7 @@ async function getdata() {
         date.className = "manga_date";
         const dateText = document.createElement("span");
         dateText.className = "manga_textborder";
-        dateText.id = "datemanga" + [k];
+        dateText.id = "datemanga" + [i];
         date.appendChild(dateText);
 
         content.appendChild(top);
@@ -1100,18 +1100,18 @@ async function getdata() {
         const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
         mangaVolumesDiv.appendChild(mangaVolumeDiv);
         if (statustext == 2) {
-            document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} ·`;
-            document.getElementById("datemanga" + [k]).textContent = `TBA`;
+            document.getElementById("pricemanga" + [i]).textContent = `Band ${Band} ·`;
+            document.getElementById("datemanga" + [i]).textContent = `TBA`;
         } else if (Band === undefined) {
-            document.getElementById("pricemanga" + [k]).textContent = `Band ? · ${priceInEuro}  €`;
-            document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
+            document.getElementById("pricemanga" + [i]).textContent = `Band ? · ${priceInEuro}  €`;
+            document.getElementById("datemanga" + [i]).textContent = `${formattedDate}`;
         } else if (Mangadate.getFullYear() > 2050) {
-            document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`; // had problem with data dissplaying year  2099 if its neither released or announced
-            document.getElementById("datemanga" + [k]).textContent = `TBA`;
+            document.getElementById("pricemanga" + [i]).textContent = `Band ${Band} · ${priceInEuro}  €`; // had problem with data dissplaying year  2099 if its neither released or announced
+            document.getElementById("datemanga" + [i]).textContent = `TBA`;
         }
         else {
-            document.getElementById("pricemanga" + [k]).textContent = `Band ${Band} · ${priceInEuro}  €`;
-            document.getElementById("datemanga" + [k]).textContent = `${formattedDate}`;
+            document.getElementById("pricemanga" + [i]).textContent = `Band ${Band} · ${priceInEuro}  €`;
+            document.getElementById("datemanga" + [i]).textContent = `${formattedDate}`;
         }
 
     }
