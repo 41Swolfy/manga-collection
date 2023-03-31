@@ -668,3 +668,75 @@ iframe {
     margin-top: 53.4px;
     margin-bottom: 53.4px;
 }
+
+
+
+.manga_volumes2 {
+    --bg-container: var(--bg-page);
+    --blue-normal: transparent;
+    padding: .25rem 0;
+    grid-row-gap: 1rem;
+    grid-column-gap: 1rem
+}
+
+.manga_volume_size2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(10.375rem, 100%), 1fr));
+    grid-column-gap: .5rem;
+    grid-row-gap: .75rem;
+    min-width: 0;
+}
+
+.manga_volume2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.manga_display_size2, .manga_display_size2:hover {
+    color: var(--font-container);
+    text-decoration: none;
+}
+
+.manga_content2, .manga_display_size2 {
+    flex-grow: 1;
+    padding: 0;
+    max-width: 100%;
+}
+
+.manga_content2 {
+    display: block;
+    margin-bottom: .4375rem;
+}
+.manga_content2 {
+    background-color: var(--bg-container);
+    border-top: .125rem solid var(--blue-normal);
+    transition: border-color .2s ease-in-out, background-color .2s ease-in-out;
+}
+
+.fix {
+    text-align: center;
+}
+
+.manga_content2 .manga_date2, .manga_content2 .manga_top2 {
+    text-align: center;
+    padding: .375rem .5rem;
+    font-size: var(--font-size-small);
+    font-weight: 400;
+    line-height: 1.4;
+    height: calc(2 * .375rem + 1.4em);
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.manga_content2 .manga_img2 {
+    width: 100%;
+    position: relative;
+    height: auto;
+    background-color: var(--bg-container);
+    overflow: hidden;
+}

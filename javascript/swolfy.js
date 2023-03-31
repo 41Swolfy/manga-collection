@@ -45,7 +45,7 @@ function buildbody() {
     MainAreamangacontainer.appendChild(MainAreamangacontainerstyle);// appends MainAreamangacontainerstyle as child to MainAreamangacontainer
 
     const MainAreamangacontainervolumes = document.createElement('div');
-    MainAreamangacontainervolumes.setAttribute('class', 'manga_volume_size manga_volumes');
+    MainAreamangacontainervolumes.setAttribute('class', 'manga_volume_size2 manga_volumes2');
     MainAreamangacontainerstyle.appendChild(MainAreamangacontainervolumes);// appends MainAreamangacontainervolumes as child to MainAreamangacontainerstyle
 
 
@@ -131,23 +131,23 @@ async function getdata() {
       const formattedDate = Mangadates.toLocaleDateString('de-DE', options);
 
       const mangaVolumeDiv = document.createElement("div");
-      mangaVolumeDiv.className = "manga_volume";
+      mangaVolumeDiv.className = "manga_volume2";
 
             const anchor = document.createElement("a");
             anchor.className = "manga_display_size";
 
             const content = document.createElement("div");
-            content.className = "manga_content";
+            content.className = "manga_content2";
 
             const top = document.createElement("div");
-            top.className = "manga_top";
+            top.className = "manga_top2";
 
             const to = document.createElement("div")
             content.appendChild(to)
 
 
             const title = document.createElement("div");
-            title.className = "manga_content fix ";
+            title.className = "manga_content2 fix ";
             title.textContent = data[i].title;
             to.appendChild(title);
 
@@ -160,7 +160,7 @@ async function getdata() {
             top.appendChild(priceText);
 
             const image = document.createElement("div");
-            image.className = "manga_img";
+            image.className = "manga_img2";
             const imageWrapper = document.createElement("span");
             imageWrapper.style.cssText = "box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;";
             const imageInner = document.createElement("span");
@@ -301,7 +301,7 @@ async function getdata() {
             image.appendChild(imageWrapper);
             const statustext = data[i].status;
             const date = document.createElement("div");
-            date.className = "manga_date";
+            date.className = "manga_date2";
             const dateText = document.createElement("span");
             dateText.className = "manga_textborder";
             dateText.id = "datemanga" + [i];
@@ -314,7 +314,7 @@ async function getdata() {
             mangaVolumeDiv.appendChild(anchor);
 
 
-            const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
+            const mangaVolumesDiv = document.querySelector(".manga_volume_size2.manga_volumes2");
             mangaVolumesDiv.appendChild(mangaVolumeDiv);
             if (statustext == 2) {
                 document.getElementById("pricemanga" + [i]).textContent = `Band ${Band} ·`;
