@@ -137,7 +137,7 @@
 }
 
 .manga_button {
-    background-color: var(--blue-normal);
+    background-color: var(--evangelion2);
     color: var(--font-light);
     opacity: 1;
     pointer-events: none;
@@ -326,7 +326,7 @@ a .manga_site_wrap .manga_leftSidebar,
     display: block;
     color: var(--font-container);
     background-color: var(--bg-container);
-    border-top: .125rem solid var(--blue-normal);
+    border-top: .125rem solid var(--evangelion2);
     font-size: var(--font-size-normal);
     font-weight: 300;
     line-height: 1.35
@@ -497,7 +497,7 @@ a .manga_site_wrap .manga_leftSidebar,
 
 .manga_button {
 
-    background-color: var(--blue-normal);
+    background-color: var(--evangelion2);
     border: none;
     padding: .375em .75em .3em;
     color: var(--font-light);
@@ -514,6 +514,8 @@ a .manga_site_wrap .manga_leftSidebar,
 
 
 :root {
+    --evangelion2: #965fd4;
+    --evagelion :#8bd450 ;
     --blue-normal: #274272;
     --blue-dark: #172032;
     --bg-page: #212122;
