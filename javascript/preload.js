@@ -15,7 +15,7 @@ const preloadImages = (path) => {
         const img = new Image();
         img.src = image.getPath();
     }
-    preloadImages('website/Covers/');
+    preloadImages('websites/Covers/');
 };
 
 }

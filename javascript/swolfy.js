@@ -188,56 +188,56 @@ async function getdata() {
                 case Band:
                     switch (data[i].title) {
                         case "Neon Genesis Evangelion - Perfect Edition":
-                            imageElement.src = `/Websites/Covers/eva${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Evangelion.html");
+                            imageElement.src = `/websites/Covers/eva${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Evangelion.html");
                             break;
                         case "Fairy Tail Massiv":
-                            imageElement.src = `/Websites/Covers/ft${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Fairy_Tail_Massive.html");
+                            imageElement.src = `/websites/Covers/ft${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Fairy_Tail_Massive.html");
                             break;
                         case "Tokyo Revengers: Doppelband-Edition":
-                            imageElement.src = `/Websites/Covers/rv${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Revengers.html");
+                            imageElement.src = `/websites/Covers/rv${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Revengers.html");
                             break;
                         case "Demon Slayer - Kimetsu no Yaiba":
-                            imageElement.src = `/Websites/Covers/kmy${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Demon_Slayer.html");
+                            imageElement.src = `/websites/Covers/kmy${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Demon_Slayer.html");
                             break;
                         case "Mars Red":
-                            imageElement.src = `/Websites/Covers/mr${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Mars_Red.html");
+                            imageElement.src = `/websites/Covers/mr${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Mars_Red.html");
                             break;
                         case "MoMo – the blood taker –":
-                            imageElement.src = `/Websites/Covers/tbt${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Momo.html");
+                            imageElement.src = `/websites/Covers/tbt${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Momo.html");
                             break;
                         case "SHY":
-                            imageElement.src = `/Websites/Covers/shy${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/shy.html");
+                            imageElement.src = `/websites/Covers/shy${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/shy.html");
                             break;
                         case "Angels of Death":
-                            imageElement.src = `/Websites/Covers/aof${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Angels_of_Death.html");
+                            imageElement.src = `/websites/Covers/aof${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Angels_of_Death.html");
                             break;
                         case "Call of the Night":
-                            imageElement.src = `/Websites/Covers/yf${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Yofukashi_no_Uta.html");
+                            imageElement.src = `/websites/Covers/yf${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Yofukashi_no_Uta.html");
                             break;
                         case "Fullmetal Alchemist Ultra":
-                            imageElement.src = `/Websites/Covers/fa${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Fullmetal_Alchemist_Ultra.html");
+                            imageElement.src = `/websites/Covers/fa${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Fullmetal_Alchemist_Ultra.html");
                             break;
                         case "Can't Stop Cursing You":
-                            imageElement.src = `/Websites/Covers/cursing${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Cant_stop_cursing_you.html");
+                            imageElement.src = `/websites/Covers/cursing${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Cant_stop_cursing_you.html");
                             break;
                         case "Edens Zero":
-                            imageElement.src = `/Websites/Covers/ez${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Edens_Zero.html");
+                            imageElement.src = `/websites/Covers/ez${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Edens_Zero.html");
                             break;
                         case "Bungo Stray Dogs: BEAST":
-                            imageElement.src = `/Websites/Covers/bsd${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "Ongoing/Websites/Bungo_Stray_Dogs_BEAST.html");
+                            imageElement.src = `/websites/Covers/bsd${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "Ongoing/websites/Bungo_Stray_Dogs_BEAST.html");
                             switch (Band) {
                                 case 2:
                                     Band = "3 & 4";
@@ -248,40 +248,40 @@ async function getdata() {
                             }
                             break;
                         case "Chainsaw Man":
-                            imageElement.src = `/Websites/Covers/csm${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Chainsaw_Man.html");
+                            imageElement.src = `/websites/Covers/csm${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Chainsaw_Man.html");
                             break;
                         case "Bakemonogatari":
-                            imageElement.src = `/Websites/Covers/bake${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Bakemonogatari.html");
+                            imageElement.src = `/websites/Covers/bake${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Bakemonogatari.html");
                             break;
                         case "Komi can't communicate":
-                            imageElement.src = `/Websites/Covers/komi${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/komi.html");
+                            imageElement.src = `/websites/Covers/komi${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/komi.html");
                             break;
                         case "One Piece":
-                            imageElement.src = `/Websites/Covers/op${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/op.html");
+                            imageElement.src = `/websites/Covers/op${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/op.html");
                             break;
                         case "Demon Slave":
-                            imageElement.src = `/Websites/Covers/mss${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Demon_Slave.html");
+                            imageElement.src = `/websites/Covers/mss${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Demon_Slave.html");
                             break;
                         case "More than a Doll":
-                            imageElement.src = `/Websites/Covers/sono${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Sono_Bisque_Doll_wa_koi_wo_suru.html");
+                            imageElement.src = `/websites/Covers/sono${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Sono_Bisque_Doll_wa_koi_wo_suru.html");
                             break;
                         case "YoRHa – Abstieg 11941 – Eine NieR:Automata Story":
-                            imageElement.src = `/Websites/Covers/nier${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Nier.html");
+                            imageElement.src = `/websites/Covers/nier${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Nier.html");
                             break;
                         case "Blue Lock":
-                            imageElement.src = `/Websites/Covers/blue${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Blue_Lock.html");
+                            imageElement.src = `/websites/Covers/blue${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Blue_Lock.html");
                             break;
                         case "Boy's Abyss":
-                            imageElement.src = `/Websites/Covers/boy${Band - 1}.jpg`;
-                            anchor.setAttribute("href", "/Websites/Boys_Abyss.html");
+                            imageElement.src = `/websites/Covers/boy${Band - 1}.jpg`;
+                            anchor.setAttribute("href", "/websites/Boys_Abyss.html");
                             break;
                         default:
                             imageElement.src = '/styles/errorimg.jpg';
