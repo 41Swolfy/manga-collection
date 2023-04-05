@@ -91,7 +91,7 @@
 }
 
 
-.manga-list_listItemWrapper__yGfsU .manga-content {
+.manga-list_listItemWrapper__yGfsU .manga-content .manga-anzahl{
     font-size: var(--font-size-small);
     font-weight: 300;
     line-height: 1.4;
