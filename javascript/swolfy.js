@@ -379,7 +379,7 @@ function sum(){
             sum += parseInt(element.textContent);
           });
         });
-        document.getElementById("manga_title").innerHTML ='Anzahl an gesammelten Manga: '+sum+'  | '+ 'Geschätzte Ausgaben : ' + (8 * sum)+'€' ;
+        document.getElementById("manga_title").innerHTML ='Anzahl an gesammelten Manga: '+sum+'  | '+ 'Geschätzte Ausgaben : ' + (8.32983683* sum).toFixed(2)+'€' ; // 8.32983683 is the fixed avg spent per manga      
         
 
       
