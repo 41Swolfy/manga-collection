@@ -24,6 +24,10 @@ function buildbody() {
     mangaTitle.setAttribute('id', 'manga_title');// // set id attribute to manga_title
     mainHeading.appendChild(mangaTitle);
 
+    const expenses = document.createElement('div');// append mainHeading to the headingContainer element
+    expenses.setAttribute('id', 'estimated_expenses');// // set id attribute to manga_title
+    mainHeading.appendChild(expenses);
+
     const mangaMainArea = document.createElement('div');
     mangaMainArea.setAttribute('class', 'manga_mainArea');
     Main.appendChild(mangaMainArea);// appends mangaMainArea as child to mangaWrap
@@ -128,7 +132,7 @@ async function apiCall(edition, index = 1) {
   return data;
 }
 
-const editions = ["2052", "1332", "1959", "1998", "269", "509", "123", "79", "1986", "2002", "2038", "2", "1990", "1576", "1699", "87", "1599", "534", "275", "1452", "1156", "1189"];
+const editions = ["2052", "1332", "1959", "1998", "269", "509", "123", "79", "1986", "2002", "2038", "2", "1990", "1576", "1699", "87", "1599", "534", "275", "1452", "1156", "1189","199"];
 
 async function getdata() {
   const currentDate = new Date();
@@ -299,6 +303,10 @@ async function getdata() {
                             imageElement.src = `/Ongoing/Websites/Covers/boy${Band - 1}.jpg`;
                             anchor.setAttribute("href", "/Ongoing/Websites/Boys_Abyss.html");
                             break;
+                            case "My Elder Sister":
+                                imageElement.src = `/Ongoing/Websites/Covers/elder_sister${Band - 1}.jpg`;
+                                anchor.setAttribute("href", "/Ongoing/Websites/Elder_Sister.html");
+                                break;
                         default:
                             imageElement.src = '/styles/errorimg.jpg';
                             break;
@@ -371,7 +379,9 @@ function sum(){
             sum += parseInt(element.textContent);
           });
         });
-        document.getElementById("manga_title").innerHTML ='Anzahl an gesammelten Manga: '+sum ;
+        document.getElementById("manga_title").innerHTML ='Anzahl an gesammelten Manga: '+sum+'  | '+ 'Geschätzte Ausgaben : ' + (8 * sum)+'€' ;
+        
+
       
       })
       .catch(error => console.error(error));
