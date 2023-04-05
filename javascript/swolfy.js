@@ -3,10 +3,26 @@ function buildbody() {
 
     const body = document.getElementsByTagName('body')[0];
 
+
     const Main = document.createElement('div');// create a new div element and assign it to Main variable
     Main.setAttribute('id', 'Tsubasa-list-main');// set the id attribute to Tsubasa-list-main
     body.appendChild(Main);// append Main to the body element of the document
 
+  const mangaTop = document.createElement('div');// create a new div element and assign it to mangaTop variable
+    mangaTop.setAttribute('class', 'manga_header');// set class attribute to manga_header
+    Main.appendChild(mangaTop);// append mangaTop to the mangaWrap element
+
+    const headingContainer = document.createElement('div');// create a new div element and assign it to headingContainer variable
+    headingContainer.setAttribute('class', 'title_header');// set class attribute to title_header
+    mangaTop.appendChild(headingContainer);// append headingContainer to the mangaTop element
+
+    const mainHeading = document.createElement('div');// create a new div element and assign it to mainHeading variable
+    mainHeading.setAttribute('class', 'top_title_header');// set class attribute to top_title_header
+    headingContainer.appendChild(mainHeading);// append mainHeading to the headingContainer element
+
+    const mangaTitle = document.createElement('div');// append mainHeading to the headingContainer element
+    mangaTitle.setAttribute('id', 'manga_title');// // set id attribute to manga_title
+    mainHeading.appendChild(mangaTitle);
 
     const mangaMainArea = document.createElement('div');
     mangaMainArea.setAttribute('class', 'manga_mainArea');

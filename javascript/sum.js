@@ -1,18 +1,17 @@
 let sum = 0;
-const urls = ['/Completed/c_af', '/Completed/c_gl','/Completed/c_mq','/Completed/c_rt','/Completed/c_uz','/Ongoing/o_af','/Ongoing/o_gl','/Ongoing/o_mq','/Ongoing/o_rs','/Ongoing/o_tz','/Dropped/d_af','/Dropped/d_af','/Dropped/d_gl','/Dropped/d_mq','/Dropped/d_rt','/Dropped/d_uz'];
+const urls = ['/Completed/C_af.html', '/Completed/C_gl.html','/Completed/C_mq.html','/Completed/C_rt.html','/Completed/C_uz.html','/Ongoing/O_af.html','/Ongoing/O_gl.html','/Ongoing/O_mq.html','/Ongoing/O_rs.html','/Ongoing/O_tz.html','/Dropped/D_af.html','/Dropped/D_gl.html','/Dropped/D_mq.html','/Dropped/D_rt.html','/Dropped/D_uz.html'];
 
-urls.forEach(url => {
-    fetch(url)
-      .then(response => response.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const mangaAnzahlElements = doc.querySelectorAll('.manga-anzahl');
-        mangaAnzahlElements.forEach((element) => {
-          sum += parseInt(element.textContent);
-        });
-      })
-      .catch(error => console.error(error));
-  });
+Promise.all(urls.map(url => fetch(url).then(response => response.text())))
+  .then(htmls => {
+    htmls.forEach(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const mangaAnzahlElements = doc.querySelectorAll('.manga-anzahl');
+      mangaAnzahlElements.forEach((element) => {
+        sum += parseInt(element.textContent);
+      });
+    });
+    document.getElementById("manga_title").innerHTML ='Anzahl an gesammelten Manga: '+sum ;
   
-  console.log(sum);
+  })
+  .catch(error => console.error(error));
