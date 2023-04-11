@@ -31,14 +31,14 @@
     border-top-color: transparent
 }
 
-.manga-list_listItemWrapper__yGfsU {
+.manga-list_listItemWrapper {
 
     display: block;
     overflow: hidden;
     margin-bottom: .4rem
 }
 
-.manga-list_listItemWrapper__yGfsU .manga-list_imageContainer__2sxd2 {
+.manga-list_listItemWrapper .manga-list_imageContainer__2sxd2 {
     margin: 0 .75rem .5rem 0;
     flex-grow: 0;
     flex-shrink: 0;
@@ -48,13 +48,13 @@
     width: 100%
 }
 
-.manga-list_listItemWrapper__yGfsU .manga_li-info {
+.manga-list_listItemWrapper .manga_li-info {
     flex-grow: 20;
     min-width: 0;
     margin: 0 .75rem .5rem 0
 }
 
-.manga-list_listItemWrapper__yGfsU .manga_li-title {
+.manga-list_listItemWrapper .manga_li-title {
     padding: 0;
     overflow: hidden;
     font-size: var(--font-size-large);
@@ -63,7 +63,7 @@
     margin-bottom: .375rem
 }
 
-.manga-list_listItemWrapper__yGfsU .manga_info-seperator {
+.manga-list_listItemWrapper .manga_info-seperator {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr));
     grid-column-gap: .625rem;
@@ -71,14 +71,14 @@
     margin: .25rem -.125rem 0
 }
 
-.manga-list_listItemWrapper__yGfsU .manga-list_field__Z1cFz {
+.manga-list_listItemWrapper .manga-list_field__Z1cFz {
     min-width: 0
 }
 
 
 
 
-.manga-list_listItemWrapper__yGfsU .manga_li-header {
+.manga-list_listItemWrapper .manga_li-header {
     font-size: var(--font-size-small);
     line-height: 1.4;
     padding: 0 .125rem;
@@ -91,7 +91,7 @@
 }
 
 
-.manga-list_listItemWrapper__yGfsU .manga-content .manga-anzahl{
+.manga-list_listItemWrapper .manga-content .manga-anzahl{
     font-size: var(--font-size-small);
     font-weight: 300;
     line-height: 1.4;
@@ -104,7 +104,7 @@
 
 
 
-.manga-list_listItemWrapper__yGfsU {
+.manga-list_listItemWrapper {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden
