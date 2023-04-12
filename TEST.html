@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Axios Example</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const clientId = 'db57b65bf4ace8d0daf891a6fdc0195c';
+      const clientSecret = '4ffcdba6fca0a7e2149d99f5eb8e6388252cacf8e6269ad8675fa048fa7f0482';
+      let accessToken;
+
+      axios.post('https://api.myanimelist.net/v2/oauth2/token', {
+        grant_type: 'client_credentials',
+        client_id: clientId,
+        client_secret: clientSecret
+      })
+        .then((response) => {
+          accessToken = response.data.access_token;
+          console.log(accessToken);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    </script>
+  </body>
+</html>
