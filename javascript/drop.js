@@ -29,7 +29,7 @@ function createDropdownMenu() {
         // create button element
         const button = document.createElement("button");
         button.classList.add("drop-btn");
-        button.textContent = i === 1 ? "Ongoing ▼" : i === 2 ? "Completed ▼" : "Dropped ▼";
+        button.textContent = i === 1 ? "Ongoing/Collecting ▼" : i === 2 ? "Completed ▼" : "Dropped ▼";
 
         // create dropdown content element
         const dropdownContent = document.createElement("div");
@@ -46,7 +46,7 @@ function createDropdownMenu() {
 
         if (i === 2) {
             links.forEach((link, index) => {
-                link.href = link.href.replace("Ongoing", "Completed");
+                link.href = link.href.replace("Ongoing/Collecting", "Completed");
                 link.href = link.href.replace("/O_af", "/C_af");
                 link.href = link.href.replace("/O_gl", "/C_gl");
                 link.href = link.href.replace("/O_mq", "/C_mq");
@@ -61,7 +61,7 @@ function createDropdownMenu() {
             });
         } else if (i === 3) {
             links.forEach((link) => {
-                link.href = link.href.replace("Ongoing", "Dropped");
+                link.href = link.href.replace("Ongoing/Collecting", "Dropped");
                 link.href = link.href.replace("/O_af", "/D_af");
                 link.href = link.href.replace("/O_gl", "/D_gl");
                 link.href = link.href.replace("/O_mq", "/D_mq");
