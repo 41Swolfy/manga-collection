@@ -610,6 +610,9 @@ a,
 a:hover {
     color: var(--font-link)
 }
+.dropdown-content a:hover{
+    color:whitesmoke;
+}
 
 a:hover {
     text-decoration: underline
