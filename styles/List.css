@@ -13,7 +13,7 @@
     text-decoration: none
 }
 
-.manga-list_listItemInner {
+.manga-list_listItemInner__0FuDM {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -26,7 +26,7 @@
     transition: background-color .25s ease-in-out, border-color .25s ease-in-out
 }
 
-.manga-site-hover:hover .manga-list_listItemInner {
+.manga-site-hover:hover .manga-list_listItemInner__0FuDM {
     background-color: var(--bg-page);
     border-top-color: transparent
 }
@@ -38,7 +38,7 @@
     margin-bottom: .4rem
 }
 
-.manga-list_listItemWrapper .manga-list_imageContainer {
+.manga-list_listItemWrapper .manga-list_imageContainer__2sxd2 {
     margin: 0 .75rem .5rem 0;
     flex-grow: 0;
     flex-shrink: 0;
@@ -71,7 +71,7 @@
     margin: .25rem -.125rem 0
 }
 
-.manga-list_listItemWrapper  {
+.manga-list_listItemWrapper .manga-list_field__Z1cFz {
     min-width: 0
 }
 
@@ -91,7 +91,7 @@
 }
 
 
-.manga-list_listItemWrapper  .manga-author .manga-verlag .manga-format .manga-status .manga-origin .manga-type .manga-count .manga-anzahl .manga-collected{
+.manga-list_listItemWrapper .manga-content .manga-anzahl{
     font-size: var(--font-size-small);
     font-weight: 300;
     line-height: 1.4;
