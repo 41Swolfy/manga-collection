@@ -34,7 +34,7 @@ function createDropdownMenu() {
         // create button element
         const button = document.createElement("button");
         button.classList.add("drop-btn");
-        button.textContent = i === 1 ? "Ongoing ▼" : i === 2 ? "Completed ▼" : "Dropped ▼";
+        button.textContent = i === 1 ? "Ongoing/Collecting ▼" : i === 2 ? "Completed ▼" : "Dropped ▼";
 
         // create dropdown content element
         const dropdownContent = document.createElement("div");
