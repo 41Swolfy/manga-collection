@@ -238,7 +238,7 @@ a .manga_site_wrap .manga_leftSidebar,
 }
 
 .manga_site_wrap .manga_leftSidebar .manga_cover img {
-    background-color: #16151680
+    background-color: transparent;
 }
 
 
