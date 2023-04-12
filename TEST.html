@@ -1,27 +1,14 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Axios Example</title>
-  </head>
-  <body>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-      const clientId = 'db57b65bf4ace8d0daf891a6fdc0195c';
-      const clientSecret = '4ffcdba6fca0a7e2149d99f5eb8e6388252cacf8e6269ad8675fa048fa7f0482';
-      let accessToken;
-
-      axios.post('https://api.myanimelist.net/v2/oauth2/token', {
-        grant_type: 'client_credentials',
-        client_id: clientId,
-        client_secret: clientSecret
-      })
-        .then((response) => {
-          accessToken = response.data.access_token;
-          console.log(accessToken);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    </script>
-  </body>
-</html>
+<form id="auth-form" method="GET" action="https://myanimelist.net/v1/oauth2/authorize">
+    <input type="hidden" name="response_type" value="code">
+    <input type="hidden" name="client_id" value="db57b65bf4ace8d0daf891a6fdc0195c">
+    <input type="hidden" name="state" value="010219762298">
+    <input type="hidden" name="redirect_uri" value="https://swolfy.vercel.app/TEST.html">
+    <input type="hidden" name="code_challenge" value="db57b65bf4ace8d0daf891a6fdc0195cdb57b65bf4ace8d0daf891a6fdc0195c">
+    <input type="hidden" name="code_challenge_method" value="plain">
+    <input type="submit" value="Authorize">
+  </form>
+  
+  <script>
+    document.getElementById('auth-form').submit();
+  </script>
+  
