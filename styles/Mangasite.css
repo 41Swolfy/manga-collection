@@ -241,9 +241,7 @@ a .manga_site_wrap .manga_leftSidebar,
     background-color: #16151680
 }
 
- .manga_site_wrap .manga_leftSidebar .manga_cover img {
-    background-color: #f8f8f880
-}
+
 
 .manga_site_wrap .manga_mainArea {
     grid-row: 4
