@@ -46,13 +46,13 @@ header {
 .dropdown {
   position: relative;
   display: inline-block;
-  width: calc(33.33% - 1px);
+  width: calc(33.33% - 3px);
   /* calculate the width based on the number of buttons and subtract 1px for the border */
 }
 
 /* Add margin to the first two dropdowns */
 .dropdown:not(:last-child) {
-  margin-right: 1px;
+  margin-right: 3px;
 }
 
 .drop-btn {
