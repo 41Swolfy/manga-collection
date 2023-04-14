@@ -34,7 +34,7 @@ function createDropdownMenu() {
         // create button element
         const button = document.createElement("button");
         button.classList.add("drop-btn");
-        button.textContent = i === 1 ? "Ongoing/Collecting ▼" : i === 2 ? "Completed ▼" : "Dropped ▼";
+        button.textContent = i === 1 ? "Ongoing ▼" : i === 2 ? "Completed ▼" : "Dropped ▼";
 
         // create dropdown content element
         const dropdownContent = document.createElement("div");
@@ -156,23 +156,23 @@ function buildbody() {
     mangaCover.appendChild(lightbox);
 
     const lightboxInner = document.createElement('span');// Create a span element
-    lightboxInner.setAttribute('style', 'box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative');
+    lightboxInner.setAttribute('style', 'box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0px;margin:0px;padding:0px;position:relative');
     lightbox.appendChild(lightboxInner);// Append the 'lightbox' span element to the 'mangaCover' div element
 
     const lightboxInner2 = document.createElement('span');// create a new span element
-    lightboxInner2.setAttribute('style', 'box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;padding-top:142%');//inline CSS style rules
+    lightboxInner2.setAttribute('style', 'box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0px;margin:0px;padding:0px;padding-top:142%');//inline CSS style rules
     lightboxInner.appendChild(lightboxInner2); // append the new span element as a child of lightboxInner span element
 
     const img = document.createElement('img');
     img.setAttribute('alt', '');// set the alt attribute of the image to an empty string for later use
     img.onerror = function () {
-        img.setAttribute('src', '/styles/errorimg.jpg');// if the image isn't available set to alternative img
+        img.setAttribute('src', '/styles/errorimg.webp');// if the image isn't available set to alternative img
     }
-    img.setAttribute('src', `./Covers/${imgname}0.jpg`);//sets source of the mangacover
+    img.setAttribute('src', `./Covers/${imgname}0.webp`);//sets source of the mangacover
     img.setAttribute('decoding', 'async');// sets attribute for the image as async decoding
     img.setAttribute('data-nimg', 'responsive');// sets attribute as responsive for resizing
 
-    img.setAttribute('style', 'position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:contain;');// set inline CSS style rules for the image
+    img.setAttribute('style', 'position:absolute;inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;');// set inline CSS style rules for the image
     lightboxInner.appendChild(img);// appends image to lightbox Inner
 
 
@@ -1072,10 +1072,10 @@ async function getdata() {
         const imageElement = document.createElement("img");
 
         imageElement.onerror = function () {
-            imageElement.src = '/styles/errorimg.jpg';
+            imageElement.src = '/styles/errorimg.webp';
         }
 
-        imageElement.src = `./Covers/${imgname}${[i]}.jpg`;
+        imageElement.src = `./Covers/${imgname}${[i]}.webp`;
         imageElement.decoding = "async";
         imageElement.dataset.nimg = "responsive";
         imageElement.style.cssText = "position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;";

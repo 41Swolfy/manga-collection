@@ -91,7 +91,7 @@
 }
 
 
-.manga-list_listItemWrapper .maga_content .manga-author .manga-verlag .manga-format .manga-status .manga-origin .manga-type .manga-count .manga-anzahl .manga-collected{
+.manga-list_listItemWrapper  .manga-author .manga-verlag .manga-format .manga-status .manga-origin .manga-type .manga-count .manga-anzahl .manga-collected{
     font-size: var(--font-size-small);
     font-weight: 300;
     line-height: 1.4;

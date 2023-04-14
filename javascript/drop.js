@@ -18,7 +18,7 @@ function createDropdownMenu() {
 
     // append header to body
     document.body.appendChild(header);
-//huh
+
     // create dropdowns
     for (let i = 1; i <= 3; i++) {
         // create dropdown element
@@ -29,7 +29,7 @@ function createDropdownMenu() {
         // create button element
         const button = document.createElement("button");
         button.classList.add("drop-btn");
-        button.textContent = i === 1 ? "Ongoing/Collecting ▼" : i === 2 ? "Completed ▼" : "Dropped ▼";
+        button.textContent = i === 1 ? "Ongoing ▼" : i === 2 ? "Completed ▼" : "Dropped ▼";
 
         // create dropdown content element
         const dropdownContent = document.createElement("div");

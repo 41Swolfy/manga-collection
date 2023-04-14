@@ -1,3 +1,14 @@
+#Tsubasa-list-main {
+    flex-grow: 1;
+    margin-top: 6.5rem;
+    width: 92%;
+    padding-left: 0;
+    padding-right: 0
+}
+
+
+
+
 .manga_volume_size {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(10.375rem, 100%), 1fr));
@@ -30,6 +41,17 @@
     flex-grow: 1;
     padding: 0;
     max-width: 100%
+}
+
+
+
+.manga_site_wrap {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(auto, min(100%, 60rem));
+    grid-row-gap: 1rem;
+    grid-column-gap: 1rem;
+    justify-content: center
 }
 
 .manga_display_size,
@@ -70,7 +92,6 @@
 }
 
 
-
 .manga_content .manga_date span.manga_textborder,
 .manga_content .manga_top span.manga_textborder {
     overflow: hidden;
@@ -97,6 +118,7 @@
 .manga_display_size:hover {
     max-height: 100%
 }
+
 
 
 
@@ -182,16 +204,22 @@
 
 .top_title_header {
 
-    padding: 0 .75rem;
-    display: block;
+
+
     display: inline;
     font-size: var(--font-size-xx-large);
     font-weight: 300;
     line-height: 1.25;
 }
 
+.top_title_header {
+    padding: 0 .75rem;
+    display: block;
+
+}
+
 .sub_title_header {
-    margin: -1rem 0 0;
+    margin: 0.6rem 0 0;
     clear: both;
 }
 
@@ -204,13 +232,10 @@
 
 }
 
-.manga_site_wrap {
-    width: 100%;
-    display: grid;
-    grid-template-columns: minmax(auto, min(100%, 60rem));
-    grid-row-gap: 1rem;
-    grid-column-gap: 1rem;
-    justify-content: center
+.manga_leftSidebar {
+min-width: 0;
+max-width: 60rem;
+ grid-column: 1; 
 }
 
 a .manga_site_wrap .manga_leftSidebar,
@@ -242,20 +267,11 @@ a .manga_site_wrap .manga_leftSidebar,
 }
 
 
-
 .manga_site_wrap .manga_mainArea {
     grid-row: 4
 }
 
-.manga_site_wrap  {
-    display: flex;
-    font-size: var(--font-size-large);
-    justify-content: center;
-    grid-row: 1;
-    grid-column: 1;
-    align-self: center;
-    margin-bottom: .25em
-}
+
 
 @media only screen and (min-width:34em) {
     .manga_site_wrap .manga_leftSidebar {
@@ -402,12 +418,28 @@ a .manga_site_wrap .manga_leftSidebar,
     margin-bottom: -.35rem
 }
 
-
-#manga_title h1 {
-    flex-basis: max-content;
-    margin-bottom: .35rem
+#manga_title2 {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .65rem
 }
 
+
+#manga_title h1 {
+        display: inline;
+        font-size: var(--font-size-xx-large);
+        font-weight: 300;
+        line-height: 1.25;
+   
+        
+}
+
+.top_title_header h1{
+    flex-basis: max-content;
+    margin-bottom: 0.35rem;
+}
 
 @media only screen and (min-width:48em) {
     #manga_title {
@@ -499,14 +531,19 @@ a .manga_site_wrap .manga_leftSidebar,
 
 
 
- .manga_button {
+.manga_button {
     opacity: .9
 }
 
+@media screen and (min-width: 48em) {
+    :root {
+        --letter-spacing: 0.0125em;
+    }
+}
 
 :root {
     --evangelion2: #965fd4;
-    --evagelion :#8bd450 ;
+    --evagelion: #8bd450;
     --blue-normal: #274272;
     --blue-dark: #172032;
     --bg-page: #212122;
@@ -572,13 +609,6 @@ body {
 }
 
 
-#Tsubasa-list-main {
-    flex-grow: 1;
-    margin-top: 6.5rem;
-    width: 92%;
-    padding-left: 0;
-    padding-right: 0
-}
 
 button,
 input,
@@ -610,8 +640,9 @@ a,
 a:hover {
     color: var(--font-link)
 }
-.dropdown-content a:hover{
-    color:whitesmoke;
+
+.dropdown-content a:hover {
+    color: whitesmoke;
 }
 
 a:hover {
@@ -680,12 +711,14 @@ iframe {
     justify-content: center;
 }
 
-.manga_display_size2, .manga_display_size2:hover {
+.manga_display_size2,
+.manga_display_size2:hover {
     color: var(--font-container);
     text-decoration: none;
 }
 
-.manga_content2, .manga_display_size2 {
+.manga_content2,
+.manga_display_size2 {
     flex-grow: 1;
     padding: 0;
     max-width: 100%;
@@ -695,6 +728,7 @@ iframe {
     display: block;
     margin-bottom: .4375rem;
 }
+
 .manga_content2 {
     background-color: var(--bg-container);
     border-top: .125rem solid var(--blue-normal);
@@ -705,7 +739,8 @@ iframe {
     text-align: center;
 }
 
-.manga_content2 .manga_date2, .manga_content2 .manga_top2 {
+.manga_content2 .manga_date2,
+.manga_content2 .manga_top2 {
     text-align: center;
     padding: .375rem .5rem;
     font-size: var(--font-size-small);
