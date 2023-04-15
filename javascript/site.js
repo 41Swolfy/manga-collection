@@ -168,7 +168,7 @@ function buildbody() {
     img.onerror = function () {
         img.setAttribute('src', '/styles/errorimg.webp');// if the image isn't available set to alternative img
     }
-    img.setAttribute('src', `./Covers/${imgname}0.webp`);//sets source of the mangacover
+    img.setAttribute('src', `/websites/Covers/${imgname}0.webp`);//sets source of the mangacover
     img.setAttribute('decoding', 'async');// sets attribute for the image as async decoding
     img.setAttribute('data-nimg', 'responsive');// sets attribute as responsive for resizing
 
@@ -1075,7 +1075,7 @@ async function getdata() {
             imageElement.src = '/styles/errorimg.webp';
         }
 
-        imageElement.src = `./Covers/${imgname}${[i]}.webp`;
+        imageElement.src = `/websites/Covers/${imgname}${[i]}.webp`;
         imageElement.decoding = "async";
         imageElement.dataset.nimg = "responsive";
         imageElement.style.cssText = "position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;";
