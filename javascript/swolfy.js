@@ -230,7 +230,7 @@ async function getdata() {
                             break;
                         case "Can't Stop Cursing You":
                             imageElement.src = `/websites/Covers/cant_stop_cursing_you${Band - 1}.webp`;
-                            anchor.setAttribute("href", "/Ongoing/websites/Cant_stop_cursing_you.html");
+                            anchor.setAttribute("href", "/Ongoing/Websites/Cant_stop_cursing_you.html");
                             break;
                         case "Call of the Night":
                             imageElement.src = `/websites/Covers/Yofukashi_no_Uta${Band - 1}.webp`;

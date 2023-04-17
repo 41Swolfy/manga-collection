@@ -104,9 +104,9 @@ function buildbody() {
 
     const body = document.getElementsByTagName('body')[0];
 
-    const Main = document.createElement('div');// create a new div element and assign it to Main variable
-    Main.setAttribute('id', 'Tsubasa-list-main');// set the id attribute to Tsubasa-list-main
-    body.appendChild(Main);// append Main to the body element of the document
+    const Main = document.createElement('div');
+    Main.setAttribute('id', 'Tsubasa-list-main');
+    body.appendChild(Main);
 
     const layoutWide = document.createElement('div');// append Main to the body element of the document
     layoutWide.setAttribute('class', 'manga_layout');// set class attribute to manga_layout
