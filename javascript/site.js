@@ -4,7 +4,7 @@ var imgname;// img name ==  image for manga
 
 //missing manga  Artbooks :Black Butler;
 function createDropdownMenu() {
-    // create header element
+
     const header = document.createElement("header");
     header.classList.add("heading");
 
@@ -17,7 +17,7 @@ function createDropdownMenu() {
     const h1 = document.createElement("h1");
     h1.textContent = "Tsubasa List";
 
-    // append h1 to link and link to header
+   
     link.appendChild(h1);
     header.appendChild(link);
 
@@ -82,6 +82,8 @@ function createDropdownMenu() {
             a.textContent = link.text;
             dropdownContent.appendChild(a);
         });
+
+        //create easteregg
         if (i === 3) {
             const easterEgg = document.createElement("a");
             easterEgg.setAttribute("href", "/swolfy.html");
@@ -108,60 +110,60 @@ function buildbody() {
     Main.setAttribute('id', 'Tsubasa-list-main');
     body.appendChild(Main);
 
-    const layoutWide = document.createElement('div');// append Main to the body element of the document
-    layoutWide.setAttribute('class', 'manga_layout');// set class attribute to manga_layout
-    Main.appendChild(layoutWide);// append layoutWide to the Main element
+    const layoutWide = document.createElement('div');
+    layoutWide.setAttribute('class', 'manga_layout');
+    Main.appendChild(layoutWide);
 
-    const mangaWrap = document.createElement('div');// create a div element assign it to mangaWrap variable
-    mangaWrap.setAttribute('class', 'manga_site_wrap');//  set class attribute to manga_site_wrap
-    layoutWide.appendChild(mangaWrap);//append  mangaWrap to the layoutWide element
+    const mangaWrap = document.createElement('div');
+    mangaWrap.setAttribute('class', 'manga_site_wrap');
+    layoutWide.appendChild(mangaWrap);
 
-    const mangaTop = document.createElement('div');// create a new div element and assign it to mangaTop variable
-    mangaTop.setAttribute('class', 'manga_header');// set class attribute to manga_header
-    mangaWrap.appendChild(mangaTop);// append mangaTop to the mangaWrap element
+    const mangaTop = document.createElement('div');
+    mangaTop.setAttribute('class', 'manga_header');
+    mangaWrap.appendChild(mangaTop);
 
-    const headingContainer = document.createElement('div');// create a new div element and assign it to headingContainer variable
-    headingContainer.setAttribute('class', 'title_header');// set class attribute to title_header
-    mangaTop.appendChild(headingContainer);// append headingContainer to the mangaTop element
+    const headingContainer = document.createElement('div');
+    headingContainer.setAttribute('class', 'title_header');
+    mangaTop.appendChild(headingContainer);
 
-    const mainHeading = document.createElement('div');// create a new div element and assign it to mainHeading variable
-    mainHeading.setAttribute('class', 'top_title_header');// set class attribute to top_title_header
-    headingContainer.appendChild(mainHeading);// append mainHeading to the headingContainer element
+    const mainHeading = document.createElement('div');
+    mainHeading.setAttribute('class', 'top_title_header');
+    headingContainer.appendChild(mainHeading);
 
-    const mangaTitle = document.createElement('div');// append mainHeading to the headingContainer element
-    mangaTitle.setAttribute('id', 'manga_title');// // set id attribute to manga_title
+    const mangaTitle = document.createElement('div');
+    mangaTitle.setAttribute('id', 'manga_title');
     mainHeading.appendChild(mangaTitle);
 
-    const subHeading = document.createElement('div');// create a new div element and assign it to subHeading variable
-    subHeading.setAttribute('class', 'sub_title_header');// set class attribute to sub_title_header
-    headingContainer.appendChild(subHeading);// append subHeading to the headingContainer element
+    const subHeading = document.createElement('div');
+    subHeading.setAttribute('class', 'sub_title_header');
+    headingContainer.appendChild(subHeading);
 
-    const hr = document.createElement('hr');// create a new hr element
-    subHeading.appendChild(hr);// append hr to the subHeading element
+    const hr = document.createElement('hr');
+    subHeading.appendChild(hr);
 
-    const mangaTitleLow = document.createElement('div');// create a new div element and assign it to mangaTitleLow variable
-    mangaTitleLow.setAttribute('id', 'manga_title_low');// set class attribute to manga_title_low
-    subHeading.appendChild(mangaTitleLow);// append mangaTitleLow to the subHeading element
+    const mangaTitleLow = document.createElement('div');
+    mangaTitleLow.setAttribute('id', 'manga_title_low');
+    subHeading.appendChild(mangaTitleLow);
 
-    const mangaLeftSidebar = document.createElement('div');// append mangaTitleLow to the subHeading element
-    mangaLeftSidebar.setAttribute('class', 'manga_leftSidebar');// set class attribute to manga_leftSidebar
-    mangaWrap.appendChild(mangaLeftSidebar);// append mangaLeftSidebar to the mangaWrap element
+    const mangaLeftSidebar = document.createElement('div');
+    mangaLeftSidebar.setAttribute('class', 'manga_leftSidebar');
+    mangaWrap.appendChild(mangaLeftSidebar);
 
-    const mangaCover = document.createElement('div');// create a new div element and assign it to mangaCover variable
-    mangaCover.setAttribute('class', 'manga_cover');// set class attribute to manga_cover
-    mangaLeftSidebar.appendChild(mangaCover);// Append the 'mangaCover' div element to the 'mangaLeftSidebar' div 
+    const mangaCover = document.createElement('div');
+    mangaCover.setAttribute('class', 'manga_cover');
+    mangaLeftSidebar.appendChild(mangaCover);
 
-    const lightbox = document.createElement('span');// Create a span element
-    lightbox.setAttribute('class', 'lightbox');// set class attribute to lightbox
+    const lightbox = document.createElement('span');
+    lightbox.setAttribute('class', 'lightbox');
     mangaCover.appendChild(lightbox);
 
-    const lightboxInner = document.createElement('span');// Create a span element
+    const lightboxInner = document.createElement('span');
     lightboxInner.setAttribute('style', 'box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0px;margin:0px;padding:0px;position:relative');
-    lightbox.appendChild(lightboxInner);// Append the 'lightbox' span element to the 'mangaCover' div element
+    lightbox.appendChild(lightboxInner);
 
-    const lightboxInner2 = document.createElement('span');// create a new span element
+    const lightboxInner2 = document.createElement('span');
     lightboxInner2.setAttribute('style', 'box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0px;margin:0px;padding:0px;padding-top:142%');//inline CSS style rules
-    lightboxInner.appendChild(lightboxInner2); // append the new span element as a child of lightboxInner span element
+    lightboxInner.appendChild(lightboxInner2); 
 
     const img = document.createElement('img');
     img.setAttribute('alt', '');// set the alt attribute of the image to an empty string for later use
