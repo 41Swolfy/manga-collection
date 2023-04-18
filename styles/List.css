@@ -1,19 +1,23 @@
+
+/* This sets the margin and padding to 0 for all elements, and makes sure the box-sizing property includes border and padding */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box
-}
-
-
-.manga-site-hover {
-    display: block
-}
-
-.manga-site-hover:hover {
-    text-decoration: none
-}
-
-.manga-list_listItemInner {
+    box-sizing: border-box;
+  }
+  
+  /* This sets the display property to block when hovering over the element with the class 'manga-site-hover'. */
+  .manga-site-hover {
+    display: block;
+  }
+  
+  /* This sets the text decoration to none when hovering over the element with the class 'manga-site-hover'. */
+  .manga-site-hover:hover {
+    text-decoration: none;
+  }
+  
+  /* This sets the display property to flex for the element with the class 'manga-list_listItemInner', and sets various other flex properties. */
+  .manga-list_listItemInner {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -23,97 +27,97 @@
     background-color: var(--bg-container);
     font-size: var(--font-size-small);
     color: var(--font-page);
-    transition: background-color .25s ease-in-out, border-color .25s ease-in-out
-}
-
-.manga-site-hover:hover .manga-list_listItemInner {
+    transition: background-color .25s ease-in-out, border-color .25s ease-in-out;
+  }
+  
+  /* This sets the background color and border color properties for the element with the class 'manga-list_listItemInner' when hovering over the element with the class 'manga-site-hover'. */
+  .manga-site-hover:hover .manga-list_listItemInner {
     background-color: var(--bg-page);
-    border-top-color: transparent
-}
-
-.manga-list_listItemWrapper {
-
+    border-top-color: transparent;
+  }
+  
+  /* This sets various properties for the element with the class 'manga-list_listItemWrapper'. */
+  .manga-list_listItemWrapper {
     display: block;
     overflow: hidden;
-    margin-bottom: .4rem
-}
-
-.manga-list_listItemWrapper .manga-list_imageContainer {
+    margin-bottom: .4rem;
+  }
+  
+  /* This sets various flex properties for the element with the class 'manga-list_imageContainer'. */
+  .manga-list_listItemWrapper .manga-list_imageContainer {
     margin: 0 .75rem .5rem 0;
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 4.625rem;
     min-width: 0;
     max-width: 18.75rem;
-    width: 100%
-}
-
-.manga-list_listItemWrapper .manga_li-info {
+    width: 100%;
+  }
+  
+  /* This sets various flex properties for the element with the class 'manga_li-info'. */
+  .manga-list_listItemWrapper .manga_li-info {
     flex-grow: 20;
     min-width: 0;
-    margin: 0 .75rem .5rem 0
-}
-
-.manga-list_listItemWrapper .manga_li-title {
+    margin: 0 .75rem .5rem 0;
+  }
+  
+  /* This sets various properties for the element with the class 'manga_li-title'. */
+  .manga-list_listItemWrapper .manga_li-title {
     padding: 0;
     overflow: hidden;
     font-size: var(--font-size-large);
     line-height: 1.25;
     min-width: 0;
-    margin-bottom: .375rem
-}
-
-.manga-list_listItemWrapper .manga_info-seperator {
+    margin-bottom: .375rem;
+  }
+  
+  /* This sets various grid properties for the element with the class 'manga_info-seperator'. */
+  .manga-list_listItemWrapper .manga_info-seperator {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr));
     grid-column-gap: .625rem;
     grid-row-gap: .5rem;
-    margin: .25rem -.125rem 0
-}
-
+    margin: .25rem -.125rem 0;
+  }
+/*  set min width to 0 */
 .manga-list_listItemWrapper  {
     min-width: 0
 }
 
 
-
-
+/* Style for manga list item header */
 .manga-list_listItemWrapper .manga_li-header {
-    font-size: var(--font-size-small);
-    line-height: 1.4;
-    padding: 0 .125rem;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color: var(--font-dark);
-    border-bottom: .0625rem solid var(--bg-page);
-    margin-bottom: .1875rem
+    font-size: var(--font-size-small); /* Set font size */
+    line-height: 1.4; /* Set line height */
+    padding: 0 .125rem; /* Set left and right padding */
+    white-space: nowrap; /* Prevent line break */
+    text-overflow: ellipsis; /* Add ellipsis for text overflow */
+    overflow: hidden; /* Hide overflowing text */
+    color: var(--font-dark); /* Set text color */
+    border-bottom: .0625rem solid var(--bg-page); /* Add bottom border */
+    margin-bottom: .1875rem; /* Set bottom margin */
 }
 
-
-.manga-list_listItemWrapper  .manga-author .manga-verlag .manga-format .manga-status .manga-origin .manga-type .manga-count .manga-anzahl .manga-collected{
-    font-size: var(--font-size-small);
-    font-weight: 300;
-    line-height: 1.4;
-    padding: 0 .125rem;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color: var(--font-container)
+/* Style for manga list item metadata */
+.manga-list_listItemWrapper .manga-author .manga-verlag .manga-format .manga-status .manga-origin .manga-type .manga-count .manga-anzahl .manga-collected {
+    font-size: var(--font-size-small); /* Set font size */
+    font-weight: 300; /* Set font weight */
+    line-height: 1.4; /* Set line height */
+    padding: 0 .125rem; /* Set left and right padding */
+    white-space: nowrap; /* Prevent line break */
+    text-overflow: ellipsis; /* Add ellipsis for text overflow */
+    overflow: hidden; /* Hide overflowing text */
+    color: var(--font-container); /* Set text color */
 }
 
-
-
+/* Style for manga list item container */
 .manga-list_listItemWrapper {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden
+    white-space: nowrap; /* Prevent line break */
+    text-overflow: ellipsis; /* Add ellipsis for text overflow */
+    overflow: hidden; /* Hide overflowing text */
 }
 
-
-
-
-
+/* Define custom CSS variables */
 :root {
     --evangelion : #8bd450;
     --blue-normal: #274272;
@@ -135,58 +139,57 @@
     --font-size-tiny: 0.75rem;
     --font-size-x-tiny: 0.6875rem;
     --font-size-xx-tiny: 0.625rem;
-    --letter-spacing: 0
+    --letter-spacing: 0;
 }
 
+/* Media query for larger screens */
 @media screen and (min-width:48em) {
     :root {
-        --letter-spacing: 0.0125em
+        --letter-spacing: 0.0125em; /* Change letter spacing */
     }
 }
 
-
-
-
+/* Remove focus outline */
 :focus {
-    outline: none !important
+    outline: none !important;
 }
 
 
 
+/* Sets the font color, size, letter spacing, line height, weight, and font family of the entire document */
 body {
-
     color: var(--font-container);
     font-size: var(--font-size-normal);
     letter-spacing: 0;
     line-height: 1.5;
     font-weight: 300;
-    font-family: noto-sans, Noto Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji
-}
-
-
-
-a {
+    font-family: noto-sans, Noto Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    }
+    
+    /* Removes the underline from links and sets their background color to transparent */
+    a {
     text-decoration: none;
     background-color: transparent;
-    cursor: pointer
-}
-
-a,
-a:hover {
-    color: var(--font-link)
-}
-
-a:hover {
-    text-decoration: underline
-}
-
-
-
-.heading {
+    cursor: pointer;
+    }
+    
+    /* Sets the color of links and their hover state to a custom color variable */
+    a,
+    a:hover {
+    color: var(--font-link);
+    }
+    
+    /* Underlines links when hovered over */
+    a:hover {
+    text-decoration: underline;
+    }
+    
+    /* Sets the font family, color, size, text alignment, and margins of headings */
+    .heading {
     font-family: 'Bilbo Swash Caps', cursive;
     color: whitesmoke;
     font-size: 250%;
     text-align: center;
     margin-top: 53.4px;
     margin-bottom: 53.4px;
-}
+    }
