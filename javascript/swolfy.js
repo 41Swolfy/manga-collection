@@ -1,4 +1,4 @@
-
+let pricesum = 0;
 
 
 // This is a function named buildbody
@@ -164,7 +164,8 @@ async function getdata() {
             const priceInEuro = (priceInCent / 100).toFixed(2);
             const options = { day: 'numeric', month: 'long', year: 'numeric' };
             const formattedDate = Mangadates.toLocaleDateString('de-DE', options);
-
+            pricesum = data[i].price + pricesum;
+            
              // Create the elements needed to display the manga volume information
             const mangaVolumeDiv = document.createElement("div");
             mangaVolumeDiv.className = "manga_volume2";
@@ -377,6 +378,8 @@ async function getdata() {
 
         }
     }
+
+console.log((pricesum/100).toFixed(2));
 } getdata();
 
 
