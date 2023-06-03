@@ -1,6 +1,7 @@
 
 
 
+
 // This is a function named buildbody
 // It creates a manga list page structure by generating HTML elements and adding them to the DOM
 function buildbody() {
@@ -164,6 +165,7 @@ async function getdata() {
             const priceInEuro = (priceInCent / 100).toFixed(2);
             const options = { day: 'numeric', month: 'long', year: 'numeric' };
             const formattedDate = Mangadates.toLocaleDateString('de-DE', options);
+            var pricesum = data[i].price + pricesum;
 
              // Create the elements needed to display the manga volume information
             const mangaVolumeDiv = document.createElement("div");
@@ -382,6 +384,7 @@ async function getdata() {
 
 
 function sum() {
+ 
     let sum = 0;
     const urls = ['/Completed/C_af.html', '/Completed/C_gl.html', '/Completed/C_mq.html', '/Completed/C_rt.html', '/Completed/C_uz.html', '/Ongoing/O_af.html', '/Ongoing/O_gl.html', '/Ongoing/O_mq.html', '/Ongoing/O_rs.html', '/Ongoing/O_tz.html', '/Dropped/D_af.html', '/Dropped/D_gl.html', '/Dropped/D_mq.html', '/Dropped/D_rt.html', '/Dropped/D_uz.html'];//path to all Manga to get the count
 
@@ -395,7 +398,8 @@ function sum() {
                     sum += parseInt(element.textContent);// Add the parsed integer value of the element's text content to the sum
                 });
             });
-            document.getElementById("manga_title2").innerHTML = 'Anzahl an gesammelten Manga: ' + sum + '  | ' + 'Geschätzte Ausgaben : ' + (8.385583524 * sum).toFixed(2) + '€'; // 8.32983683 is the fixed avg spent per manga      
+            document.getElementById("manga_title2").innerHTML = 'Anzahl an gesammelten Manga: ' + sum + '  | ' + 'Geschätzte Ausgaben : ' + (8.385583524 * sum).toFixed(2) + '€ | Ausgaben Zeitraum : '+ (pricesum/100).toFixed(2) ;
+            ; // 8.32983683 is the fixed avg spent per manga      
         })
         .catch(error => console.error(error));
 
