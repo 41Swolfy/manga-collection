@@ -1,5 +1,6 @@
 
 
+let pricesum = 0;
 
 
 // This is a function named buildbody
