@@ -144,7 +144,7 @@ async function apiCall(edition, index = 1) {
 }
 
 // an Array of Ongoing Manga with volume edition IDS
-const editions = ["2052", "1332", "1959", "1998", "269", "509", "123", "79", "1986", "2002", "2038", "2", "1990", "1576", "1699", "87", "1599", "534", "275", "1452", "1156", "1189", "199"];
+const editions = ["768","2052", "1332", "1959", "1998", "269", "509", "123", "79", "1986", "2002", "2038", "2", "1990", "1576", "1699", "87", "1599", "534", "275", "1452", "1156", "1189", "199"];
 // An asynchronous function to get manga data
 async function getdata() {
      // Create a new Date object with the current date and create a Date in 67 Days
@@ -219,11 +219,16 @@ async function getdata() {
             }
             switch (Band) {
                 case Band:
+
                     switch (data[i].title) {
                         case "Angels of Death":
                             imageElement.src = ` /websites/Covers/Angels_of_Death${Band - 1}.webp`;
                             anchor.setAttribute("href", "/Ongoing/Websites/Angels_of_Death.html");
                             break;
+                        case "Shangri-La Frontier":
+                            imageElement.src = ` /websites/Covers/shangri_la_frontier${Band - 1}.webp`;
+                            anchor.setAttribute("href", "/Dropped/Websites/Shangri_La_Frontier.html");
+                            break;        
                         case "Bakemonogatari":
                             imageElement.src = `/websites/Covers/bakemonogatari${Band - 1}.webp`;
                             anchor.setAttribute("href", "/Ongoing/Websites/Bakemonogatari.html");
