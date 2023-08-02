@@ -307,7 +307,7 @@ async function getdata() {
                             break;
                         case "Tokyo Revengers: Doppelband-Edition":
                             imageElement.src = `/websites/Covers/Tokyo_revengers${Band - 1}.webp`;
-                            anchor.setAttribute("href", "/Websites/Tokyo_revengers.html");
+                            anchor.setAttribute("href", "/websites/Tokyo_revengers.html");
                             break;
                      
                         default:
@@ -388,7 +388,7 @@ function sum() {
                     sum += parseInt(element.textContent);// Add the parsed integer value of the element's text content to the sum
                 });
             });
-            document.getElementById("manga_title2").innerHTML = 'Anzahl an gesammelten Manga: ' + sum + '  | ' + 'Geschätzte Ausgaben : ' + (8.463172849 * sum).toFixed(2) + '€'; // 8.32983683 is the fixed avg spent per manga      
+            document.getElementById("manga_title2").innerHTML = 'Anzahl an gesammelten Manga: ' + sum + '  | ' + 'Geschätzte Ausgaben : ' + (8.463172849 * sum).toFixed(2) + '€'; // 8.463172849 is the fixed avg spent per manga      
         })
         .catch(error => console.error(error));
 
