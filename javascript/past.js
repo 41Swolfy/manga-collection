@@ -146,7 +146,7 @@ async function apiCall(edition, index = 1) {
 }
 
 // an Array of Ongoing Manga with volume edition IDS
-const editions = ["2052","768", "1332", "1959", "1998", "269", "509", "123", "79", "1986", "2002", "2038", "2", "1990", "1576", "1699", "87", "1599", "534", "275", "1452", "1156", "1189", "199"];
+const editions = ["2052","768", "1332", "1959",  "269", "509", "123", "79", "1986", "2002", "2038", "2", "1990", "1576", "1699", "87", "1599", "534", "275", "1452", "1156", "1189", "199"];
 // An asynchronous function to get manga data
 async function getdata() {
      // Create a new Date object with the current date and create a Date in 67 Days
@@ -403,8 +403,8 @@ function sum() {
                     sum += parseInt(element.textContent);// Add the parsed integer value of the element's text content to the sum
                 });
             });
-            document.getElementById("manga_title2").innerHTML = 'Anzahl an gesammelten Manga: ' + sum + '  | ' + 'Geschätzte Ausgaben : ' + (8.385583524 * sum).toFixed(2) + '€ | Ausgaben Zeitraum : '+ (pricesum/100).toFixed(2) ;
-            ; // 8.32983683 is the fixed avg spent per manga      
+            document.getElementById("manga_title2").innerHTML = 'Anzahl an gesammelten Manga: ' + sum + '  | ' + 'Geschätzte Ausgaben : ' + (8.463172849 * sum).toFixed(2) + '€ | Ausgaben Zeitraum : '+ (pricesum/100).toFixed(2) ;
+            ; // 8.463172849 is the fixed avg spent per manga /updating it sometimes /     
         })
         .catch(error => console.error(error));
 
