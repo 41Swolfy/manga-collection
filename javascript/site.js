@@ -1048,7 +1048,6 @@ async function getdata() {
         const options = { day: 'numeric', month: 'long', year: 'numeric' };
         const formattedDate = Mangadate.toLocaleDateString('de-DE', options);
         const volid =data[i].id;
-         console.log(volid);
 
         const mangaVolumeDiv = document.createElement("div");
         mangaVolumeDiv.className = "manga_volume";
@@ -1099,7 +1098,7 @@ async function getdata() {
         anchor.appendChild(content);
         mangaVolumeDiv.appendChild(anchor);
 
-
+        anchor.setAttribute("href", `www.manga-passion.de/volumes/${id}`);
         const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
         mangaVolumesDiv.appendChild(mangaVolumeDiv);
         if (statustext == 2) {
