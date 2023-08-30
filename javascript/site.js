@@ -1098,7 +1098,7 @@ async function getdata() {
         anchor.appendChild(content);
         mangaVolumeDiv.appendChild(anchor);
 
-        anchor.setAttribute("href", `www.manga-passion.de/volumes/${volid}`);
+        anchor.setAttribute("href", `https://www.manga-passion.de/volumes/${volid}`);
         const mangaVolumesDiv = document.querySelector(".manga_volume_size.manga_volumes");
         mangaVolumesDiv.appendChild(mangaVolumeDiv);
         if (statustext == 2) {
