@@ -1047,7 +1047,8 @@ async function getdata() {
         const priceInEuro = (priceInCent / 100).toFixed(2);
         const options = { day: 'numeric', month: 'long', year: 'numeric' };
         const formattedDate = Mangadate.toLocaleDateString('de-DE', options);
-
+        const volid =data[i].id;
+         console.log(volid);
 
         const mangaVolumeDiv = document.createElement("div");
         mangaVolumeDiv.className = "manga_volume";
