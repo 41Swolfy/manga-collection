@@ -252,7 +252,7 @@ async function getdata() {
                             break;
                         case "Chainsaw Man":
                             imageElement.src = `/websites/Covers/Chainsaw_man${Band - 1}.webp`;
-                            anchor.setAttribute("href", "/Ongoing/websites/Chainsaw_Man.html");
+                            anchor.setAttribute("href", "/websites/Chainsaw_Man.html");
                             break;
                         case "Demon Slave":
                             imageElement.src = `/websites/Covers/Demon_Slave${Band - 1}.webp`;
@@ -316,7 +316,7 @@ async function getdata() {
                             break;
                         case "Bungo Stray Dogs: BEAST":
                             imageElement.src = `/websites/Covers/Bungo_Stray_dogs_beast${Band - 1}.webp`;
-                            anchor.setAttribute("href", "Ongoing/Websites/Bungo_Stray_Dogs_BEAST.html");
+                            anchor.setAttribute("href", "/websites/Bungo_Stray_Dogs_BEAST.html");
                             switch (Band) {
                                 case 2:
                                     Band = "3 & 4";
