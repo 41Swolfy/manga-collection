@@ -228,7 +228,7 @@ async function getdata() {
                             break;
                          case "Shangri-La Frontier":
                             imageElement.src = ` /websites/Covers/shangri_la_frontier${Band - 1}.webp`;
-                            anchor.setAttribute("href", "/Dropped/Websites/Shangri_La_Frontier.html");
+                            anchor.setAttribute("href", "/websites/Shangri_La_Frontier.html");
                             break;    
                         case "Bakemonogatari":
                             imageElement.src = `/websites/Covers/bakemonogatari${Band - 1}.webp`;
