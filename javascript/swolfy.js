@@ -310,10 +310,10 @@ async function getdata() {
                             anchor.setAttribute("href", "/websites/Tokyo_revengers.html");
                             break;
                      
-                        imageElement.onerror = function () {
-            imageElement.src = '/styles/errorimg.webp';
+                        
         }
-
+                 imageElement.onerror = function () {
+                    imageElement.src = '/styles/errorimg.webp';
 
 
                     }
